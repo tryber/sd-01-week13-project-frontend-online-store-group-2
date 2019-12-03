@@ -19,8 +19,8 @@ class Categories extends Component {
       }));
   }
 
-  createRadioButton() {
-    
+  createRadioButton(name, id) {
+    <input type="radio" name="categories" value={id}>{name}</input>
   }
 
   render() {
@@ -28,7 +28,7 @@ class Categories extends Component {
     const { name, id } = categories;
 
     return (
-      <input type="radio"></input>
+      this.createRadioButton(name, id)
     );
   }
 }
