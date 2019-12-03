@@ -9,7 +9,6 @@ class Categories extends Component {
       loading: true,
       categories: [],
     };
-    this.createRadioButton = this.createRadioButton.bind(this)
   }
 
   componentDidMount() {
@@ -18,19 +17,22 @@ class Categories extends Component {
         loading: false,
         categories: data,
       }));
-  }
-
-  createRadioButton(name, id) {
-    return <label><input type="radio" name="categories" value={id} />{name}</label>
-  }
+  }  
 
   render() {
-    const { categories, loading } = this.state
-    console.log(categories)
+    if (loading) return <Loading />;
+    const { categories, loading } = this.state;
+    const createRadioButton = (name, id) => {
+      return (
+        <label htmlFor="categories">
+          {name}
+          <input type="radio" name="categories" value={id} />
+        </label>
+      );
+    }
     
-    if (loading) return <Loading />
     return (
-      categories.map(({ name, id }) => this.createRadioButton(name, id))
+      categories.map(({ name, id }) => createRadioButton(name, id))
     );
   }
 }
