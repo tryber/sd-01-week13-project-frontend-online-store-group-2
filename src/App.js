@@ -1,15 +1,13 @@
-import React, { Component } from 'react'
-import SearchBar from './Components/SearchBar'
+import React, { Component } from 'react';
+import MainScreen from './Pages/MainScreen';
 import './App.css';
-
 
 export class App extends Component {
   render() {
     return (
-      <SearchBar></SearchBar>
+      <MainScreen></MainScreen>
     )
   }
-}
+};
 
-export default App
-
+export default App;

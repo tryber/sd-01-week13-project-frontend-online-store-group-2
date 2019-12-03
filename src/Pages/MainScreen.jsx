@@ -5,10 +5,8 @@
 // - ProductList.jsx > (ProductCard.jsx)
 // - Categories.jsx
 
-import React, { Component } from 'react'
-import SearchBar from '../Components/SearchBar'
-import './App.css';
-
+import React, { Component } from 'react';
+import SearchBar from '../Components/SearchBar';
 
 export class MainScreen extends Component {
   render() {
@@ -16,8 +14,6 @@ export class MainScreen extends Component {
       <SearchBar></SearchBar>
     )
   }
-}
+};
 
-export default MainScreen
-
-
+export default MainScreen;
