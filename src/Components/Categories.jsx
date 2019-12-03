@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
-import PropTypes from 'prop-types';
 import * as ProductAPI from '../Services/ProductAPI';
+import Loading from './Loading';
 
 class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      loading: true,
       categories: [],
     };
     this.createRadioButton = this.createRadioButton.bind(this)
@@ -15,20 +15,22 @@ class Categories extends Component {
   componentDidMount() {
     ProductAPI.getCategories()
       .then((data) => this.setState({
+        loading: false,
         categories: data,
       }));
   }
 
   createRadioButton(name, id) {
-    <input type="radio" name="categories" value={id}>{name}</input>
+    return <label><input type="radio" name="categories" value={id} />{name}</label>
   }
 
   render() {
-    const { categories } = this.state
-    const { name, id } = categories;
-
+    const { categories, loading } = this.state
+    console.log(categories)
+    
+    if (loading) return <Loading />
     return (
-      this.createRadioButton(name, id)
+      categories.map(({ name, id }) => this.createRadioButton(name, id))
     );
   }
 }
