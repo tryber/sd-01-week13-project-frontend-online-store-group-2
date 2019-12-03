@@ -1,6 +1,6 @@
-//TELA PRINCIPAL ONDE SERAO EXIBIDOS OS PRODUTOS
+// TELA PRINCIPAL ONDE SERAO EXIBIDOS OS PRODUTOS
 
-//Componentes presentes:
+// Componentes presentes:
 // - SearchBar.jsx
 // - ProductList.jsx > (ProductCard.jsx)
 // - Categories.jsx

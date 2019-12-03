@@ -1,2 +1,2 @@
-//Componentes presentes:
+// Componentes presentes:
 // - Comment.jsx
