@@ -12,6 +12,15 @@ export class MainScreen extends Component {
   render() {
     return (
       <SearchBar />
+      <div>
+        <Link to="/shopcart">
+          <input
+            type="text"
+            className="icon-cart"
+            alt="Cart"
+          />
+        </Link>
+      </div>
     );
   }
 }
