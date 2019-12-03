@@ -7,11 +7,15 @@
 
 import React, { Component } from 'react';
 import SearchBar from '../Components/SearchBar';
+import Categories from '../Components/Categories';
 
 export class MainScreen extends Component {
   render() {
     return (
-      <SearchBar />
+      <div>
+        <SearchBar />
+        <Categories />
+      </div>
     );
   }
 }
