@@ -2,5 +2,5 @@
 
 // Componentes presentes:
 // - SearchBar.jsx
-// - ProductList.jsx > (ProductCard.jsx)
+// - ProductList.jsx > ProductCard.jsx
 // - Categories.jsx
