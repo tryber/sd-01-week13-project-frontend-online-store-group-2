@@ -7,12 +7,13 @@
 
 import React, { Component } from 'react';
 import SearchBar from '../Components/SearchBar';
+import Categories from '../Components/Categories';
 
 export class MainScreen extends Component {
   render() {
     return (
-      <SearchBar />
       <div>
+        <SearchBar />
         <Link to="/shopcart">
           <input
             type="text"
@@ -20,6 +21,7 @@ export class MainScreen extends Component {
             alt="Cart"
           />
         </Link>
+        <Categories />
       </div>
     );
   }
