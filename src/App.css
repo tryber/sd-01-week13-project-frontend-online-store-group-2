@@ -9,7 +9,7 @@ body {
 }
 
 .input-search {
-  background-image: url("./image/loupe.svg");
+  background-image: url('./image/loupe.svg');
   background-repeat: no-repeat;
   border-radius: 100px;
   height: 3em;

@@ -11,9 +11,9 @@ import SearchBar from '../Components/SearchBar';
 export class MainScreen extends Component {
   render() {
     return (
-      <SearchBar></SearchBar>
-    )
+      <SearchBar />
+    );
   }
-};
+}
 
 export default MainScreen;
