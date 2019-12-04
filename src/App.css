@@ -2,22 +2,6 @@ body {
   background-color: whitesmoke;
 }
 
-.input-div {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
-}
-
-.input-search {
-  background-image: url('./image/loupe.svg');
-  background-repeat: no-repeat;
-  border-radius: 100px;
-  height: 3em;
-  margin-bottom: 2em;
-  margin-top: 2em;
-  width: 60em;
-}
-
 .text-primary {
   display: flex;
   justify-content: center;
