@@ -42,6 +42,7 @@ export default class ProductList extends Component {
   render() {
     const mensage = 'Busca vazia!';
     const { data } = this.state;
+    console.log(data);
     if (data.length === 0) return mensage;
     return (
       <div className='product-list'>
