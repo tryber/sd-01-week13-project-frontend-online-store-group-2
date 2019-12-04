@@ -5,11 +5,12 @@ import './ShopCartLink.css';
 class ShopCartLink extends React.Component {
   render() {
     return (
-      <div className="content-shopcart">
+      <div className="content">
+        <span className="number-cart">3</span>
         <img
           src={cartShop}
-          className="icon-cart"
           alt="Cart"
+          className="icon-cart"
         />
       </div>
     );
