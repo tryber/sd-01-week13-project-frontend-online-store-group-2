@@ -23,11 +23,11 @@ class ShopCart extends React.Component {
         <div className="content-shopcart">
           <div className="previous">
             <Link to="/">
-                <img
-                  src={previous}
-                  alt="previous"
-                  className="previous"
-                />
+              <img
+                src={previous}
+                alt="previous"
+                className="previous"
+              />
             </Link>
           </div>
           <div className="cart-icon-title">
@@ -43,6 +43,7 @@ class ShopCart extends React.Component {
         </div>
       );
     }
+    return<div></div>
   }
 }
 

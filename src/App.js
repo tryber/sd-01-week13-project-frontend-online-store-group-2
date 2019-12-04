@@ -4,8 +4,6 @@ import MainScreen from './Pages/MainScreen';
 import ShopCart from './Pages/ShopCart';
 import './App.css';
 
-
-
 export class App extends Component {
   render() {
     return (
