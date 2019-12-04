@@ -6,7 +6,7 @@
   width: 45px;
 }
 
-.icon-cart-title{
+.icon-cart-title {
   height: 35px;
   width: 35px;
 }
@@ -14,7 +14,7 @@
 .cart-title {
   align-items: center;
   display: flex;
-  font-weight: bold;
+  font-weight: 900;
   margin-top: 10px;
   padding-left: 20px;
 }
@@ -27,7 +27,7 @@
   width: 150px;
 }
 
-.content-center{
+.content-center {
   align-items: center;
   display: flex;
   flex-direction: column;

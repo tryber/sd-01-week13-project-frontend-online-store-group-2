@@ -7,10 +7,10 @@ class ShopCartLink extends React.Component {
     return (
       <div className="content">
         <span className="number-cart">3</span>
-        <img 
-          src={cartShop} 
-          alt="Cart" 
-          className="icon-cart" 
+        <img
+          src={cartShop}
+          alt="Cart"
+          className="icon-cart"
         />
       </div>
     );
