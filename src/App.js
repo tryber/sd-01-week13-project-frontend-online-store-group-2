@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import MainScreen from './Pages/MainScreen';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import './App.css';
+import MainScreen from './Pages/MainScreen';
 import ShopCart from './Pages/ShopCart';
+import './App.css';
+
 
 
 export class App extends Component {
@@ -13,7 +14,7 @@ export class App extends Component {
           <Route exact path="/" component={MainScreen} />
           <Route path="/shopcart" component={ShopCart} />
         </Switch>
-    </BrowserRouter>
+      </BrowserRouter>
     );
   }
 }

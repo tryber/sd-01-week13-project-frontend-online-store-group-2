@@ -22,6 +22,7 @@ class ShopCart extends React.Component {
   }
 
   createEmptyBox() {
+
     return (
       <div className="content-center">
         <img
@@ -34,7 +35,7 @@ class ShopCart extends React.Component {
     );
   }
   createLinkPrevious(){
-    
+
     return (
       <div className="previous">
         <Link to="/">
@@ -50,18 +51,19 @@ class ShopCart extends React.Component {
     );
   }
   createCartIconTitle(){
+
     return (
       <div className="cart-icon-title">
-        <img 
+        <img
           src={cartShop}
           className="icon-cart"
           alt="Cart"
         />
         <p>Carrinho de Compras</p>
       </div>
-    )
+    );
   }
-  
+
   render() {
     if (this.state.itens === 0) {
       return (
