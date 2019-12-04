@@ -3,7 +3,9 @@
 // TELA PRINCIPAL ONDE SERAO EXIBIDOS OS PRODUTOS
 import React, { Component } from 'react';
 import ProductCard from '../Components/ProductCard';
+import PropTypes from 'prop-types';
 import * as ProductAPI from '../Services/ProductAPI';
+
 
 class ProductList extends Component {
   constructor(props) {
@@ -53,3 +55,8 @@ class ProductList extends Component {
   }
 }
 export default ProductList;
+
+Categories.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+};
