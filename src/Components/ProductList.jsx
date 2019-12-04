@@ -2,9 +2,8 @@
 // - ProductCard.jsx
 // TELA PRINCIPAL ONDE SERAO EXIBIDOS OS PRODUTOS
 import React, { Component } from 'react';
+import * as ProductApi from '../Services/ProductAPI';
 import ProductCard from '../Components/ProductCard';
-import PropTypes from 'prop-types';
-import * as ProductAPI from '../Services/ProductAPI';
 
 
 class ProductList extends Component {
@@ -21,42 +20,34 @@ class ProductList extends Component {
     })
   }
 
-  getData(searchText, category) {
-    if (searchText === '' && category !== '') {
-      ProductAPI.getItensByCategoryId(category)
-        .then((dados) => this.changeStates(dados));
-    } else if (searchText !== '' && category === '') {
-      ProductAPI.getItensByTerm(searchText)
-        .then((dados) => this.changeStates(dados));
-    } else {
-      ProductAPI.getItensByCategoryTerm(category, searchText)
-        .then((dados) => this.changeStates(dados));
-    }
-  }
-
   componentDidUpdate(prevProps) {
-    const { searchText, category } = this.props;
-    if (searchText !== prevProps.searchText
-      || category !== prevProps.category) {
-      this.getData(searchText, category);
+    if (this.props.searchText !== prevProps.searchText
+      || this.props.category !== prevProps.category) {
+      if (this.props.searchText !== '' && this.props.category !== '') {
+        ProductApi.getItensByCategoryTerm(this.props.category, this.props.searchText)
+          .then((dados) => this.changeStates(dados));
+      } else if (this.props.searchText === '') {
+        ProductApi.getItensByCategoryId(this.props.category)
+          .then((dados) => this.changeStates(dados));
+      } else {
+        ProductApi.getItensByTerm(this.props.searchText)
+          .then((dados) => this.changeStates(dados));
+      }
     }
   }
 
   render() {
+
     const { dados } = this.state;
+    console.log(dados)
 
     if (dados.length === 0) return <h4>Nada a ser pesquisado</h4>;
 
     return (
       <div>
-        {dados.map((product, index) => <ProductCard key={index} item={product} />)}
+        {dados.map((item, index) => <ProductCard key={index} item={item} />)}
       </div>
     );
   }
 }
 export default ProductList;
-
-Categories.propTypes = {
-  searchText: PropTypes.string.isRequired,
-  category: PropTypes.string.isRequired,
-};
