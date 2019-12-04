@@ -43,7 +43,7 @@ class ShopCart extends React.Component {
         </div>
       );
     }
-    return(
+    return (
       true
     );
   }
