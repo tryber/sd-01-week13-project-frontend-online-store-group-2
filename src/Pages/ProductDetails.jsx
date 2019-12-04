@@ -21,7 +21,7 @@ export class ProductDetails extends Component {
           {this.props.thumbnail}
         </div>
         <div>
-          <Specifications product={this.props}/>
+          <Specifications product={this.props.value.results}/>
         </div>
         <Link to="/shopcart"/>
       </div>
