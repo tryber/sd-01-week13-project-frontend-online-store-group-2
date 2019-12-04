@@ -15,14 +15,9 @@ class ShopCart extends React.Component {
     this.state = {
       itens: 0,
     };
-
-    this.createEmptyBox = this.createEmptyBox.bind(this);
-    this.createLinkPrevious = this.createLinkPrevious.bind(this);
-    this.createCartIconTitle = this.createCartIconTitle.bind(this);
   }
 
-  createEmptyBox() {
-
+  createEmptyBox = () => {
     return (
       <div className="content-center">
         <img
@@ -34,8 +29,8 @@ class ShopCart extends React.Component {
       </div>
     );
   }
-  createLinkPrevious(){
 
+  createLinkPrevious = () => {
     return (
       <div className="previous">
         <Link to="/">
@@ -50,8 +45,8 @@ class ShopCart extends React.Component {
       </div>
     );
   }
-  createCartIconTitle(){
-
+  
+  createCartIconTitle = () => {
     return (
       <div className="cart-icon-title">
         <img
