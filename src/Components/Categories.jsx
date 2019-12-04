@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as ProductAPI from '../Services/ProductAPI';
 
 class Categories extends Component {
@@ -43,5 +44,5 @@ export default Categories;
 
 Categories.propTypes = {
   changeSelectedCategory: PropTypes.func.isRequired,
-  category: PropTypes.
+  category: PropTypes.string.isRequired,
 };

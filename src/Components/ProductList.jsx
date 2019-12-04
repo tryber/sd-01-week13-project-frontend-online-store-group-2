@@ -41,9 +41,7 @@ class ProductList extends Component {
   }
 
   render() {
-
     const { dados } = this.state;
-    console.log(dados)
 
     if (dados.length === 0) return <h4>Nada a ser pesquisado</h4>;
 
