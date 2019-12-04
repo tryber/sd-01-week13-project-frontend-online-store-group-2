@@ -17,16 +17,25 @@ class Categories extends Component {
   }
 
   render() {
+    const { changeSelectedCategory } = this.props
     const { categories } = this.state;
-    const createRadioButton = (name, id) => (
+    const createRadioButton = (name, id, index) => (
       <label htmlFor={id}>
-        <input type="radio" id={id} name="categories" value={id} />
+        <input 
+          key={index}
+          type="radio"
+          id={id}
+          name="categories"
+          value={id} 
+          checked={this.props.category === id}
+          onChange={(e) => changeSelectedCategory(e.target.id)}
+        />
         {name}
       </label>
     );
-
+    console.log(this.state)
     return (
-      categories.map(({ name, id }) => createRadioButton(name, id))
+      categories.map(({ name, id },index) => createRadioButton(name, id, index))
     );
   }
 }

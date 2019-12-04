@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as LocalStorageAPI from '../Services/LocalStorageAPI';
+
 
 class ProductCard extends Component {
   render() {
@@ -15,7 +15,6 @@ class ProductCard extends Component {
           <p className="value">{`R$ ${price}`}</p>
           <button
             type="button"
-            onClick={LocalStorageAPI.addItemCart()}
           >
             Adicionar Item
           </button>
