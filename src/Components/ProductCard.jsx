@@ -13,7 +13,12 @@ class ProductCard extends Component {
         <div className="info-product">
           <img className="img-product" alt="imagem do produto" src={thumbnail} />
           <p className="value">{`R$ ${price}`}</p>
-          <button type="button" onClick={LocalStorageAPI.addCart()}>Adicionar Item</button>
+          <button 
+            type="button" 
+            onClick={LocalStorageAPI.addItemCart()}
+          >
+            Adicionar Item
+          </button>
         </div>
       </div>
     );
