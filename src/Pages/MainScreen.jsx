@@ -10,9 +10,6 @@ import { Link } from 'react-router-dom';
 import SearchBar from '../Components/SearchBar';
 import Categories from '../Components/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
-import './MainScreen.css';
-
-
 
 export class MainScreen extends Component {
   render() {

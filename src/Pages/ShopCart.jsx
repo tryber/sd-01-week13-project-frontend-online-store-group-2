@@ -1,10 +1,10 @@
 // Componentes presentes:
 // - CartProductsList.jsx
 
-import React from "react";
-import { Link } from "react-router-dom";
-import emptyBox from "../image/empty-box.png";
-import previous from "../image/003-previous.svg";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import emptyBox from '../image/empty-box.png';
+import previous from '../image/003-previous.svg';
 import cartShop from '../image/001-shopping-cart.svg';
 import './ShopCart.css';
 
@@ -13,36 +13,41 @@ class ShopCart extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      itens: 0
+      itens: 0,
     };
+
+    this.createEmptyBox = this.createEmptyBox.bind(this);
+    this.createLinkPrevious = this.createLinkPrevious.bind(this);
+    this.createCartIconTitle = this.createCartIconTitle.bind(this);
   }
 
   createEmptyBox() {
     return (
       <div className="content-center">
-        <img 
-          src={emptyBox} 
-          alt='empty Box' 
-          className="empty-box" 
+        <img
+          src={emptyBox}
+          alt="empty Box"
+          className="empty-box"
         />
         <p>Seu Carrinho Está Vazio</p>
       </div>
     );
   }
   createLinkPrevious(){
+    
     return (
       <div className="previous">
         <Link to="/">
           <div className="content-center">
-            <img 
-              src={previous} 
-              alt='previous' 
-              className="previous" 
+            <img
+              src={previous}
+              alt="previous"
+              className="previous"
             />
           </div>
         </Link>
       </div>
-    )
+    );
   }
   createCartIconTitle(){
     return (
