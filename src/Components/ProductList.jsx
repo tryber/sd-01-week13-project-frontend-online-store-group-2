@@ -16,7 +16,7 @@ export default class ProductList extends Component {
 
   changeStateValue(value) {
     this.setState({
-      data: value.result,
+      data: value.results,
     });
   }
 

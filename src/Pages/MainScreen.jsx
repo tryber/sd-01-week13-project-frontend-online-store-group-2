@@ -18,6 +18,7 @@ export default class MainScreen extends Component {
       category: ''
     };
     this.changeHandlerSearch = this.changeHandlerSearch.bind(this);
+    this.changeHandlerCategory = this.changeHandlerCategory.bind(this);
   }
 
   changeHandlerSearch(event) {
@@ -26,9 +27,9 @@ export default class MainScreen extends Component {
     });
   }
 
-  changeHandlerCategory(event) {
+  changeHandlerCategory(value) {
     this.setState({
-      category: event.target.value
+      category: value
     });
   }
 
@@ -37,8 +38,8 @@ export default class MainScreen extends Component {
     return (
       <div>
         <SearchBar seachText={seachText}
-        changeSearchText={this.changeHandlerSearch} />
-        <Categories changeCategories={this.changeHandlerCategory} />
+        changeSearchText={(e) => this.changeHandlerSearch} />
+        <Categories category={category} changeCategories={this.changeHandlerCategory} />
         <ProductList seachText={seachText} category={category} />
       </div>
     );

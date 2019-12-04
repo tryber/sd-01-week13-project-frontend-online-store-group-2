@@ -21,7 +21,7 @@ export default class Categories extends Component {
     const { changeCategories } = this.props;
     const createRadioButton = (name, id) => (
       <label htmlFor={id}>
-        <input type="radio" id={id} name="categories" onClick={(e)=>changeCategories(e)} value={id} />
+        <input type="radio" id={id} name="categories" onClick={(e)=>changeCategories(e.target.id)} value={id} />
         {name}
       </label>
     );
