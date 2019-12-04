@@ -30,16 +30,18 @@ class ShopCart extends React.Component {
               />
             </Link>
           </div>
-          <div className="cart-icon-title">
+          <div className="cart-title">
             <img
               src={cartShop}
-              className="icon-cart"
+              className="icon-cart-title"
               alt="Cart"
             />
             <p>Carrinho de Compras</p>
           </div>
           <br />
-          <ContentShopCart />
+          <div className="content-center">
+            <ContentShopCart />
+          </div>
         </div>
       );
     }

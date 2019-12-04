@@ -1,5 +1,7 @@
 import React from 'react';
 import emptyBox from '../image/empty-box.png';
+import './ContentShopCart.css';
+
 
 
 class ContentShopCart extends React.Component {
