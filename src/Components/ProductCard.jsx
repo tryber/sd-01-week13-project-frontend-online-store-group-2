@@ -12,7 +12,7 @@ class ProductCard extends Component {
         <div className="info-product">
           <img className="img-product" src={thumbnail} />
           <p className="value">{`R$ ${price}`}</p>
-          <button type="button" onClick={LocalStorageAPI.addCart(/*values*/)}></button>
+          <button type="button" onClick={LocalStorageAPI.addCart(/*values*/)}>Adicionar Item</button>
         </div>
       </div>
     );
@@ -20,9 +20,8 @@ class ProductCard extends Component {
 }
 
 export default ProductCard;
-// FALTA SABER ONDE SERÁ ADICIONADO O LINK PARA VER MAIS
-// OS DETALHES DO PRODUTO E FUNÇÃO PARA ADICIONAR NOVO ITEM NO CARRINHO
-// FUNC SERÁ FEITA NO LOCALSTORAGEAPI. BASTARÁ APENAS PASSA-LA PARA O ONCLICK 
-// NO BOTAO
-
+//FALTA SABER ONDE SERÁ ADICIONADO O LINK PARA VER MAIS
+//OS DETALHES DO PRODUTO E FUNÇÃO PARA ADICIONAR NOVO ITEM NO CARRINHO
+//FUNC SERÁ FEITA NO LOCALSTORAGEAPI. BASTARÁ APENAS PASSA-LA PARA O ONCLICK 
+//NO BOTAO
 //thumbnail é o caminho da imagem, nome que está na api é esse
