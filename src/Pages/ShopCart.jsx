@@ -44,7 +44,7 @@ class ShopCart extends React.Component {
       );
     }
     return(
-      <div></div>;
+      true
     );
   }
 }
