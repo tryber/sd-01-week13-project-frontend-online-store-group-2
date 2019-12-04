@@ -1,23 +1,28 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
-class SearchBar extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {};
-  }
-
+export default class SearchBar extends Component {
   render() {
+    const { changeSearchText, searchText } = this.props;
     return (
       <div>
         <div className="input-div">
           <form>
-            <input className="input-search" type="text" value="" />
+            <input
+              className="input-search"
+              type="text"
+              value={searchText}
+              onChange={(e) => changeSearchText(e)}
+            />
           </form>
         </div>
-        {/* <h3 className='text-primary'>{this.state.value}</h3> */}
       </div>
     );
   }
 }
 
-export default SearchBar;
+
+SearchBar.propTypes = {
+  changeSearchText: PropTypes.func.isRequired,
+  searchText: PropTypes.string.isRequired,
+};

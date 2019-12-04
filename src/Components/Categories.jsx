@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import * as ProductAPI from '../Services/ProductAPI';
 
-class Categories extends Component {
+export default class Categories extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -18,9 +18,10 @@ class Categories extends Component {
 
   render() {
     const { categories } = this.state;
+    const { changeCategories } = this.props;
     const createRadioButton = (name, id) => (
       <label htmlFor={id}>
-        <input type="radio" id={id} name="categories" value={id} />
+        <input type="radio" id={id} name="categories" onClick={(e)=>changeCategories(e)} value={id} />
         {name}
       </label>
     );
@@ -30,5 +31,3 @@ class Categories extends Component {
     );
   }
 }
-
-export default Categories;
