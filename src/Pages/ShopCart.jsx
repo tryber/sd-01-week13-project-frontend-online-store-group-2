@@ -7,6 +7,10 @@ import emptyBox from '../image/empty-box.png';
 
 
 class ShopCart extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {};
+  }
   render() {
     return (
         <div className="content-shopcart">
@@ -14,7 +18,7 @@ class ShopCart extends React.Component {
                 <Link to="/">voltar</Link>
             </div>
             <div className="content-center">
-                <img src={emptyBox} />
+                <img src={emptyBox} alt="empty Box"/>
             </div>
         </div>
     );

@@ -6,8 +6,11 @@
 // - Categories.jsx
 
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import SearchBar from '../Components/SearchBar';
 import Categories from '../Components/Categories';
+import cartShop from '../image/001-shopping-cart.svg';
+
 
 export class MainScreen extends Component {
   render() {
@@ -15,8 +18,8 @@ export class MainScreen extends Component {
       <div>
         <SearchBar />
         <Link to="/shopcart">
-          <input
-            type="text"
+          <img 
+            src={cartShop}
             className="icon-cart"
             alt="Cart"
           />
