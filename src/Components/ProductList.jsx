@@ -4,7 +4,6 @@
 import React, { Component } from 'react';
 import ProductCard from '../Components/ProductCard';
 import * as ProductAPI from '../Services/ProductAPI';
-import { getDefaultWatermarks } from 'istanbul-lib-report';
 
 class ProductList extends Component {
   constructor(props) {
