@@ -9,20 +9,18 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import SearchBar from '../Components/SearchBar';
 import Categories from '../Components/Categories';
-import cartShop from '../image/001-shopping-cart.svg';
+import ShopCartLink from '../Components/ShopCartLink';
+import './MainScreen.css';
+
 
 
 export class MainScreen extends Component {
   render() {
     return (
-      <div>
+      <div className="mainscreen">
         <SearchBar />
         <Link to="/shopcart">
-          <img 
-            src={cartShop}
-            className="icon-cart"
-            alt="Cart"
-          />
+          <ShopCartLink />
         </Link>
         <Categories />
       </div>

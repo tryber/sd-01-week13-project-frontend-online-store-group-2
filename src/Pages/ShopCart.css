@@ -1,0 +1,15 @@
+.empty-box{
+    width: 150px;
+}
+.previous{
+    border: none;
+    cursor: pointer;
+    height: 45px;
+    width: 45px;
+}
+.cart-icon-title{
+    display: flex;
+}
+.title-cart{
+    width: 150px;
+}

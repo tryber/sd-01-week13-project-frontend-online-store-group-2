@@ -34,3 +34,8 @@ ProductCard.propTypes = {
     thumbnail: PropTypes.string,
   }).isRequired,
 };
+
+
+// Tênis Feminino Casual Sapatênis Original Chiquiteira 60106
+// 44.99
+// http://mlb-s2-p.mlstatic.com/870455-MLB31209566380_062019-I.jpg 
