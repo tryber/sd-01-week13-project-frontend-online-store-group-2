@@ -3,15 +3,15 @@ import * as LocalStorageAPI from '../Services/LocalStorageAPI';
 
 class ProductCard extends Component {
   render() {
-    const { price, title, thumbnail } = this.props
+    const { price, title, thumbnail } = this.props;
     return (
-      <div className = "card-product">
-        <div className = "title">
+      <div className="card-product">
+        <div className="title">
           <h3>{title}</h3>
         </div>
-        <div className = "info-product">
-          <img className = "img-product" src = {thumbnail} />
-          <p className = "value">{`R$ ${price}`}</p>
+        <div className="info-product">
+          <img className="img-product" src={thumbnail} />
+          <p className="value">{`R$ ${price}`}</p>
           <button type="button" onClick={LocalStorageAPI.addCart(/*values*/)}></button>
         </div>
       </div>
