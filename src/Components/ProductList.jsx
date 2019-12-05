@@ -18,7 +18,7 @@ class ProductList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props === prevProps) return;
+    if (this.props === prevProps && this.props.goRender) return;
     ProductApi.getData(this.setUrl()).then((data) => this.changeStates(data));
   }
 
@@ -45,7 +45,9 @@ class ProductList extends Component {
 
   render() {
     const { dados } = this.state;
-    if (dados.length === 0) return <h4>Nada a ser pesquisado</h4>;
+    const { goSearch } = this.props;
+    if (!goSearch) return <h4>Ainda não pesquisou!</h4>
+    if (dados.length === 0) return <h4>Nada encontrado</h4>;
     return (
       <div>
         {dados.map((item) => <ProductCard key={item.id} item={item} />)}
@@ -58,4 +60,5 @@ export default ProductList;
 ProductList.propTypes = {
   searchText: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
+  goSearch: PropTypes.bool.isRequired,
 };

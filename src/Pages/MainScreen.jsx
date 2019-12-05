@@ -17,14 +17,16 @@ export class MainScreen extends Component {
     this.state = {
       searchText: '',
       category: '',
+      enterClick: false,
     };
-
+    this.changeHandlerSearch = this.changeHandlerSearch.bind(this)
     this.changeSelectedOption = this.changeSelectedOption.bind(this);
   }
 
   changeHandlerSearch(event) {
     this.setState({
       searchText: event.target.value,
+      enterClick: true,
     });
   }
 
@@ -35,16 +37,16 @@ export class MainScreen extends Component {
   }
 
   render() {
-    const { searchText, category } = this.state;
+    const { searchText, category, enterClick } = this.state;
+    console.log(this.state)
     return (
       <div>
         <SearchBar
-          searchText={searchText}
-          onSearchTextChange={(e) => this.changeHandlerSearch(e)}
+          onSearchTextChange={this.changeHandlerSearch}
         />
         <ShopCartLink />
         <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
-        <ProductList searchText={searchText} category={category} />
+        <ProductList goSearch={enterClick} searchText={searchText} category={category} />
       </div>
     );
   }

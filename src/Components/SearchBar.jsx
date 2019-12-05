@@ -4,9 +4,13 @@ import './SearchBar.css';
 
 
 class SearchBar extends React.Component {
-  createInput() {
-    const { searchText, onSearchTextChange } = this.props;
+  KeyPress(event){
+    if (event.key === 'Enter') {
+      this.props.onSearchTextChange(event);
+    }
+  }
 
+  createInput() {
     return (
       <label htmlFor="title" className="title">
             Search:
@@ -14,8 +18,7 @@ class SearchBar extends React.Component {
           id="title"
           type="text"
           placeholder="O que está procurando ?"
-          value={searchText}
-          onChange={onSearchTextChange}
+          onKeyPress={(e) => this.KeyPress(e)}
         />
       </label>
     );
@@ -33,6 +36,5 @@ class SearchBar extends React.Component {
 export default SearchBar;
 
 SearchBar.propTypes = {
-  searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
 };
