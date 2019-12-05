@@ -3,9 +3,8 @@
 // TELA PRINCIPAL ONDE SERAO EXIBIDOS OS PRODUTOS
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as ProductApi from '../Services/ProductAPI';
-import ProductCard from '../Components/ProductCard';
-
+import * as ProductApi from '../../Services/ProductAPI';
+import ProductCard from './ProductCard';
 
 class ProductList extends Component {
   constructor(props) {

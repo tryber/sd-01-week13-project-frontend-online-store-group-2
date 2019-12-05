@@ -5,10 +5,10 @@
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Specifications from '../Components/Specifications';
+import Specifications from '../Components/ProductDetails/Specifications';
 import ShopCartLink from '../Components/ShopCartLink';
 import PreviousLink from '../Components/PreviousLink';
-import './Product.css';
+import '../Style/Product.css';
 
 export class Product extends Component {
   constructor(props) {

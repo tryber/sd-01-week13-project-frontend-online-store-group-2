@@ -2,9 +2,9 @@
 // - CartProductList.jsx
 
 import React from 'react';
-import './ShopCart.css';
-import EmptyCart from '../Components/EmptyCart';
-import ShopCartHeader from '../Components/ShopCartHeader';
+import '../Style/ShopCart.css';
+import EmptyCart from '../Components/ShopCart/EmptyCart';
+import ShopCartHeader from '../Components/ShopCart/ShopCartHeader';
 
 
 class ShopCart extends React.Component {
