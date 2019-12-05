@@ -14,18 +14,6 @@ class ProductList extends Component {
     }
   }
 
-  changeStates(value) {
-    this.setState({
-      dados: value.results,
-    })
-  }
-
-  changeDados(searchText,category){  if (searchText === '' && category !== '') {
-    ProductApi.getItensByCategoryId(category)
-      .then((dados) => this.changeStates(dados));
-    return;
-  }};
-
   componentDidUpdate(prevProps) {
     const { searchText, category } = this.props;
 
@@ -34,16 +22,32 @@ class ProductList extends Component {
       return;
     }
 
-    this.changeDados(searchText, category);
+    if (searchText === '' && category !== '') {
+      ProductApi.getItensByCategoryId(category)
+        .then((dados) => this.setState({
+          dados: dados.results,
+        }));
+      return;
+    }
 
     if (searchText !== '' && category === '') {
       ProductApi.getItensByTerm(searchText)
-        .then((dados) => this.changeStates(dados));
+        .then((dados) => this.setState({
+          dados: dados.results,
+        }));
       return;
     }
 
     ProductApi.getItensByCategoryTerm(category, searchText)
-      .then((dados) => this.changeStates(dados));
+      .then((dados) => this.setState({
+        dados: dados.results,
+      }));
+  }
+
+  changeStates(value) {
+    this.setState({
+      dados: value.results,
+    })
   }
 
   render() {
