@@ -21,26 +21,24 @@ class ProductList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    const { searchText, category } = this.props;
-
-    if (searchText === prevProps.searchText
-      && category === prevProps.category) {
+    if (this.props.searchText === prevProps.searchText
+      && this.props.category === prevProps.category) {
       return;
     }
 
-    if (searchText === '' && category !== '') {
-      LocalStorageAPI.getItensByCategoryId(category)
+    if (this.props.searchText === '' && this.props.category !== '') {
+      ProductApi.getItensByCategoryId(this.props.category)
         .then((dados) => this.changeStates(dados));
       return;
     }
 
-    if (searchText !== '' && category === '') {
-      LocalStorageAPI.getItensByTerm(searchText)
+    if (this.props.searchText !== '' && this.props.category === '') {
+      ProductApi.getItensByTerm(this.props.searchText)
         .then((dados) => this.changeStates(dados));
       return;
     }
 
-    LocalStorageAPI.getItensByCategoryTerm(category, searchText)
+    ProductApi.getItensByCategoryTerm(this.props.category, this.props.searchText)
       .then((dados) => this.changeStates(dados));
   }
 
