@@ -5,25 +5,24 @@
 
 import React, { Component } from 'react';
 import Specifications from '../Components/Specifications';
+import ShopCartLink from '../Components/ShopCartLink';
+import PreviousLink from '../Components/PreviousLink';
 
 export class ProductDetails extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      
-    }
-  }
 
   render() {
     return (
       <div>
+        <header>
+          <PreviousLink />
+          <ShopCartLink />
+        </header>
         <div>
-          {this.props.thumbnail}
+          {this.props.product.thumbnail}
         </div>
         <div>
-          <Specifications product={this.props.value.results}/>
+          <Specifications product={this.props.product.results.attributes}/>
         </div>
-        <Link to="/shopcart"/>
       </div>
     );
   }
