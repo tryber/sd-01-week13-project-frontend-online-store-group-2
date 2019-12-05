@@ -5,18 +5,19 @@ import { Link } from 'react-router-dom';
 
 class ProductCard extends Component {
 
-  setKeyDetails(value) {
-    const details = JSON.stringify(value);
-    localStorage.setItem('produto',details)
-  }
-
   render() {
     const { price, title, thumbnail, id } = this.props.item;
+
+    const saveAttributes = (value) => {
+      const details = JSON.stringify(value);
+      localStorage.setItem('produto', details);
+    }
+
     return (
       <div className="card-product">
         <div className="title">
           <h3>{title}</h3>
-          <Link to={`products/${id}`} onClick={() => this.setKeyDetails(this.props.item)}>DETALHES</Link>
+          <Link to={`products/${id}`} onClick={() => saveAttributes(this.props.item)}>DETALHES</Link>
         </div>
         <div className="info-product">
           <img className="img-product" alt="imagem do produto" src={thumbnail} />
@@ -36,6 +37,7 @@ export default ProductCard;
 
 ProductCard.propTypes = {
   item: PropTypes.shape({
+    id: PropTypes.string,
     price: PropTypes.number,
     title: PropTypes.string,
     thumbnail: PropTypes.string,

@@ -1,16 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 export class Specifications extends Component {
 
   render() {
     const { attributes } = this.props;
 
-    const getSpecifications = (attribute) => {
-      return (
-        <li>{`${attribute.name}: ${attribute.value_name}`}</li>
-      );
-    }
-    
+    const getSpecifications = (attribute) => (
+      <li>{`${attribute.name}: ${attribute.value_name}`}</li>
+    );
+
     if (attributes === undefined) return true;
     return (
       <div>
@@ -24,3 +23,7 @@ export class Specifications extends Component {
 }
 
 export default Specifications;
+
+Product.propTypes = {
+  attributes: PropTypes.array.isRequired,
+};

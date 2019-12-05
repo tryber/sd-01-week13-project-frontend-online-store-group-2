@@ -8,14 +8,14 @@ import PropTypes from 'prop-types';
 import Specifications from '../Components/Specifications';
 import ShopCartLink from '../Components/ShopCartLink';
 import PreviousLink from '../Components/PreviousLink';
-import './Product.css'
+import './Product.css';
 
 export class Product extends Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       productDetails: [],
-    }
+    };
   }
 
   componentDidMount() {
@@ -23,7 +23,7 @@ export class Product extends Component {
     const details = JSON.parse(jsonDetails);
     this.setState({
       productDetails: details,
-    })
+    });
   }
 
   render() {
@@ -37,7 +37,7 @@ export class Product extends Component {
         <div className="product-title">
           {`${productDetails.title} - R$${productDetails.price}`}
         </div>
-        <section className="product-details"> 
+        <section className="product-details">
           <img src={productDetails.thumbnail} className="product-img" alt="product" />
           <div className="product-specifications">
             <Specifications attributes={productDetails.attributes} />
@@ -51,7 +51,7 @@ export class Product extends Component {
 export default Product;
 
 Product.propTypes = {
-  results: PropTypes.shape([{
+  productDetails: PropTypes.shape([{
     thumbnail: PropTypes.string,
     attributes: PropTypes.array,
   }]).isRequired,
