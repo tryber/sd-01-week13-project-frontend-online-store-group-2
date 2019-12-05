@@ -1,0 +1,33 @@
+.product {
+  padding: 0 50px;
+}
+
+.product-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 10px;
+  margin-bottom: 40px;
+}
+
+.product-details {
+  display: flex;
+  justify-content: space-around;
+}
+
+.product-title {
+  font-size: 20px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  margin-left: 20px;
+}
+
+.product-img {
+  width: 200px;
+  border: 2px solid black;
+}
+
+.product-specifications {
+  border: 2px solid black;
+  padding: 3px;
+}

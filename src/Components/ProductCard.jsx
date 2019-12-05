@@ -1,14 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 
 class ProductCard extends Component {
+
+  setKeyDetails(value) {
+    const details = JSON.stringify(value);
+    localStorage.setItem('produto',details)
+  }
+
   render() {
-    const { price, title, thumbnail } = this.props.item;
+    const { price, title, thumbnail, id } = this.props.item;
     return (
       <div className="card-product">
         <div className="title">
           <h3>{title}</h3>
+          <Link to={`products/${id}`} onClick={() => this.setKeyDetails(this.props.item)}>DETALHES</Link>
         </div>
         <div className="info-product">
           <img className="img-product" alt="imagem do produto" src={thumbnail} />

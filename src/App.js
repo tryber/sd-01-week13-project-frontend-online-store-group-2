@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
-import ProductDetails from './Pages/ProductDetails';
 import MainScreen from './Pages/MainScreen';
 import ShopCart from './Pages/ShopCart';
+import Product from './Pages/Product';
 import './App.css';
 
 export class App extends Component {
@@ -12,7 +12,7 @@ export class App extends Component {
         <Switch>
           <Route exact path="/" component={MainScreen} />
           <Route path="/shopcart" component={ShopCart} />
-          <Route exact path="/products/:id_of_product" component={ProductDetails} />
+          <Route exact path="/products/:id_of_product" render={(props) => <Product {...props} product={props.item} />} />
         </Switch>
       </BrowserRouter>
     );
