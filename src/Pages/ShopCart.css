@@ -1,0 +1,36 @@
+.previous {
+  border: none;
+  cursor: pointer;
+  height: 45px;
+  padding: 10px;
+  width: 45px;
+}
+
+.icon-cart-title {
+  height: 35px;
+  width: 35px;
+}
+
+.cart-title {
+  align-items: center;
+  display: flex;
+  font-weight: 900;
+  margin-top: 10px;
+  padding-left: 20px;
+}
+
+.cart-title > p {
+  padding-left: 10px;
+}
+
+.title-cart {
+  width: 150px;
+}
+
+.content-center {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 150px;
+}

@@ -9,6 +9,7 @@ import React, { Component } from 'react';
 import SearchBar from '../Components/SearchBar';
 import ProductList from '../Components/ProductList';
 import Categories from '../Components/Categories';
+import ShopCartLink from '../Components/ShopCartLink';
 
 export class MainScreen extends Component {
   constructor(props) {
@@ -41,6 +42,7 @@ export class MainScreen extends Component {
           searchText={searchText}
           onSearchTextChange={(e) => this.changeHandlerSearch(e)}
         />
+        <ShopCartLink />
         <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
         <ProductList searchText={searchText} category={category} />
       </div>
