@@ -2,6 +2,7 @@
 // - ProductCard.jsx
 // TELA PRINCIPAL ONDE SERAO EXIBIDOS OS PRODUTOS
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as ProductApi from '../Services/ProductAPI';
 import ProductCard from '../Components/ProductCard';
 
@@ -12,18 +13,20 @@ class ProductList extends Component {
     this.state = {
       dados: [],
     }
+
+    this.setUrl = this.setUrl.bind(this);
   }
 
   componentDidUpdate(prevProps) {
-    const { searchText, category } = this.props;
 
     if (this.props === prevProps) return;
 
-    ProductApi.getData(this.setUrl(searchText, category)).then((data) => this.changeStates(data));
+    ProductApi.getData(this.setUrl()).then((data) => this.changeStates(data));
   }
 
-  setUrl(searchText,category) {
-    let url='';
+  setUrl() {
+    const { searchText, category } = this.props;
+    let url = '';
     if (searchText === '' && category !== '') {
       url = `https://api.mercadolibre.com/sites/MLB/search?category=${category}`;
     }
@@ -33,26 +36,28 @@ class ProductList extends Component {
       url = `https://api.mercadolibre.com/sites/MLB/search?category=${category}&q=${searchText}`;
     }
     return url;
-  };
+  }
 
 
   changeStates(value) {
     this.setState({
       dados: value.results,
-    })
+    });
   }
 
   render() {
-
     const { dados } = this.state;
-
     if (dados.length === 0) return <h4>Nada a ser pesquisado</h4>;
-
     return (
       <div>
-        {dados.map((item, index) => <ProductCard key={index} item={item} />)}
+        {dados.map((item) => <ProductCard key={item.id} item={item} />)}
       </div>
     );
   }
 }
 export default ProductList;
+
+ProductList.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  category: PropTypes.string.isRequired,
+}

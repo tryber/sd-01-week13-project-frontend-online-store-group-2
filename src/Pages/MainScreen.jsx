@@ -14,35 +14,35 @@ export class MainScreen extends Component {
   constructor(props) {
     super(props);
     this.state = {
-        searchText:'',
-        category:'',
-      };
+      searchText: '',
+      category: '',
+    };
 
-      this.changeSelectedOption= this.changeSelectedOption.bind(this);
+    this.changeSelectedOption = this.changeSelectedOption.bind(this);
   }
 
   changeHandlerSearch(event) {
-    this.setState({ 
-       searchText: event.target.value,
+    this.setState({
+      searchText: event.target.value,
     });
   }
 
   changeSelectedOption(value) {
-    this.setState({ 
+    this.setState({
       category: value,
     });
   }
-  
+
   render() {
     const { searchText, category } = this.state;
     return (
       <div>
-        <SearchBar 
-        searchText={searchText}
-        onSearchTextChange={(e) => this.changeHandlerSearch(e)}
+        <SearchBar
+          searchText={searchText}
+          onSearchTextChange={(e) => this.changeHandlerSearch(e)}
         />
-        <Categories category={category} changeSelectedCategory={this.changeSelectedOption}/>
-        <ProductList searchText={searchText} category={category}/>
+        <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
+        <ProductList searchText={searchText} category={category} />
       </div>
     );
   }

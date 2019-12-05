@@ -18,7 +18,7 @@ class Categories extends Component {
   }
 
   render() {
-    const { changeSelectedCategory, category } = this.props
+    const { changeSelectedCategory, category } = this.props;
     const { categories } = this.state;
     const createRadioButton = (name, id, index) => (
       <label htmlFor={id}>

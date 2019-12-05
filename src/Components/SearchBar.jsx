@@ -1,5 +1,5 @@
 import React from 'react';
-
+import PropTypes from 'prop-types';
 
 class SearchBar extends React.Component {
   createInput() {
@@ -20,7 +20,6 @@ class SearchBar extends React.Component {
   }
 
   render() {
-    console.log(this.props.searchText)
     return (
       <div className="search-bar">
         {this.createInput()}
@@ -30,3 +29,8 @@ class SearchBar extends React.Component {
 }
 
 export default SearchBar;
+
+SearchBar.propTypes = {
+  searchText: PropTypes.string.isRequired,
+  onSearchTextChange: PropTypes.func.isRequired,
+}
