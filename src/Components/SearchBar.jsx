@@ -4,7 +4,7 @@ import './SearchBar.css';
 
 
 class SearchBar extends React.Component {
-  KeyPress(event){
+  KeyPress(event) {
     if (event.key === 'Enter') {
       this.props.onSearchTextChange(event);
     }

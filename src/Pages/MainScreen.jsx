@@ -19,7 +19,7 @@ export class MainScreen extends Component {
       category: '',
       enterClick: false,
     };
-    this.changeHandlerSearch = this.changeHandlerSearch.bind(this)
+    this.changeHandlerSearch = this.changeHandlerSearch.bind(this);
     this.changeSelectedOption = this.changeSelectedOption.bind(this);
   }
 
@@ -38,7 +38,6 @@ export class MainScreen extends Component {
 
   render() {
     const { searchText, category, enterClick } = this.state;
-    console.log(this.state)
     return (
       <div>
         <SearchBar
