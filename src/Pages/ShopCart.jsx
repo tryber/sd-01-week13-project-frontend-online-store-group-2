@@ -16,7 +16,7 @@ class ShopCart extends React.Component {
   }
 
   render() {
-    if (this.state.itens === 0) return <EmptyCart />
+    if (this.state.itens === 0) return <EmptyCart />;
 
     return (
       <div className="content-shopcart">

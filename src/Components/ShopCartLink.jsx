@@ -1,6 +1,6 @@
 import React from 'react';
-import cartShop from '../image/001-shopping-cart.svg';
 import { Link } from 'react-router-dom';
+import cartShop from '../image/001-shopping-cart.svg';
 import './ShopCartLink.css';
 
 class ShopCartLink extends React.Component {

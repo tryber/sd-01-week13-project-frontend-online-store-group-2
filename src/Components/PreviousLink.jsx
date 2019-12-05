@@ -4,7 +4,7 @@ import previous from '../image/003-previous.svg';
 import '../Pages/ShopCart.css';
 
 export class PreviousLink extends Component {
-    
+
   render() {
     return (
       <div className="previous">

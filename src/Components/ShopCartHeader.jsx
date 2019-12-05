@@ -1,7 +1,7 @@
 import React from 'react';
 import cartShop from '../image/001-shopping-cart.svg';
 import PreviousLink from './PreviousLink';
-import '../Pages/ShopCart.css'
+import '../Pages/ShopCart.css';
 
 class ShopCartHeader extends React.Component {
 
