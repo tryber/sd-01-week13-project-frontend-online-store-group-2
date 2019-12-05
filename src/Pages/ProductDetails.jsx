@@ -32,8 +32,7 @@ export class ProductDetails extends Component {
 
 export default ProductDetails;
 
-ProductDetails.PropTypes = {
-  results: PropTypes.array,
+ProductDetails.propTypes = {
   results: PropTypes.shape([{
     thumbnail: PropTypes.string,
     attributes: PropTypes.array,
