@@ -7,10 +7,11 @@ constructor(props) {
   this.state = {
     rating: 0,
   };
+  this.changeRating = this.changeRating.bind(this)
 };
 
 
-  changeRating = ( newRating ) => {
+  changeRating( newRating ) {
     console.log(newRating);
     this.setState({
       rating: newRating
