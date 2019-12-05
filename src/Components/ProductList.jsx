@@ -16,12 +16,9 @@ class ProductList extends Component {
 
   componentDidUpdate(prevProps) {
     const { searchText, category } = this.props;
-
-    if (searchText === prevProps.searchText
-      && category === prevProps.category) {
+    if (this.props === prevProps) {
       return;
     }
-
     if (searchText === '' && category !== '') {
       ProductApi.getItensByCategoryId(category)
         .then((dados) => this.setState({
@@ -29,7 +26,6 @@ class ProductList extends Component {
         }));
       return;
     }
-
     if (searchText !== '' && category === '') {
       ProductApi.getItensByTerm(searchText)
         .then((dados) => this.setState({
@@ -37,7 +33,6 @@ class ProductList extends Component {
         }));
       return;
     }
-
     ProductApi.getItensByCategoryTerm(category, searchText)
       .then((dados) => this.setState({
         dados: dados.results,
