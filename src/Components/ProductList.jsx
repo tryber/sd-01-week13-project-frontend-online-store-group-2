@@ -21,25 +21,32 @@ class ProductList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.searchText !== prevProps.searchText
-      || this.props.category !== prevProps.category) {
-      if (this.props.searchText !== '' && this.props.category !== '') {
-        ProductApi.getItensByCategoryTerm(this.props.category, this.props.searchText)
-          .then((dados) => this.changeStates(dados));
-      } else if (this.props.searchText === '') {
-        ProductApi.getItensByCategoryId(this.props.category)
-          .then((dados) => this.changeStates(dados));
-      } else {
-        ProductApi.getItensByTerm(this.props.searchText)
-          .then((dados) => this.changeStates(dados));
-      }
+    const { searchText, category } = this.props;
+
+    if (searchText === prevProps.searchText
+      && category === prevProps.category) {
+      return;
     }
+
+    if (searchText === '' && category !== '') {
+      LocalStorageAPI.getItensByCategoryId(category)
+        .then((dados) => this.changeStates(dados));
+      return;
+    }
+
+    if (searchText !== '' && category === '') {
+      LocalStorageAPI.getItensByTerm(searchText)
+        .then((dados) => this.changeStates(dados));
+      return;
+    }
+
+    LocalStorageAPI.getItensByCategoryTerm(category, searchText)
+      .then((dados) => this.changeStates(dados));
   }
 
   render() {
 
     const { dados } = this.state;
-    console.log(dados)
 
     if (dados.length === 0) return <h4>Nada a ser pesquisado</h4>;
 
