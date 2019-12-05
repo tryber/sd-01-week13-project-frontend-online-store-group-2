@@ -8,9 +8,14 @@ export const getCategories = () => catchData('https://api.mercadolibre.com/sites
   .then((response) => response)
   .catch((error) => error);
 
-export const getItensByTerm = (term) => catchData(`https://api.mercadolibre.com/sites/MLB/search?q=${term}`)
-  .then((response) => response)
-  .catch((error) => error);
+
+export const getItensByTerm = (term) => {
+  let value;
+  catchData(`https://api.mercadolibre.com/sites/MLB/search?q=${term}`)
+    .then((response) => value = response)
+    .catch((error) => error);
+  return value;
+}
 
 export const getItensByCategoryId = (categoryId) => catchData(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`)
   .then((response) => response)
