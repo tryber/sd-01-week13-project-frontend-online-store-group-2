@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import * as ProductAPI from '../Services/ProductAPI';
 
 class Categories extends Component {
@@ -17,18 +18,31 @@ class Categories extends Component {
   }
 
   render() {
+    const { changeSelectedCategory, category } = this.props;
     const { categories } = this.state;
-    const createRadioButton = (name, id) => (
+    const createRadioButton = (name, id, index) => (
       <label htmlFor={id}>
-        <input type="radio" id={id} name="categories" value={id} />
+        <input
+          key={index}
+          type="radio"
+          id={id}
+          name="categories"
+          value={id}
+          checked={category === id}
+          onChange={(e) => changeSelectedCategory(e.target.id)}
+        />
         {name}
       </label>
     );
-
     return (
-      categories.map(({ name, id }) => createRadioButton(name, id))
+      categories.map(({ name, id }, index) => createRadioButton(name, id, index))
     );
   }
 }
 
 export default Categories;
+
+Categories.propTypes = {
+  changeSelectedCategory: PropTypes.func.isRequired,
+  category: PropTypes.string.isRequired,
+};
