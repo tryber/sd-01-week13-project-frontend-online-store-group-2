@@ -16,27 +16,23 @@ class ProductList extends Component {
 
   componentDidUpdate(prevProps) {
     const { searchText, category } = this.props;
-    if (this.props === prevProps) {
-      return;
-    }
+    if (this.props === prevProps) return;
+    
+
     if (searchText === '' && category !== '') {
       ProductApi.getItensByCategoryId(category)
-        .then((dados) => this.setState({
-          dados: dados.results,
-        }));
+        .then((dados) => this.changeStates(dados));
       return;
     }
+    
     if (searchText !== '' && category === '') {
       ProductApi.getItensByTerm(searchText)
-        .then((dados) => this.setState({
-          dados: dados.results,
-        }));
+        .then((dados) => this.changeStates(dados));
       return;
     }
+
     ProductApi.getItensByCategoryTerm(category, searchText)
-      .then((dados) => this.setState({
-        dados: dados.results,
-      }));
+      .then((dados) => this.changeStates(dados));
   }
 
   changeStates(value) {
