@@ -1,12 +1,10 @@
 // Componentes presentes:
-// - CartProductsList.jsx
+// - CartProductList.jsx
 
 import React from 'react';
-import { Link } from 'react-router-dom';
-import previous from '../image/003-previous.svg';
-import cartShop from '../image/001-shopping-cart.svg';
-import ContentShopCart from '../Components/ContentShopCart';
 import './ShopCart.css';
+import EmptyCart from '../Components/EmptyCart';
+import ShopCartHeader from '../Components/ShopCartHeader';
 
 
 class ShopCart extends React.Component {
@@ -18,35 +16,15 @@ class ShopCart extends React.Component {
   }
 
   render() {
-    if (this.state.itens === 0) {
-      return (
-        <div className="content-shopcart">
-          <div className="previous">
-            <Link to="/">
-              <img
-                src={previous}
-                alt="previous"
-                className="previous"
-              />
-            </Link>
-          </div>
-          <div className="cart-title">
-            <img
-              src={cartShop}
-              className="icon-cart-title"
-              alt="Cart"
-            />
-            <p>Carrinho de Compras</p>
-          </div>
-          <br />
-          <div className="content-center">
-            <ContentShopCart />
-          </div>
-        </div>
-      );
-    }
+    if (this.state.itens === 0) return <EmptyCart />;
+
     return (
-      true
+      <div className="content-shopcart">
+        <ShopCartHeader />
+        <div className="content-center">
+          <p>PRODUTOS</p>
+        </div>
+      </div>
     );
   }
 }

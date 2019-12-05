@@ -6,7 +6,6 @@
 // - Categories.jsx
 
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
 import SearchBar from '../Components/SearchBar';
 import Categories from '../Components/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
@@ -16,9 +15,7 @@ export class MainScreen extends Component {
     return (
       <div className="mainscreen">
         <SearchBar />
-        <Link to="/shopcart">
-          <ShopCartLink />
-        </Link>
+        <ShopCartLink />
         <Categories />
       </div>
     );
