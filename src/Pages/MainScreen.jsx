@@ -7,9 +7,9 @@
 
 import React, { Component } from 'react';
 import SearchBar from '../Components/SearchBar';
-import ProductList from '../Components/ProductList';
 import Categories from '../Components/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
+import ProductList from '../Components/ProductList';
 
 export class MainScreen extends Component {
   constructor(props) {
@@ -40,9 +40,7 @@ export class MainScreen extends Component {
     const { searchText, category, enterClick } = this.state;
     return (
       <div>
-        <SearchBar
-          onSearchTextChange={this.changeHandlerSearch}
-        />
+        <SearchBar onSearchTextChange={this.changeHandlerSearch} />
         <ShopCartLink />
         <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
         <ProductList goSearch={enterClick} searchText={searchText} category={category} />
