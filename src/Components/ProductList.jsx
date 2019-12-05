@@ -16,21 +16,20 @@ class ProductList extends Component {
 
   componentDidUpdate(prevProps) {
     const { searchText, category } = this.props;
-    if (this.props !== prevProps) return;
-    
+    let url = '';
+    if (this.props === prevProps) return;
+
     if (searchText === '' && category !== '') {
-      ProductApi.getItensByCategoryId(category)
-        .then((dados) => this.changeStates(dados));
-      return;
+      url = `https://api.mercadolibre.com/sites/MLB/search?category=${category}`;
     }
     if (searchText !== '' && category === '') {
-      ProductApi.getItensByTerm(searchText)
-        .then((dados) => this.changeStates(dados));
-      return
+      url = `https://api.mercadolibre.com/sites/MLB/search?q=${searchText}`;
+    } else {
+      url = `https://api.mercadolibre.com/sites/MLB/search?category=${category}&q=${searchText}`;
     }
-    ProductApi.getItensByCategoryTerm(category, searchText)
-      .then((dados) => this.changeStates(dados));
+    ProductApi.getData(url).then((data) => this.changeStates(data));
   }
+
 
   changeStates(value) {
     this.setState({

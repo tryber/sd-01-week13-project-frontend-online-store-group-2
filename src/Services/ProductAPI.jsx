@@ -5,18 +5,13 @@ async function catchData(url) {
 }
 
 export const getCategories = () => catchData('https://api.mercadolibre.com/sites/MLB/categories')
-  .then((response) => response)
-  .catch((error) => error);
-
-
-export const getItensByTerm = (term) => catchData(`https://api.mercadolibre.com/sites/MLB/search?q=${term}`)
-    .then((response) => response)
-    .catch((error) => error);
+  .then((response) => response);
+  
+export const getData = (url) => catchData(url)
+    .then((response) => response);
 
 export const getItensByCategoryId = (categoryId) => catchData(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}`)
-  .then((response) => response)
-  .catch((error) => error);
+  .then((response) => response);
 
 export const getItensByCategoryTerm = (categoryId, term) => catchData(`https://api.mercadolibre.com/sites/MLB/search?category=${categoryId}&q=${term}`)
-  .then((response) => response)
-  .catch((error) => error);
+  .then((response) => response);
