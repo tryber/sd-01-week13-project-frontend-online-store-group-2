@@ -6,10 +6,10 @@
 // - Categories.jsx
 
 import React, { Component } from 'react';
-import SearchBar from '../Components/SearchBar';
-import Categories from '../Components/Categories';
+import SearchBar from '../Components/MainScreen/SearchBar';
+import Categories from '../Components/MainScreen/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
-import ProductList from '../Components/ProductList';
+import ProductList from '../Components/MainScreen/ProductList';
 
 export class MainScreen extends Component {
   constructor(props) {
