@@ -19,16 +19,16 @@ export class Product extends Component {
     this.saveProduct = this.saveProduct.bind(this);
   }
 
-  saveProduct() {
-    this.setState({
-      productDetails: details,
-    });
-  }
-
   componentDidMount() {
     const jsonDetails = localStorage.getItem('produto');
     const details = JSON.parse(jsonDetails);
-    this.saveProduct()
+    this.saveProduct(details);
+  }
+
+  saveProduct(details) {
+    this.setState({
+      productDetails: details,
+    });
   }
 
   render() {
