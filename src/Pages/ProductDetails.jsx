@@ -12,6 +12,7 @@ import PreviousLink from '../Components/PreviousLink';
 export class ProductDetails extends Component {
 
   render() {
+    const { results } = this.props
     return (
       <div>
         <header>
@@ -19,10 +20,10 @@ export class ProductDetails extends Component {
           <ShopCartLink />
         </header>
         <div>
-          {this.props.product.results.thumbnail}
+          {results.thumbnail}
         </div>
         <div>
-          <Specifications product={this.props.product.results.attributes} />
+          <Specifications product={results.attributes} />
         </div>
       </div>
     );
@@ -32,10 +33,8 @@ export class ProductDetails extends Component {
 export default ProductDetails;
 
 ProductDetails.PropTypes = {
-  product: PropTypes.shape({
-    results: {
+  results: PropTypes.shape({
       thumbnail: PropTypes.string,
       attributes: PropTypes.array,
-    },
   }).isRequired,
 };
