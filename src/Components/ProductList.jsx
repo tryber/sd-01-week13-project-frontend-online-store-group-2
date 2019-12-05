@@ -12,15 +12,13 @@ class ProductList extends Component {
     super(props);
     this.state = {
       dados: [],
-    }
+    };
 
     this.setUrl = this.setUrl.bind(this);
   }
 
   componentDidUpdate(prevProps) {
-
     if (this.props === prevProps) return;
-
     ProductApi.getData(this.setUrl()).then((data) => this.changeStates(data));
   }
 
@@ -60,4 +58,4 @@ export default ProductList;
 ProductList.propTypes = {
   searchText: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
-}
+};
