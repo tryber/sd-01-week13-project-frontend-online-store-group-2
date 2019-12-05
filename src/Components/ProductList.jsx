@@ -16,9 +16,14 @@ class ProductList extends Component {
 
   componentDidUpdate(prevProps) {
     const { searchText, category } = this.props;
-    let url = '';
+
     if (this.props === prevProps) return;
 
+    ProductApi.getData(this.setUrl(searchText, category)).then((data) => this.changeStates(data));
+  }
+
+  setUrl(searchText,category) {
+    let url='';
     if (searchText === '' && category !== '') {
       url = `https://api.mercadolibre.com/sites/MLB/search?category=${category}`;
     }
@@ -27,8 +32,8 @@ class ProductList extends Component {
     } else {
       url = `https://api.mercadolibre.com/sites/MLB/search?category=${category}&q=${searchText}`;
     }
-    ProductApi.getData(url).then((data) => this.changeStates(data));
-  }
+    return url;
+  };
 
 
   changeStates(value) {
