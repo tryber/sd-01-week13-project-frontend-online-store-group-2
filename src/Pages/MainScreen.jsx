@@ -46,7 +46,6 @@ export class MainScreen extends Component {
         <ShopCartLink />
         <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
         <ProductList goSearch={enterClick} searchText={searchText} category={category} />
-      
       </div>
     );
   }

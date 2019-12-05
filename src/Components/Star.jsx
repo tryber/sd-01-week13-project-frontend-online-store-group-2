@@ -24,7 +24,7 @@ export class Star extends Component {
         rating={this.state.rating}
         starRatedColor="blue"
         changeRating={this.changeRating}
-        numberOfStars={6}    
+        numberOfStars={6}
       />
     );
   }
