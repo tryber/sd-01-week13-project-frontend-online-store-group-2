@@ -6,6 +6,5 @@ async function catchData(url) {
 
 export const getCategories = () => catchData('https://api.mercadolibre.com/sites/MLB/categories')
   .then((response) => response);
-  
 export const getData = (url) => catchData(url)
     .then((response) => response);

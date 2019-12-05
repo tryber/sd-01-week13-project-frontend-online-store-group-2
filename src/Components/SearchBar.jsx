@@ -33,4 +33,4 @@ export default SearchBar;
 SearchBar.propTypes = {
   searchText: PropTypes.string.isRequired,
   onSearchTextChange: PropTypes.func.isRequired,
-}
+};
