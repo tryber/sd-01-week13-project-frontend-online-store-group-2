@@ -4,6 +4,7 @@
 // - RatingComments.jsx
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Specifications from '../Components/Specifications';
 import ShopCartLink from '../Components/ShopCartLink';
 import PreviousLink from '../Components/PreviousLink';
@@ -18,7 +19,7 @@ export class ProductDetails extends Component {
           <ShopCartLink />
         </header>
         <div>
-          {this.props.product.thumbnail}
+          {this.props.product.results.thumbnail}
         </div>
         <div>
           <Specifications product={this.props.product.results.attributes} />
@@ -29,3 +30,12 @@ export class ProductDetails extends Component {
 }
 
 export default ProductDetails;
+
+ProductDetails.PropTypes = {
+  product: PropTypes.shape({
+    results: {
+      thumbnail: PropTypes.string,
+      attributes: PropTypes.array,
+    },
+  }).isRequired,
+};
