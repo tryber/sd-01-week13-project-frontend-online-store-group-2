@@ -21,25 +21,27 @@ class ProductList extends Component {
   }
 
   componentDidUpdate(prevProps) {
-    if (this.props.searchText === prevProps.searchText
-      && this.props.category === prevProps.category) {
+    const { searchText, category } = this.props;
+
+    if (searchText === prevProps.searchText
+      && category === prevProps.category) {
       return;
     }
 
-    if (this.props.searchText === '' && this.props.category !== '') {
-      ProductApi.getItensByCategoryId(this.props.category)
+    if (searchText === '' && category !== '') {
+      ProductApi.getItensByCategoryId(category)
         .then((dados) => this.changeStates(dados));
       return;
     }
 
-    if (this.props.searchText !== '' && this.props.category === '') {
-      ProductApi.getItensByTerm(this.props.searchText)
+    if (searchText !== '' && category === '') {
+      ProductApi.getItensByTerm(searchText)
         .then((dados) => this.changeStates(dados));
       return;
     }
 
-    ProductApi.getItensByCategoryTerm(this.props.category, this.props.searchText)
-      .then((dados) => this.changeStates(dados));
+    // ProductApi.getItensByCategoryTerm(category, searchText)
+    //   .then((dados) => this.changeStates(dados));
   }
 
   render() {
