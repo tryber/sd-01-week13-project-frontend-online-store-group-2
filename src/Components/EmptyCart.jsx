@@ -1,6 +1,6 @@
 import React from 'react';
 import emptyBox from '../image/empty-box.png';
-import './EmptyCart.css';
+import '../Style/EmptyCart.css';
 import ShopCartHeader from './ShopCartHeader';
 
 class EmptyCart extends React.Component {

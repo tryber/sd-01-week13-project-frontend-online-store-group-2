@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import cartShop from '../image/001-shopping-cart.svg';
-import './ShopCartLink.css';
+import '../Style/ShopCartLink.css';
 
 class ShopCartLink extends React.Component {
   render() {

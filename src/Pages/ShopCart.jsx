@@ -2,7 +2,7 @@
 // - CartProductList.jsx
 
 import React from 'react';
-import './ShopCart.css';
+import '../Style/ShopCart.css';
 import EmptyCart from '../Components/EmptyCart';
 import ShopCartHeader from '../Components/ShopCartHeader';
 
