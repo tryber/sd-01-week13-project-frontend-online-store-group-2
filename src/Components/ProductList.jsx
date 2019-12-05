@@ -20,6 +20,12 @@ class ProductList extends Component {
     })
   }
 
+  changeDados(searchText,category){  if (searchText === '' && category !== '') {
+    ProductApi.getItensByCategoryId(category)
+      .then((dados) => this.changeStates(dados));
+    return;
+  }};
+
   componentDidUpdate(prevProps) {
     const { searchText, category } = this.props;
 
@@ -28,11 +34,7 @@ class ProductList extends Component {
       return;
     }
 
-    if (searchText === '' && category !== '') {
-      ProductApi.getItensByCategoryId(category)
-        .then((dados) => this.changeStates(dados));
-      return;
-    }
+    this.changeDados(searchText, category);
 
     if (searchText !== '' && category === '') {
       ProductApi.getItensByTerm(searchText)
@@ -40,8 +42,8 @@ class ProductList extends Component {
       return;
     }
 
-    // ProductApi.getItensByCategoryTerm(category, searchText)
-    //   .then((dados) => this.changeStates(dados));
+    ProductApi.getItensByCategoryTerm(category, searchText)
+      .then((dados) => this.changeStates(dados));
   }
 
   render() {
