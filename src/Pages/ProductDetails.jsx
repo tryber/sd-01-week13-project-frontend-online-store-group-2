@@ -12,7 +12,7 @@ import PreviousLink from '../Components/PreviousLink';
 export class ProductDetails extends Component {
 
   render() {
-    const { results } = this.props
+    const { results } = this.props;
     return (
       <div>
         <header>
@@ -33,8 +33,8 @@ export class ProductDetails extends Component {
 export default ProductDetails;
 
 ProductDetails.PropTypes = {
-  results: PropTypes.shape({
-      thumbnail: PropTypes.string,
-      attributes: PropTypes.array,
-  }).isRequired,
+  results: PropTypes.shape([{
+    thumbnail: PropTypes.string,
+    attributes: PropTypes.array,
+  }]).isRequired,
 };
