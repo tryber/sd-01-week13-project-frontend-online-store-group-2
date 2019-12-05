@@ -24,6 +24,6 @@ export class Specifications extends Component {
 
 export default Specifications;
 
-Product.propTypes = {
-  attributes: PropTypes.array.isRequired,
+Specifications.propTypes = {
+  attributes: PropTypes.shape([]).isRequired,
 };

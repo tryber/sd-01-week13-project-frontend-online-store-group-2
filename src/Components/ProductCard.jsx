@@ -11,7 +11,7 @@ class ProductCard extends Component {
     const saveAttributes = (value) => {
       const details = JSON.stringify(value);
       localStorage.setItem('produto', details);
-    }
+    };
 
     return (
       <div className="card-product">
