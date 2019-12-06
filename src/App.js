@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import MainScreen from './Pages/MainScreen';
 import ShopCart from './Pages/ShopCart';
-import Checkout from './Pages/Checkout'
+import Checkout from './Pages/Checkout';
 import Product from './Pages/Product';
 import './App.css';
+
 export class App extends Component {
   render() {
     return (

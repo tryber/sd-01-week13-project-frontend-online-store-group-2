@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
 export class BuyerInfo extends Component {
   constructor(props) {
@@ -6,8 +6,9 @@ export class BuyerInfo extends Component {
     this.state = {};
     this.createeInput = this.createInput.bind(this);
     this.createInputSelect = this.createInputSelect.bind(this);
+    this.estadosBrasileiros = this.estadosBrasileiros.bind(this);
   }
-  estados = () => (
+  estadosBrasileiros() {
     <select id="estado" name="Estado">
       <option value="AC">Acre</option>
       <option value="AL">Alagoas</option>
@@ -37,14 +38,14 @@ export class BuyerInfo extends Component {
       <option value="SE">Sergipe</option>
       <option value="TO">Tocantins</option>
       <option value="EX">Estrangeiro</option>
-    </select>
-  );
+    </select>;
+  }
   createInput(type, place, id) {
     return <input id={id} type={type} placeholder={place} />;
   }
 
   createInputSelect() {
-    return <div>{this.estados}</div>;
+    return <div>{this.estadosBrasileiros}</div>;
   }
 
   render() {
