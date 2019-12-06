@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 export const setNewItem = (itens, value=1) => {
   const item = {...itens, qtd:value}
   const itemJson = JSON.stringify(item);

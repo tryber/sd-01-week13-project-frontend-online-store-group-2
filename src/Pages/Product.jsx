@@ -11,28 +11,8 @@ import PreviousLink from '../Components/PreviousLink';
 import '../Style/Product.css';
 
 export class Product extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      productDetails: [],
-    };
-    this.saveProduct = this.saveProduct.bind(this);
-  }
-
-  componentDidMount() {
-    const jsonDetails = localStorage.getItem('produto');
-    const details = JSON.parse(jsonDetails);
-    this.saveProduct(details);
-  }
-
-  saveProduct(details) {
-    this.setState({
-      productDetails: details,
-    });
-  }
-
   render() {
-    const { productDetails } = this.state;
+    const { productDetails } = this.props.location.state;
     return (
       <div className="product">
         <header className="product-header">
@@ -56,8 +36,12 @@ export class Product extends Component {
 export default Product;
 
 Product.propTypes = {
-  productDetails: PropTypes.shape([{
-    thumbnail: PropTypes.string,
-    attributes: PropTypes.array,
-  }]).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      productDetails: PropTypes.shape([{
+        thumbnail: PropTypes.string,
+        attributes: PropTypes.array,
+      }]),
+    }),
+  }).isRequired,
 };
