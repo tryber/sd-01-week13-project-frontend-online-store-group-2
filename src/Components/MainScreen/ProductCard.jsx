@@ -48,7 +48,7 @@ class ProductCard extends Component {
       <span onClick={this.toggle} className={name} >
         {label}
       </span>
-    )
+    );
   }
 
   render() {
