@@ -35,7 +35,7 @@ export class MainScreen extends Component {
   componentDidMount() {
     this.saveData();
   }
- 
+
   componentWillUnmount() {
     LocalStorageApi.setCar(this.state.buyerCar);
   }

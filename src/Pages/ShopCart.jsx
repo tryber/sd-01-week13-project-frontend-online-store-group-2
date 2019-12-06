@@ -30,7 +30,7 @@ class ShopCart extends React.Component {
 }
 export default ShopCart;
 
-Product.propTypes = {
+ShopCart.propTypes = {
   location: PropTypes.shape({
     state: PropTypes.shape({
       buyerCar: PropTypes.shape([{

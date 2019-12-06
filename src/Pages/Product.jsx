@@ -41,7 +41,7 @@ Product.propTypes = {
       productDetails: PropTypes.shape([{
         thumbnail: PropTypes.string,
         attributes: PropTypes.array,
-      }]).isRequired,
+      }]),
     }),
-  }),
+  }).isRequired,
 };
