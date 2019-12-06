@@ -21,5 +21,7 @@ class CartProductList extends React.Component {
 export default CartProductList;
 
 CartProductList.propTypes = {
-  buyerCar: PropTypes.array.isRequired
+  buyerCar: PropTypes.shape({
+    id:PropTypes.string,
+  }).isRequired,
 };

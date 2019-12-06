@@ -12,7 +12,6 @@ import '../Style/Product.css';
 
 export class Product extends Component {
   render() {
-    console.log(this.props)
     const { productDetails } = this.props.location.state;
     return (
       <div className="product">

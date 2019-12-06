@@ -15,7 +15,7 @@ class ProductCard extends Component {
         <div className="title">
           <h3>{title}</h3>
           <Link
-            to={{ pathname: `products/${id}`, state: { productDetails: item }}}
+            to={{ pathname: `products/${id}`, state: { productDetails: item } }}
           >
             DETALHES
           </Link>

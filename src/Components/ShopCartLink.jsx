@@ -6,7 +6,7 @@ import '../Style/ShopCartLink.css';
 
 class ShopCartLink extends React.Component {
   render() {
-    const { buyerCar } = this.props
+    const { buyerCar } = this.props;
     console.log(buyerCar, 'link');
     return (
       <Link
@@ -33,5 +33,7 @@ class ShopCartLink extends React.Component {
 export default ShopCartLink;
 
 ShopCartLink.propTypes = {
-  buyerCar: PropTypes.array.isRequired
+  buyerCar: PropTypes.shape({
+    id:PropTypes.string,
+  }).isRequired,
 };

@@ -29,15 +29,22 @@ export class MainScreen extends Component {
     this.setDados = this.setDados.bind(this);
     this.addNewItem = this.addNewItem.bind(this);
     this.verifyItem = this.verifyItem.bind(this);
+    this.saveData = this.saveData.bind(this);
   }
 
   componentDidMount() {
-    this.setState({ buyerCar: LocalStorageApi.getCar() })
+    saveData();
   }
 
+ 
   componentWillUnmount() {
     LocalStorageApi.setCar(this.state.buyerCar);
-    console.log(localStorage, 'wilunmount')
+  }
+
+  setDados() {
+    this.setState({
+      buyerCar: LocalStorageApi.getCar().Produtos,
+    })
   }
 
   updateProductQtd(produto) {
@@ -50,9 +57,13 @@ export class MainScreen extends Component {
     this.setState({ buyerCar: Products })
   }
 
+  saveData() {
+    this.setState({ buyerCar: LocalStorageApi.getCar() });
+  }
+
   verifyItem(item, status) {
     const value = this.state.buyerCar
-      .find((product) => product.id === item.id)
+      .find((product) => product.id === item.id);
     if (value.qtd < value.available_quantity && status === 1) {
       value.qtd += 1;
       this.updateProductQtd(value);
@@ -79,12 +90,6 @@ export class MainScreen extends Component {
     this.setState({ buyerCar: Products });
   }
 
-  setDados() {
-    this.setState({
-      buyerCar: LocalStorageApi.getCar().Produtos,
-    })
-  }
-
   changeHandlerSearch(event) {
     this.setState({
       searchText: event.target.value,
@@ -105,7 +110,12 @@ export class MainScreen extends Component {
         <SearchBar onSearchTextChange={this.changeHandlerSearch} />
         <ShopCartLink buyerCar={buyerCar} />
         <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
-        <ProductList goSearch={enterClick} searchText={searchText} category={category} addNewItem={this.addNewItem} />
+        <ProductList
+          goSearch={enterClick}
+          searchText={searchText}
+          category={category}
+          addNewItem={this.addNewItem}
+        />
       </div>
     );
   }
