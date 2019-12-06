@@ -1,25 +1,33 @@
-<<<<<<< HEAD
-export const setNewItem = (itens, value=1) => {
-  const item = {...itens, qtd:value}
-  const itemJson = JSON.stringify(item);
+export const setNewItem = (itens) => {
+  const itemJson = JSON.stringify(itens);
   localStorage.setItem(itens.id, itemJson);
 };
 
-export const getCar = (id) => {
+export const getItem = (id) => {
   const item = localStorage.getItem(id);
   return JSON.parse(item);
 };
 
-export const UpdateItem = (id, value) => {
-  const item=getCar(id);
+export const removeItem = (id) => {
+  localStorage[id].remove();
+}
+
+export const UpdateItemQtd = (id, value) => {
+  const item=getItem(id);
   item.qtd=value;
-  setNewItem(item,value);
+  setNewItem(item);
 }
 
 export const AllItens = () => {
   const arrKeys = Object.keys(localStorage).filter((keys)=>keys.includes['MLB']);
-  const itens = arrKeys.map((key)=>getCar(key));
+  const itens = arrKeys.map((key)=>getItem(key));
   return itens;
 }
 
-
+export const valueTotal = () => {
+  return AllItens().reduce((acc,item)=> {
+    const total=acc;
+    total+=item;
+    return total;
+  },0);
+}

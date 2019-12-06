@@ -9,6 +9,7 @@ import Specifications from '../Components/ProductDetails/Specifications';
 import ShopCartLink from '../Components/ShopCartLink';
 import PreviousLink from '../Components/PreviousLink';
 import '../Style/Product.css';
+import * as LocalStorageApi from '../../Services/LocalStorageAPI';
 
 export class Product extends Component {
   render() {
@@ -24,6 +25,9 @@ export class Product extends Component {
         </div>
         <section className="product-details">
           <img src={productDetails.thumbnail} className="product-img" alt="product" />
+          <button type="button" onClick={() => LocalStorageApi.setNewItem(obj)}>
+            Adicionar Item
+          </button>
           <div className="product-specifications">
             <Specifications attributes={productDetails.attributes} />
           </div>

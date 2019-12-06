@@ -6,15 +6,10 @@ import '../Style/ShopCartLink.css';
 
 class ShopCartLink extends React.Component {
   render() {
-    const { buyerCar } = this.props;
-    console.log(buyerCar, 'link');
     return (
       <Link
         to={{
           pathname: '/shopcart',
-          state: {
-            buyerCar,
-          },
         }}
       >
         <div className="content">

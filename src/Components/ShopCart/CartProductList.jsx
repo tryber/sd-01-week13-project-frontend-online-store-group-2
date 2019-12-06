@@ -1,13 +1,12 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import ItemCart from './itemCart';
+import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
 class CartProductList extends React.Component {
   render() {
-    const { buyerCar } = this.props;
     return (
       <div className="content-shopcart">
-        {buyerCar
+        {LocalStorageApi.AllItens()
           .map((produto) =>
             <ItemCart
               key={produto.id}
@@ -19,9 +18,3 @@ class CartProductList extends React.Component {
 }
 
 export default CartProductList;
-
-CartProductList.propTypes = {
-  buyerCar: PropTypes.shape({
-    id: PropTypes.string,
-  }).isRequired,
-};
