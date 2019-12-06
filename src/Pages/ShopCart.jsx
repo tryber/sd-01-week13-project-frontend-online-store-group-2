@@ -12,6 +12,7 @@ class ShopCart extends React.Component {
     super(props);
     this.state = {
       itens: 0,
+      qtd: 0,
     };
   }
 

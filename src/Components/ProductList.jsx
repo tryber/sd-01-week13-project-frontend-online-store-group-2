@@ -5,6 +5,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as ProductApi from '../Services/ProductAPI';
 import ProductCard from '../Components/ProductCard';
+import './ProductList.css';
 
 
 class ProductList extends Component {
@@ -49,7 +50,7 @@ class ProductList extends Component {
     if (!goSearch) return <h4>Ainda não pesquisou!</h4>;
     if (dados.length === 0) return <h4>Nada encontrado</h4>;
     return (
-      <div>
+      <div className="content-products">
         {dados.map((item) => <ProductCard key={item.id} item={item} />)}
       </div>
     );
