@@ -21,7 +21,6 @@ class ProductCard extends Component {
     const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
     if(this.state.added){
       console.log('adicionado')
-      console.log(obj)
       LocalStorageApi.setNewItem(obj);
     } else {
       const value=LocalStorageApi.getItem(id)

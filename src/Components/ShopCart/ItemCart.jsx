@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
 
-class CartProductList extends React.Component {
+class ItemCart extends React.Component {
   constructor(props) {
     super(props)
     this.state = {
@@ -48,9 +48,9 @@ class CartProductList extends React.Component {
   }
 }
 
-export default CartProductList;
+export default ItemCart;
 
-CartProductList.propTypes = {
+ItemCart.propTypes = {
   details: PropTypes.shape({
     id: PropTypes.string,
   }).isRequired,
