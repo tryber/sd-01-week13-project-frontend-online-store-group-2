@@ -9,11 +9,13 @@ import Specifications from '../Components/ProductDetails/Specifications';
 import ShopCartLink from '../Components/ShopCartLink';
 import PreviousLink from '../Components/PreviousLink';
 import '../Style/Product.css';
-import * as LocalStorageApi from '../../Services/LocalStorageAPI';
+import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
 export class Product extends Component {
   render() {
     const { productDetails } = this.props.location.state;
+    const { id, price, title, thumbnail, available_quantity } = productDetails;
+    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
     return (
       <div className="product">
         <header className="product-header">

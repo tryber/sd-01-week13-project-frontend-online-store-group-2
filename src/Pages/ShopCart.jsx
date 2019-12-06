@@ -19,6 +19,7 @@ class ShopCart extends React.Component {
   }
 
   componentDidMount(){
+    console.log('teste')
     this.setState({ buyerCar: LocalStorageApi.AllItens() })
   }
 
@@ -33,7 +34,7 @@ class ShopCart extends React.Component {
           <p>PRODUTOS</p>
           <CartProductList />
         </div>
-        <p>{`Valor Total da Compra: R$ ${LocalStorage.valueTotal()}`}</p>
+        <p>{`Valor Total da Compra: R$ ${LocalStorageApi.valueTotal()}`}</p>
       </div>
     );
   }

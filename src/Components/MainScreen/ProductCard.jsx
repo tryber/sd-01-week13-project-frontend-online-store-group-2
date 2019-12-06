@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
+import '../../Style/ProductCard.css'
 
 
 class ProductCard extends Component {
@@ -15,12 +16,19 @@ class ProductCard extends Component {
   }
 
   componentDidUpdate(){
+    const { item } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
     const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
     if(this.state.added){
+      console.log('adicionado')
+      console.log(obj)
       LocalStorageApi.setNewItem(obj);
     } else {
-      LocalStorageApi.removeItem(id);
+      const value=LocalStorageApi.getItem(id)
+      if(value!==null){
+        console.log('removido')
+        LocalStorageApi.removeItem(id);
+      }
     }
   }
 
@@ -48,12 +56,12 @@ class ProductCard extends Component {
           <div className="info-product">
             <img className="img-product" alt="imagem do produto" src={thumbnail} />
           </div>
-          <span onClick={this.toggle.bind(this)} className="buttonAddCart" >
+          {!this.state.added && <span onClick={this.toggle.bind(this)} className="buttonAddCart" >
             Adicionar Item
-           </span>
-          <span onClick={this.toggle.bind(this)} className="buttonRemoveCart" >
+           </span>}
+          {this.state.added && <span onClick={this.toggle.bind(this)} className="buttonRemoveCart" >
             remover Item
-           </span>
+           </span>}
           <Link to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
             DETALHES
           </Link>

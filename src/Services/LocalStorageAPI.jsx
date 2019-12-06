@@ -9,7 +9,7 @@ export const getItem = (id) => {
 };
 
 export const removeItem = (id) => {
-  localStorage[id].remove();
+  localStorage.removeItem(id);
 }
 
 export const UpdateItemQtd = (id, value) => {
@@ -19,14 +19,16 @@ export const UpdateItemQtd = (id, value) => {
 }
 
 export const AllItens = () => {
-  const arrKeys = Object.keys(localStorage).filter((keys)=>keys.includes['MLB']);
+  console.log(Object.keys(localStorage))
+  const arrKeys = Object.keys(localStorage).filter((keys)=>keys.includes('MLB'));
+  
   const itens = arrKeys.map((key)=>getItem(key));
   return itens;
 }
 
 export const valueTotal = () => {
   return AllItens().reduce((acc,item)=> {
-    const total=acc;
+    let total=acc;
     total+=item;
     return total;
   },0);

@@ -1,28 +1,46 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import * as LocalStorageApi from '../Services/LocalStorageAPI';
-
-// const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
+import * as LocalStorageApi from '../../Services/LocalStorageAPI';
 
 class CartProductList extends React.Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      qtd: 1,
+    }
+  }
+
+  componentDidMount() {
+    const { details } = this.props;
+    this.setState({ qtd: details.qtd })
+  }
+
+  changeQtd(value) {
+    const { details } = this.props;
+    if (value < details.available_quantity && value > 0) {
+      LocalStorageApi.UpdateItemQtd(id,value);
+      this.setState({ qtd: value });
+    }
+  }
+
   render() {
     const { details } = this.props;
     return (
       <div className="content-shopcart">
         <div>
-          <p>X</p>
+          <p onClick={()=>LocalStorageApi.removeItem(details.id)}>X</p>
           <img src={details.thumbnail} />
           <p>
             {details.title}
           </p>
-          <p>-</p>
-          <p>{details.qtd}</p>
-          <p>+</p>
+          <p onClick={() => this.changeQtd(this.state.qtd-1)}>-</p>
+          <p>{this.state.qtd}</p>
+          <p onClick={() => this.changeQtd(this.state.qtd+1)}>+</p>
           <p>
             {`Max-${details.available_quantity}`}
           </p>
           <p>
-            {details.price}
+            {`R$ ${details.price*this.state.qtd}`}
           </p>
         </div>
       </div>
@@ -33,7 +51,7 @@ class CartProductList extends React.Component {
 export default CartProductList;
 
 CartProductList.propTypes = {
-  buyerCar: PropTypes.shape({
+  details: PropTypes.shape({
     id: PropTypes.string,
   }).isRequired,
 };
