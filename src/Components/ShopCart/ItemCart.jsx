@@ -17,10 +17,17 @@ class ItemCart extends React.Component {
 
   changeQtd(value) {
     const { details } = this.props;
+    console.log(value)
+    this.props.changeState();
     if (value < details.available_quantity && value > 0) {
-      LocalStorageApi.UpdateItemQtd(id,value);
+      LocalStorageApi.UpdateItemQtd(details.id,value);
       this.setState({ qtd: value });
     }
+  }
+
+  removeItem(id){
+    LocalStorageApi.removeItem(id);
+    this.props.changeState();
   }
 
   render() {
@@ -28,7 +35,7 @@ class ItemCart extends React.Component {
     return (
       <div className="content-shopcart">
         <div>
-          <p onClick={()=>LocalStorageApi.removeItem(details.id)}>X</p>
+          <p onClick={()=>this.removeItem(details.id)}>X</p>
           <img src={details.thumbnail} />
           <p>
             {details.title}

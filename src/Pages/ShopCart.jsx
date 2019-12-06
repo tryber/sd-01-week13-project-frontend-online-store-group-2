@@ -25,7 +25,7 @@ class ShopCart extends React.Component {
 
   render() {
     const { buyerCar } = this.state;
-    if (buyerCar === 0) return <EmptyCart />;
+    if (buyerCar.length === 0) return <EmptyCart />;
 
     return (
       <div className="content-shopcart">
@@ -34,7 +34,6 @@ class ShopCart extends React.Component {
           <p>PRODUTOS</p>
           <CartProductList />
         </div>
-        <p>{`Valor Total da Compra: R$ ${LocalStorageApi.valueTotal()}`}</p>
       </div>
     );
   }
