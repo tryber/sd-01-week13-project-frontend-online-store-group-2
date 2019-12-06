@@ -11,7 +11,10 @@ class Checkout extends React.Component {
   render() {
     return (
       <div>
-        <PaymentMethod />
+        <div>
+          <h3>Método de Pagamento</h3>
+          <PaymentMethod />
+        </div>
       </div>
     );
   }

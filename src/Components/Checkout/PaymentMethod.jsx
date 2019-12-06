@@ -1,20 +1,13 @@
 import React from 'react';
 import CreditCard from '../../image/credit-card.png';
 import Billing from '../../image/codigo-de-barras.png';
-import '../../Style/PaymentMethod.css'
+import '../../Style/PaymentMethod.css';
 
 class PaymentMethod extends React.Component {
-  KeyPress(event) {
-    if (event.key === 'Enter') {
-      this.props.onSearchTextChange(event);
-    }
-  }
 
   render() {
     return (
-      <div>
-        <h3>Método de Pagamento</h3>
-        <div className="payment-method">
+      <div className="payment-method">
         <div className="payment-option">
           <p>Boleto</p>
           <label htmlFor="boleto">
@@ -39,7 +32,6 @@ class PaymentMethod extends React.Component {
             Elo
             <img src={CreditCard} alt="cartao de credito" className="method-image" />
           </label>
-        </div>
         </div>
       </div>
     );
