@@ -7,7 +7,7 @@ class ItemCart extends React.Component {
   }
 
   render() {
-    const { details, onChangeQtd, onDelete } = this.props;
+    const { details } = this.props;
     return (
       <div className="content-shopcart">
         <div onClick={() => onDelete(details.id)}>X</div>
