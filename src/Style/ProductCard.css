@@ -19,7 +19,7 @@ h3, p {
 
 .card-product {
 	align-items: center;
-	background: #FFFFFF;
+	background: #fff;
 	border-radius: 10px;
 	box-shadow: 0px 25.8683px 38.8024px rgba(0, 0, 0, 0.08);
 	display: flex;
@@ -29,7 +29,7 @@ h3, p {
 }
 
 .title {
-	color: #0A1034;
+	color: #0a1034;
 	font-family: Raleway;
 	font-feature-settings: 'pnum' on, 'lnum' on;
 	font-size: 18px;
@@ -42,7 +42,7 @@ h3, p {
 }
 
 .value {
-	color: #594CA9;
+	color: #594Ca9;
 	font-family: Raleway;
 	font-feature-settings: 'pnum' on, 'lnum' on;
 	font-size: 14px;
@@ -54,10 +54,10 @@ h3, p {
 
 .buttonRemoveCart {
 	align-items: center;
-	background: #FB4E4E;
+	background: #fb4e4e;
 	border-radius: 0 0 10px 10px;
 	bottom: 0;
-	color: #FFFFFF;
+	color: #fff;
 	cursor: pointer;
 	display: flex;
 	font-family: Roboto Condensed;
@@ -77,7 +77,7 @@ h3, p {
 	background: #433885;
 	border-radius: 0 0 10px 10px;
 	bottom: 0;
-	color: #FFFFFF;
+	color: #ffffff;
 	cursor: pointer;
 	display: flex;
 	font-family: Roboto Condensed;
