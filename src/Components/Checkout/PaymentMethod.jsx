@@ -29,8 +29,7 @@ class PaymentMethod extends React.Component {
               <img src={CreditCard} alt="cartao de credito" className="method-image" />
             </label>
             <label htmlFor="elo-credit" className="method">
-              <input type="radio" name="payment-method" id="elo-credit" />
-              Elo
+              <input type="radio" name="payment-method" id="elo-credit" /> Elo
               <img src={CreditCard} alt="cartao de credito" className="method-image" />
             </label>
           </div>
