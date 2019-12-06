@@ -35,8 +35,8 @@ ShopCart.propTypes = {
     state: PropTypes.shape({
       buyerCar: PropTypes.shape([{
         id: PropTypes.number,
-      }]).isRequired,
+      }]),
     }),
-  }),
+  }).isRequired,
 };
 
