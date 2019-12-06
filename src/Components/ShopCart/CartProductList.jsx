@@ -13,13 +13,13 @@ class CartProductList extends React.Component {
     this.changeUpdate = this.changeUpdate.bind(this);
     this.setValue = this.setValue.bind(this);
   }
-  
-  setValue() {
-    this.setState({ valueTotal: LocalStorageApi.valueTotal() });
-  }
 
   componentDidMount() {
     this.setValue();
+  }
+
+  setValue() {
+    this.setState({ valueTotal: LocalStorageApi.valueTotal() });
   }
 
   changeUpdate() {
@@ -27,7 +27,7 @@ class CartProductList extends React.Component {
   }
 
   render() {
-    if (LocalStorageApi.AllItens().length === 0) return (<div className="content-center">
+    if (LocalStorageApi.AllItens().length === 0) {return (<div className="content-center">}
       <img
         src={emptyBox}
         alt="empty Box"
