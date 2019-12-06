@@ -33,9 +33,8 @@ export class MainScreen extends Component {
   }
 
   componentDidMount() {
-    saveData();
+    this.saveData();
   }
-
  
   componentWillUnmount() {
     LocalStorageApi.setCar(this.state.buyerCar);
@@ -44,7 +43,7 @@ export class MainScreen extends Component {
   setDados() {
     this.setState({
       buyerCar: LocalStorageApi.getCar().Produtos,
-    })
+    });
   }
 
   updateProductQtd(produto) {
@@ -54,7 +53,7 @@ export class MainScreen extends Component {
       }
       return product;
     });
-    this.setState({ buyerCar: Products })
+    this.setState({ buyerCar: Products });
   }
 
   saveData() {

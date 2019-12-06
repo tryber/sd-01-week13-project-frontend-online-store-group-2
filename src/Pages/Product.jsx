@@ -36,8 +36,12 @@ export class Product extends Component {
 export default Product;
 
 Product.propTypes = {
-  productDetails: PropTypes.shape([{
-    thumbnail: PropTypes.string,
-    attributes: PropTypes.array,
-  }]).isRequired,
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      productDetails: PropTypes.shape([{
+        thumbnail: PropTypes.string,
+        attributes: PropTypes.array,
+      }]).isRequired,
+    }),
+  }),
 };

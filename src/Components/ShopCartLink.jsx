@@ -34,6 +34,6 @@ export default ShopCartLink;
 
 ShopCartLink.propTypes = {
   buyerCar: PropTypes.shape({
-    id:PropTypes.string,
+    id: PropTypes.string,
   }).isRequired,
 };

@@ -22,6 +22,6 @@ export default CartProductList;
 
 CartProductList.propTypes = {
   buyerCar: PropTypes.shape({
-    id:PropTypes.string,
+    id: PropTypes.string,
   }).isRequired,
 };

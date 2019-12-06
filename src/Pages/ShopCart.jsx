@@ -2,6 +2,7 @@
 // - CartProductList.jsx
 
 import React from 'react';
+import PropTypes from 'prop-types';
 import '../Style/ShopCart.css';
 import EmptyCart from '../Components/ShopCart/EmptyCart';
 import ShopCartHeader from '../Components/ShopCart/ShopCartHeader';
@@ -11,7 +12,6 @@ class ShopCart extends React.Component {
 
   render() {
     const { buyerCar } = this.props.location.state;
-    console.log(this.props.location.state.buyerCar, 'shopcart')
     if (buyerCar === 0) return <EmptyCart />;
 
     return (
@@ -29,3 +29,14 @@ class ShopCart extends React.Component {
   }
 }
 export default ShopCart;
+
+Product.propTypes = {
+  location: PropTypes.shape({
+    state: PropTypes.shape({
+      buyerCar: PropTypes.shape([{
+        id: PropTypes.number,
+      }]).isRequired,
+    }),
+  }),
+};
+
