@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component } from 'react';
 
 export class BuyerInfo extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ export class BuyerInfo extends Component {
     this.createInputSelect = this.createInputSelect.bind(this);
     this.estadosBrasileiros = this.estadosBrasileiros.bind(this);
   }
-  estadosBrasileiros() {
+  static estadosBrasileiros() {
     <select id="estado" name="Estado">
       <option value="AC">Acre</option>
       <option value="AL">Alagoas</option>
@@ -40,28 +40,28 @@ export class BuyerInfo extends Component {
       <option value="EX">Estrangeiro</option>
     </select>;
   }
-  createInput(type, place, id) {
-    return <input id={id} type={type} placeholder={place} />;
+  static createInput(type, place, id) {
+    return (<input id={id} type={type} placeholder={place} />);
   }
 
-  createInputSelect() {
-    return <div>{this.estadosBrasileiros}</div>;
+  static createInputSelect() {
+    return (<div>{BuyerInfo.estadosBrasileiros}</div>);
   }
 
   render() {
     return (
       <div className="input-data-cliente">
         <span>Informações do Comprador</span>
-        <div>{this.createInput("text", "Nome Completo", "nome-usuário")}</div>
-        <div>{this.createInput("number", "CPF", "CPF")}</div>
-        <div>{this.createInput("email", "Email", "email")}</div>
-        <div>{this.createInput("number", "Telefone", "Telefone")}</div>
-        <div>{this.createInput("number", "CEP", "CEP")}</div>
-        <div>{this.createInput("text", "Endereço", "endereco")}</div>
-        <div>{this.createInput("text", "Complemento", "Complemento")}</div>
-        <div>{this.createInput("number", "Número", "numero-casa")}</div>
-        <div>{this.createInput("text", "Cidade", "Cidade")}</div>
-        <div>{this.createInputSelect()}</div>
+        <div>{BuyerInfo.createInput('text', 'Nome Completo', 'nome-usuário')}</div>
+        <div>{BuyerInfo.createInput('number', 'CPF', 'CPF')}</div>
+        <div>{BuyerInfo.createInput('email', 'Email', 'email')}</div>
+        <div>{BuyerInfo.createInput('number', 'Telefone', 'Telefone')}</div>
+        <div>{BuyerInfo.createInput('number', 'CEP', 'CEP')}</div>
+        <div>{BuyerInfo.createInput('text', 'Endereço', 'endereco')}</div>
+        <div>{BuyerInfo.createInput('text', 'Complemento', 'Complemento')}</div>
+        <div>{BuyerInfo.createInput('number', 'Número', 'numero-casa')}</div>
+        <div>{BuyerInfo.createInput('text', 'Cidade', 'Cidade')}</div>
+        <div>{BuyerInfo.createInputSelect()}</div>
       </div>
     );
   }
