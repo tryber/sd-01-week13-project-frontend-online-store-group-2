@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 class ItemCart extends React.Component {
   getValueTotal() {
@@ -11,7 +12,7 @@ class ItemCart extends React.Component {
     return (
       <div className="content-shopcart">
         <div >X</div>
-        <img src={details.thumbnail} />
+        <img src={details.thumbnail} alt="Product iamge" />
         <p>{details.titulo}</p>
         <div>
           <div>-</div>
@@ -26,4 +27,11 @@ class ItemCart extends React.Component {
 
 export default ItemCart;
 
-
+ItemCart.propTypes = {
+  details: PropTypes.shape({
+    titulo: PropTypes.string,
+    value: PropTypes.number,
+    qtd: PropTypes.number,
+    thumbnail: PropTypes.string,
+  }).isRequired,
+};

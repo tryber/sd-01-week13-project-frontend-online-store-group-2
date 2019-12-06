@@ -1,5 +1,6 @@
 import React from 'react';
-import ItemCart from './itemCart'
+import PropTypes from 'prop-types';
+import ItemCart from './itemCart';
 
 class CartProductList extends React.Component {
   render() {
@@ -18,3 +19,7 @@ class CartProductList extends React.Component {
 }
 
 export default CartProductList;
+
+CartProductList.propTypes = {
+  buyerCar: PropTypes.array.isRequired
+};

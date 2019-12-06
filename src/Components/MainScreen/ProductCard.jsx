@@ -6,20 +6,19 @@ import { Link } from 'react-router-dom';
 class ProductCard extends Component {
 
   render() {
-    const { item, addNewItem } = this.props
+    const { item, addNewItem } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
-    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 }
+    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
 
     return (
       <div className="card-product">
         <div className="title">
           <h3>{title}</h3>
-          <Link to={{
-            pathname: `products/${id}`,
-            state: {
-              productDetails: item
-            },
-          }}>DETALHES</Link>
+          <Link
+            to={{ pathname: `products/${id}`, state: { productDetails: item }}}
+          >
+            DETALHES
+          </Link>
         </div>
         <div className="info-product">
           <img className="img-product" alt="imagem do produto" src={thumbnail} />
@@ -36,6 +35,7 @@ class ProductCard extends Component {
 export default ProductCard;
 
 ProductCard.propTypes = {
+  addNewItem: PropTypes.func.isRequired,
   item: PropTypes.shape({
     id: PropTypes.string,
     price: PropTypes.number,
