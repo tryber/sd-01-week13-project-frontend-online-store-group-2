@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import './ProductCard.css';
+import '../../Style/ProductCard.css';
 
 class ProductCard extends Component {
   constructor(props) {
@@ -34,9 +34,9 @@ class ProductCard extends Component {
               Adicionar Item
             </span>
             <span onClick={this.toggle.bind(this)} className="buttonRemoveCart" >
-              remover Item
+              Remover Item
             </span>
-        </div>
+          </div>
       </section>
     );
   }
@@ -45,7 +45,9 @@ class ProductCard extends Component {
 export default ProductCard;
 
 ProductCard.propTypes = {
+  addNewItem: PropTypes.func.isRequired,
   item: PropTypes.shape({
+    id: PropTypes.string,
     price: PropTypes.number,
     title: PropTypes.string,
     thumbnail: PropTypes.string,

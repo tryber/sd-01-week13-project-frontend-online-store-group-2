@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './SearchBar.css';
+import '../../Style/SearchBar.css';
 
 
 class SearchBar extends React.Component {
@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
   createInput() {
     return (
       <label htmlFor="title" className="title">
-            Search:
+        Search:
         <input
           id="title"
           type="text"

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import previous from '../image/003-previous.svg';
-import '../Pages/ShopCart.css';
+import '../Style/ShopCart.css';
 
 export class PreviousLink extends Component {
 

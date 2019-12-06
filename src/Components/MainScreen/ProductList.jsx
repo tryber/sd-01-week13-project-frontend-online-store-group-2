@@ -3,10 +3,10 @@
 // TELA PRINCIPAL ONDE SERAO EXIBIDOS OS PRODUTOS
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import * as ProductApi from '../Services/ProductAPI';
-import ProductCard from '../Components/ProductCard';
-import './ProductList.css';
 
+import * as ProductApi from '../../Services/ProductAPI';
+import ProductCard from './ProductCard';
+import '../../Style/ProductList.css';
 
 class ProductList extends Component {
   constructor(props) {
@@ -46,12 +46,12 @@ class ProductList extends Component {
 
   render() {
     const { dados } = this.state;
-    const { goSearch } = this.props;
+    const { goSearch, addNewItem } = this.props;
     if (!goSearch) return <h4>Ainda não pesquisou!</h4>;
     if (dados.length === 0) return <h4>Nada encontrado</h4>;
     return (
       <div className="content-products">
-        {dados.map((item) => <ProductCard key={item.id} item={item} />)}
+        {dados.map((item) => <ProductCard key={item.id} item={item} addNewItem={addNewItem} />)}
       </div>
     );
   }
@@ -59,6 +59,7 @@ class ProductList extends Component {
 export default ProductList;
 
 ProductList.propTypes = {
+  addNewItem: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   goSearch: PropTypes.bool.isRequired,
