@@ -35,25 +35,26 @@ class ProductCard extends Component {
   }
 
   createButton(value) {
+    let name;
+    let label;
     if (value) {
-      return (
-        <span onClick={this.toggle} className="buttonAddCart" >
-          Adicionar Item
-      </span>
-      )
+      name = "buttonAddCart";
+      label = "Adicionar Item";
     } else {
-      return (
-        <span onClick={this.toggle} className="buttonRemoveCart" >
-          remover Item
-      </span>
-      )
+      name = "buttonRemoveCart";
+      label = "remover Item";
     }
+    return (
+      <span onClick={this.toggle} className={name} >
+        {label}
+      </span>
+    )
   }
 
   render() {
     const { item } = this.props;
     const { price, title, thumbnail, id } = item;
-    const cardClass = ["card-product"];
+    const cardClass = ['card-product'];
     const titleSpace = title.split(' ');
     if (this.state.added) {
       cardClass.push('border');
