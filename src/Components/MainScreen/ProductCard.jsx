@@ -6,25 +6,24 @@ import { Link } from 'react-router-dom';
 class ProductCard extends Component {
 
   render() {
-    const { price, title, thumbnail, id } = this.props.item;
-
-    const saveAttributes = (value) => {
-      const details = JSON.stringify(value);
-      localStorage.setItem('produto', details);
-    };
+    const { item, addNewItem } = this.props;
+    const { price, title, thumbnail, id, available_quantity } = item;
+    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
 
     return (
       <div className="card-product">
         <div className="title">
           <h3>{title}</h3>
-          <Link to={`products/${id}`} onClick={() => saveAttributes(this.props.item)}>DETALHES</Link>
+          <Link
+            to={{ pathname: `products/${id}`, state: { productDetails: item } }}
+          >
+            DETALHES
+          </Link>
         </div>
         <div className="info-product">
           <img className="img-product" alt="imagem do produto" src={thumbnail} />
           <p className="value">{`R$ ${price}`}</p>
-          <button
-            type="button"
-          >
+          <button type="button" onClick={() => addNewItem(obj)}>
             Adicionar Item
           </button>
         </div>
@@ -36,6 +35,7 @@ class ProductCard extends Component {
 export default ProductCard;
 
 ProductCard.propTypes = {
+  addNewItem: PropTypes.func.isRequired,
   item: PropTypes.shape({
     id: PropTypes.string,
     price: PropTypes.number,

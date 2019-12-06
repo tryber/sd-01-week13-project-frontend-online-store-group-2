@@ -13,7 +13,7 @@ class SearchBar extends React.Component {
   createInput() {
     return (
       <label htmlFor="title" className="title">
-            Search:
+        Search:
         <input
           id="title"
           type="text"
