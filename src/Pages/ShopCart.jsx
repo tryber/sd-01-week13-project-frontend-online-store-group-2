@@ -6,42 +6,24 @@ import '../Style/ShopCart.css';
 import EmptyCart from '../Components/ShopCart/EmptyCart';
 import ShopCartHeader from '../Components/ShopCart/ShopCartHeader';
 import CartProductList from '../Components/ShopCart/CartProductList';
-import * as LocalStorageApi from '../../Services/LocalStorageAPI';
-
 
 class ShopCart extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      itens:[]
-    };
-
-    this.setDados=this.setDados.bind(this);
-  }
-
-  componentDidMount(){
-    this.setDados();
-  }
-
-  setDados() {
-    this.setState({
-      itens: LocalStorageApi.getCar().Produtos,
-    })
-  }
 
   render() {
-    if (this.state.itens === []) return <EmptyCart />;
-    console.log(this.props)
+    const { buyerCar } = this.props.location.state;
+    console.log(this.props.location.state.buyerCar, 'shopcart')
+    if (buyerCar === 0) return <EmptyCart />;
+
     return (
       <div className="content-shopcart">
         <ShopCartHeader />
         <div className="content-product-list">
           <p>PRODUTOS</p>
           <CartProductList
-            produtos={listProducts}
+            buyerCar={buyerCar}
           />
         </div>
-        <p>{`Valor Total da Compra: R$ ${value}`}</p>
+        {/* <p>{`Valor Total da Compra: R$ ${value}`}</p> */}
       </div>
     );
   }

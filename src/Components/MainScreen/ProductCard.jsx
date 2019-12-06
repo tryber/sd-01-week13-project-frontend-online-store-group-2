@@ -6,23 +6,25 @@ import { Link } from 'react-router-dom';
 class ProductCard extends Component {
 
   render() {
-    const { item , addNewItem} = this.props
+    const { item, addNewItem } = this.props
     const { price, title, thumbnail, id, available_quantity } = item;
-    const obj = { id, price, title, thumbnail, available_quantity, qtd:1 }
+    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 }
 
     return (
       <div className="card-product">
         <div className="title">
           <h3>{title}</h3>
-          <Link to={`products/${id}`}>DETALHES</Link>
+          <Link to={{
+            pathname: `products/${id}`,
+            state: {
+              productDetails: item
+            },
+          }}>DETALHES</Link>
         </div>
         <div className="info-product">
           <img className="img-product" alt="imagem do produto" src={thumbnail} />
           <p className="value">{`R$ ${price}`}</p>
-          <button
-            type="button"
-            onClick={() => addNewItem()}
-          >
+          <button type="button" onClick={() => addNewItem(obj)}>
             Adicionar Item
           </button>
         </div>

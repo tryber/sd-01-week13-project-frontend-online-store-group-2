@@ -5,16 +5,15 @@ import '../Style/ShopCartLink.css';
 
 class ShopCartLink extends React.Component {
   render() {
-    const {addNewItem, deleteProduct, updateProductQtd} = this.props;
+    const { buyerCar } = this.props
+    console.log(buyerCar, 'link')
     return (
       <Link to={{
         pathname: '/shopcart',
         state: {
-          addNewItem:{addNewItem},
-          deleteProduct:{deleteProduct},
-          updateProductQtd:{updateProductQtd},
+          buyerCar,
         }
-        }}>
+      }}>
         <div className="content">
           <span className="number-cart">3</span>
           <img

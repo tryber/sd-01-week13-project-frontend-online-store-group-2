@@ -10,13 +10,13 @@ class ItemCart extends React.Component {
     const { details } = this.props;
     return (
       <div className="content-shopcart">
-        <div onClick={() => onDelete(details.id)}>X</div>
+        <div >X</div>
         <img src={details.thumbnail} />
         <p>{details.titulo}</p>
         <div>
-          <div onClick={() => onChangeQtd(details.qtd-1)}>-</div>
+          <div>-</div>
           <div>{details.qtd}</div>
-          <div onClick={() => onChangeQtd(details.qtd-1)}>+</div>
+          <div>+</div>
         </div>
         <div>{this.getValueTotal()}</div>
       </div>

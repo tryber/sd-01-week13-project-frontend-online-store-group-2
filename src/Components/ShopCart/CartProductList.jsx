@@ -3,10 +3,10 @@ import ItemCart from './itemCart'
 
 class CartProductList extends React.Component {
   render() {
-    const { produtos } = this.props;
+    const { buyerCar } = this.props;
     return (
       <div className="content-shopcart">
-        {produtos
+        {buyerCar
           .map((produto) =>
             <ItemCart
               key={produto.id}
