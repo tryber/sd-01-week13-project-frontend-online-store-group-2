@@ -5,13 +5,14 @@
 
 import React from 'react';
 import PaymentMethod from '../Components/Checkout/PaymentMethod';
+import '../Style/Checkout.css';
 
 class Checkout extends React.Component {
 
   render() {
     return (
       <div>
-        <div>
+        <div className="checkout-payment">
           <h3>Método de Pagamento</h3>
           <PaymentMethod />
         </div>
