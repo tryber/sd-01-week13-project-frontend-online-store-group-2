@@ -7,7 +7,7 @@ export class BuyerInfo extends Component {
     this.createeInput = this.createInput.bind(this);
     this.createInputSelect = this.createInputSelect.bind(this);
   }
-  estados = (
+  estados = () => (
     <select id="estado" name="Estado">
       <option value="AC">Acre</option>
       <option value="AL">Alagoas</option>
