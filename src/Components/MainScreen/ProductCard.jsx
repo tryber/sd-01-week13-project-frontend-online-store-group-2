@@ -15,16 +15,16 @@ class ProductCard extends Component {
     this.toggle = this.toggle.bind(this);
   }
 
-  componentDidUpdate(){
+  componentDidUpdate() {
     const { item } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
     const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
-    if(this.state.added){
+    if (this.state.added) {
       console.log('adicionado')
       LocalStorageApi.setNewItem(obj);
     } else {
-      const value=LocalStorageApi.getItem(id)
-      if(value!==null){
+      const value = LocalStorageApi.getItem(id)
+      if (value !== null) {
         console.log('removido')
         LocalStorageApi.removeItem(id);
       }
@@ -37,7 +37,7 @@ class ProductCard extends Component {
 
   render() {
     const { item } = this.props;
-    const { price, title, thumbnail, id} = item;
+    const { price, title, thumbnail, id } = item;
     let cardClass = ["card-product"];
     let titleSpace = title.split(' ');
     if (this.state.added) {
