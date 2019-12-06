@@ -73,7 +73,7 @@ class ProductCard extends Component {
           </div>
           {this.createButton(this.state.added)}
           <Link to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
-            DETALHES
+            +
           </Link>
         </div>
       </section>
