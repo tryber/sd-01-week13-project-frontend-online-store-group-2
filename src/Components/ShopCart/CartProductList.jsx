@@ -1,24 +1,29 @@
 import React from 'react';
 import ItemCart from './ItemCart.jsx';
-import emptyBox from '../../image/empty-box.png'
+import emptyBox from '../../image/empty-box.png';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
 
 class CartProductList extends React.Component {
   constructor(props) {
-    super(props)
+    super(props);
     this.state = {
       update: false,
-      valueTotal:0,
-    }
+      valueTotal: 0,
+    };
     this.changeUpdate = this.changeUpdate.bind(this);
+    this.setValue = this.setValue.bind(this);
+  }
+  
+  setValue() {
+    this.setState({ valueTotal: LocalStorageApi.valueTotal() });
   }
 
-  componentDidMount(){
-    this.setState({ valueTotal : LocalStorageApi.valueTotal() })
+  componentDidMount() {
+    this.setValue();
   }
 
   changeUpdate() {
-    this.setState(state => ({ update: !state.update, valueTotal: LocalStorageApi.valueTotal() }))
+    this.setState((state) => ({ update: !state.update, valueTotal: LocalStorageApi.valueTotal() }));
   }
 
   render() {
