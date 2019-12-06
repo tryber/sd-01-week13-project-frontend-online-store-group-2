@@ -38,11 +38,11 @@ class ProductCard extends Component {
     let name;
     let label;
     if (value) {
-      name = "buttonAddCart";
-      label = "Adicionar Item";
+      name = 'buttonAddCart';
+      label = 'Adicionar Item';
     } else {
-      name = "buttonRemoveCart";
-      label = "remover Item";
+      name = 'buttonRemoveCart';
+      label = 'remover Item';
     }
     return (
       <span onClick={this.toggle} className={name} >
