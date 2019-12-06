@@ -1,0 +1,12 @@
+.payment-method {
+  display: flex;
+  flex-direction: row;
+}
+
+.payment-option {
+  margin: 0 30px;
+}
+
+.method-image {
+  width: 50px;
+}
