@@ -44,12 +44,12 @@ class ProductList extends Component {
 
   render() {
     const { dados } = this.state;
-    const { goSearch, addNewItem } = this.props;
+    const { goSearch } = this.props;
     if (!goSearch) return <h4>Ainda não pesquisou!</h4>;
     if (dados.length === 0) return <h4>Nada encontrado</h4>;
     return (
       <div>
-        {dados.map((item) => <ProductCard key={item.id} item={item} addNewItem={addNewItem} />)}
+        {dados.map((item) => <ProductCard key={item.id} item={item} />)}
       </div>
     );
   }
@@ -57,7 +57,6 @@ class ProductList extends Component {
 export default ProductList;
 
 ProductList.propTypes = {
-  addNewItem: PropTypes.func.isRequired,
   searchText: PropTypes.string.isRequired,
   category: PropTypes.string.isRequired,
   goSearch: PropTypes.bool.isRequired,
