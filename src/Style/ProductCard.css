@@ -1,0 +1,116 @@
+h3 , p {
+  margin: 0;
+}
+
+.content-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  margin: 20px;
+  position: relative;
+}
+
+.img-product {
+  bottom: 76px;
+  height: 120px;
+  position: absolute;
+  right: 76px;
+}
+
+.card-product {
+  align-items: center;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 25.868px 38.802px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
+  height: 270px;
+  width: 270px;
+}
+
+.title {
+  color: #0a1034;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 600;
+  left: 20px;
+  line-height: 21px;
+  margin-top: 10px;
+  position: absolute;
+}
+
+.value {
+  color: #594ca9;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 16px;
+  margin-top: 5px;
+}
+
+.buttonRemoveCart {
+  align-items: center;
+  background: #fb4e4e;
+  border-radius: 0 0 10px 10px;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  font-weight: 700;
+  height: 44.25px;
+  justify-content: center;
+  line-height: 12px;
+  opacity: 0;
+  position: absolute;
+  text-transform: uppercase;
+  width: 272px;
+}
+
+.buttonAddCart {
+  align-items: center;
+  background: #433885;
+  border-radius: 0 0 10px 10px;
+  bottom: 0;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  font-size: 12px;
+  font-weight: 700;
+  height: 44.25px;
+  justify-content: center;
+  line-height: 12px;
+  opacity: 0;
+  position: absolute;
+  text-transform: uppercase;
+  width: 272px;
+}
+
+.border:hover > .buttonRemoveCart {
+  animation-duration: 700ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: fadeInUp;
+}
+
+.border {
+  border: 2px solid #433885;
+}
+
+.card-product:hover > .buttonAddCart {
+  animation-duration: 700ms;
+  animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: fadeInUp;
+}
+
+@keyframes fadeInUp {
+
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
