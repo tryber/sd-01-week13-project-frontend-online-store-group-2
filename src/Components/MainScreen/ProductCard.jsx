@@ -30,7 +30,7 @@ class ProductCard extends Component {
     }
   }
 
-  toggle(event) {
+  toggle() {
     this.setState({ added: !this.state.added });
   }
 
