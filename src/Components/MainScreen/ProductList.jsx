@@ -48,7 +48,7 @@ class ProductList extends Component {
     if (!goSearch) return <h4>Ainda não pesquisou!</h4>;
     if (dados.length === 0) return <h4>Nada encontrado</h4>;
     return (
-      <div className="list-product">
+      <div>
         {dados.map((item) => <ProductCard key={item.id} item={item} />)}
       </div>
     );

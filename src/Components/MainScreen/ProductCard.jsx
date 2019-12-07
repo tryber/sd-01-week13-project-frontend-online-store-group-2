@@ -30,7 +30,7 @@ class ProductCard extends Component {
     }
   }
 
-  toggle() {
+  toggle(event) {
     this.setState({ added: !this.state.added });
   }
 
@@ -45,9 +45,9 @@ class ProductCard extends Component {
       label = 'remover Item';
     }
     return (
-      <span onClick={this.toggle} className={name} >
+      <button type="button" onClick={this.toggle} className={name} >
         {label}
-      </span>
+      </button>
     );
   }
 
