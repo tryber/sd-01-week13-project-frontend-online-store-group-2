@@ -31,13 +31,6 @@ const estadosBrasileiros = {
   Estrangeiro: 'EX',
 };
 export class BuyerInfo extends Component {
-  static estadosBrasileiros() {
-    return (
-      <select id='estado' name='Estado'>
-        {estados.map((select) => select)}
-      </select>
-    );
-  }
   static createInput(type, place, id) {
     return <input id={id} type={type} placeholder={place} />;
   }
@@ -45,10 +38,10 @@ export class BuyerInfo extends Component {
   static createInputSelect() {
     return (
       <div>
-        <select name='Estados' id='estados-brasileiros'>
-          {Object.keys(estadosBrasileiros).forEach((key) => {
-            return <option value={estadosBrasileiros[key]}>{key}</option>;
-          })}
+        <select name="Estados" id="estados-brasileiros">
+          {Object.keys(estadosBrasileiros).forEach((key) =>
+            <option value={estadosBrasileiros[key]}>{key}</option>
+          )}
         </select>
       </div>
     );
@@ -63,7 +56,7 @@ export class BuyerInfo extends Component {
 
   render() {
     return (
-      <div className='input-data-cliente'>
+      <div className="input-data-cliente">
         <span>Informações do Comprador</span>
         <div>
           {BuyerInfo.createInput('text', 'Nome Completo', 'nome-usuário')}
