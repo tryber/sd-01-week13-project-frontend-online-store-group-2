@@ -11,7 +11,7 @@ class ItemCart extends React.Component {
   }
 
   componentDidMount() {
-    this.setQtd()
+    this.setQtd();
   }
 
   setQtd() {
@@ -61,6 +61,7 @@ class ItemCart extends React.Component {
 export default ItemCart;
 
 ItemCart.propTypes = {
+  changeState: PropTypes.func.isRequired,
   details: PropTypes.shape({
     id: PropTypes.string,
   }).isRequired,
