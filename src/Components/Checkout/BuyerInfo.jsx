@@ -40,7 +40,7 @@ export class BuyerInfo extends Component {
       <div>
         <select name="Estados" id="estados-brasileiros">
           {Object.keys(estadosBrasileiros).forEach((key) =>
-            <option value={estadosBrasileiros[key]}>{key}</option>
+            <option value={estadosBrasileiros[key]}>{key}</option>,
           )}
         </select>
       </div>
