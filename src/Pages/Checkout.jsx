@@ -6,6 +6,7 @@
 import React from 'react';
 import PaymentMethod from '../Components/Checkout/PaymentMethod';
 import '../Style/Checkout.css';
+import BuyerInfo from '../Components/Checkout/BuyerInfo';
 
 class Checkout extends React.Component {
 
@@ -13,6 +14,7 @@ class Checkout extends React.Component {
     return (
       <div>
         <div className="checkout-payment">
+          <BuyerInfo />
           <h3>Método de Pagamento</h3>
           <PaymentMethod />
         </div>
