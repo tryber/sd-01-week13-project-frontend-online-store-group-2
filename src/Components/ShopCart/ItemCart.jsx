@@ -11,6 +11,10 @@ class ItemCart extends React.Component {
   }
 
   componentDidMount() {
+    this.setQtd()
+  }
+
+  setQtd() {
     const { details } = this.props;
     this.setState({ qtd: details.qtd });
   }
@@ -34,20 +38,20 @@ class ItemCart extends React.Component {
     return (
       <div className="content-shopcart">
         <div>
-          <p onClick={() => this.removeItem(details.id)}>X</p>
+          <button type="button" onClick={() => this.removeItem(details.id)}>X</button>
           <img src={details.thumbnail} alt="product" />
           <p>
             {details.title}
           </p>
-          <p onClick={() => this.changeQtd(this.state.qtd - 1)}>-</p>
+          <button type="button" onClick={() => this.changeQtd(this.state.qtd - 1)}>-</button>
           <p>{this.state.qtd}</p>
-          <p onClick={() => this.changeQtd(this.state.qtd + 1)}>+</p>
+          <button type="button" onClick={() => this.changeQtd(this.state.qtd + 1)}>+</button>
           <p>
             {`Max-${details.available_quantity}`}
           </p>
-          <p>
+          <button type="button">
             {`R$ ${details.price * this.state.qtd}`}
-          </p>
+          </button>
         </div>
       </div>
     );

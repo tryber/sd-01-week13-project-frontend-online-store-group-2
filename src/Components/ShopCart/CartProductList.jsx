@@ -29,7 +29,7 @@ class CartProductList extends React.Component {
   render() {
     if (LocalStorageApi.AllItens().length === 0) {
       return (<div className="content-center">
-      <img src={emptyBox} alt="empty Box" className="empty-box"/>
+        <img src={emptyBox} alt="empty Box" className="empty-box" />
         <p>Seu Carrinho Está Vazio</p>
       </div>
       );
