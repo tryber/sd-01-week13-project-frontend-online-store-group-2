@@ -19,7 +19,7 @@ h3 , p {
 
 .card-product {
   align-items: center;
-  background: #fff;
+  background: white;
   border-radius: 10px;
   box-shadow: 0 25.868px 38.802px rgba(0, 0, 0, 0.08);
   display: flex;
@@ -40,7 +40,7 @@ h3 , p {
 }
 
 .value {
-  color: #594Ca9;
+  color: #594ca9;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -53,11 +53,11 @@ h3 , p {
   background: #fb4e4e;
   border-radius: 0 0 10px 10px;
   bottom: 0;
-  color: #fff;
+  color: white;
   cursor: pointer;
   display: flex;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
   height: 44.25px;
   justify-content: center;
   line-height: 12px;
@@ -72,11 +72,11 @@ h3 , p {
   background: #433885;
   border-radius: 0 0 10px 10px;
   bottom: 0;
-  color: #ffffff;
+  color: white;
   cursor: pointer;
   display: flex;
   font-size: 12px;
-  font-weight: bold;
+  font-weight: 700;
   height: 44.25px;
   justify-content: center;
   line-height: 12px;
@@ -105,11 +105,11 @@ h3 , p {
 }
 
 @keyframes fadeInUp {
-	
+
   from {
     opacity: 0;
   }
-	
+
   to {
     opacity: 1;
   }

@@ -18,12 +18,12 @@ class ShopCart extends React.Component {
     };
   }
 
-  setBuyerCar(){
-    this.setState({ buyerCar: LocalStorageApi.AllItens() });
+  componentDidMount() {
+    this.setBuyerCar();
   }
 
-  componentDidMount(){
-    this.setBuyerCar();
+  setBuyerCar() {
+    this.setState({ buyerCar: LocalStorageApi.AllItens() });
   }
 
   render() {
