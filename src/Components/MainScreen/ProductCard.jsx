@@ -31,7 +31,6 @@ class ProductCard extends Component {
       available_quantity,
       qtd: LocalStorageApi.getQtd(id),
     };
-    
     if (this.state.added) {
       LocalStorageApi.setNewItem(obj);
     } else {
@@ -48,7 +47,7 @@ class ProductCard extends Component {
   }
 
   changeQtd(value) {
-    this.setState({ qtd: value })
+    this.setState({ qtd: value });
   }
 
   addUnitProduct() {
@@ -58,7 +57,7 @@ class ProductCard extends Component {
     if (value < this.props.item.available_quantity) {
       LocalStorageApi.UpdateItemQtd(id, value);
       this.changeQtd(value);
-    };
+    }
   }
 
   createButton(value) {
@@ -88,7 +87,7 @@ class ProductCard extends Component {
           +
         </button>
       </div>
-    )
+    );
   }
 
   render() {
@@ -130,5 +129,6 @@ ProductCard.propTypes = {
     price: PropTypes.number,
     title: PropTypes.string,
     thumbnail: PropTypes.string,
+    available_quantity: PropTypes.number,
   }).isRequired,
 };
