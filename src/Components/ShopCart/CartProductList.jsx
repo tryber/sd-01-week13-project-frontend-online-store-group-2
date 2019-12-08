@@ -1,7 +1,9 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ItemCart from './ItemCart.jsx';
 import emptyBox from '../../image/empty-box.png';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
+import '../../Style/CartProductList.css';
 
 class CartProductList extends React.Component {
   constructor(props) {
@@ -35,16 +37,20 @@ class CartProductList extends React.Component {
       );
     }
     return (
-      <div className="content-shopcart">
-        {LocalStorageApi.AllItens()
-          .map((produto) =>
-            <ItemCart
-              key={produto.id}
-              details={produto}
-              changeState={this.changeUpdate}
-            />)}
-
-        <p>{`Valor Total da Compra: R$ ${this.state.valueTotal}`}</p>
+      <div className="Cart-Product-List">
+        <div className="list-itens">
+          {LocalStorageApi.AllItens()
+            .map((produto) =>
+              <ItemCart
+                key={produto.id}
+                details={produto}
+                changeState={this.changeUpdate}
+              />)}
+        </div>
+        <p className="total-price ">
+          {`Valor Total da Compra: R$ ${parseFloat(this.state.valueTotal.toFixed(2))}`}
+        </p>
+        <Link className="btn-checkout" to="/checkout">Finalizar Compra</Link>
       </div>
     );
   }

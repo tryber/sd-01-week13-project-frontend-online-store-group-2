@@ -45,12 +45,6 @@ export class BuyerInfo extends Component {
       </div>
     );
   }
-  constructor(props) {
-    super(props);
-    this.createeInput = this.createInput.bind(this);
-    this.createInputSelect = this.createInputSelect.bind(this);
-    this.estadosBrasileiros = this.estadosBrasileiros.bind(this);
-  }
   render() {
     return (
       <div className="input-data-cliente">

@@ -31,10 +31,9 @@ class ShopCart extends React.Component {
     if (buyerCar.length === 0) return <EmptyCart />;
 
     return (
-      <div className="content-shopcart">
+      <div className="Shop-Car">
         <ShopCartHeader />
         <div className="content-product-list">
-          <p>PRODUTOS</p>
           <CartProductList />
         </div>
       </div>
