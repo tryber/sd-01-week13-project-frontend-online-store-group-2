@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import ItemCart from './ItemCart.jsx';
 import emptyBox from '../../image/empty-box.png';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
@@ -47,9 +48,7 @@ class CartProductList extends React.Component {
               />)}
         </div>
         <p>{`Valor Total da Compra: R$ ${parseFloat(this.state.valueTotal.toFixed(2))}`}</p>
-      <button>
-        Finalizar Compra
-      </button>
+        <Link to="/checkout">Finalizar Compra</Link>
       </div>
     );
   }
