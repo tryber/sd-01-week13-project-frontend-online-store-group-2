@@ -47,8 +47,10 @@ class CartProductList extends React.Component {
                 changeState={this.changeUpdate}
               />)}
         </div>
-        <p>{`Valor Total da Compra: R$ ${parseFloat(this.state.valueTotal.toFixed(2))}`}</p>
-        <Link to="/checkout">Finalizar Compra</Link>
+        <p className="total-price ">
+          {`Valor Total da Compra: R$ ${parseFloat(this.state.valueTotal.toFixed(2))}`}
+        </p>
+        <Link className="btn-checkout" to="/checkout">Finalizar Compra</Link>
       </div>
     );
   }

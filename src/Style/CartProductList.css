@@ -1,3 +1,20 @@
+.btn-checkout {
+  align-items: center;
+  color: black;
+  border:2px black solid;
+  font-size: 22px;
+  padding: 20px;
+  margin-bottom: 60px;
+  margin-left: 60px;
+  text-decoration: none;
+  width: 170px;
+}
+
+.btn-checkout:hover {
+transform: scale(1.1);
+}
+
+
 .Cart-Product-List {
   display: flex;
   flex-direction: column;
@@ -7,4 +24,11 @@
   display: flex;
   flex-direction: column;
   margin-left: 50px;
+}
+
+.total-price {
+  font-size: 20px;
+  height: 60px;
+  margin-left: 60px;
+  margin-top: 60px;
 }
