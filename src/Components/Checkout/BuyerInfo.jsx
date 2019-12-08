@@ -29,7 +29,7 @@ const estadosBrasileiros = [
   'Sergipe',
   'Tocantins',
   'Estrangeiro',
-]
+];
 
 export class BuyerInfo extends Component {
   static createInput(type, place, id) {
