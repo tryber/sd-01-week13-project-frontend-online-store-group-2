@@ -6,6 +6,7 @@ import '../Style/ShopCartLink.css';
 
 class ShopCartLink extends React.Component {
   render() {
+    console.log('rodo');
     return (
       <Link
         to={{
@@ -13,7 +14,7 @@ class ShopCartLink extends React.Component {
         }}
       >
         <div className="content">
-          <span className="number-cart">3</span>
+          <span className="number-cart">{this.props.qtdTotal}</span>
           <img
             src={cartShop}
             alt="Cart"

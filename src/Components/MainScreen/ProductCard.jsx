@@ -10,17 +10,26 @@ class ProductCard extends Component {
     super(props);
     this.state = {
       added: false,
-      qtd: 1,
     };
 
-    this.toggle = this.toggle.bind(this);
-    this.changeQtd = this.changeQtd.bind(this);
-    this.createButton = this.createButton.bind(this);
     this.addUnitProduct = this.addUnitProduct.bind(this);
     this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
+    this.removeItem = this.removeItem.bind(this);
+    this.addItem = this.addItem.bind(this);
+    this.createButtonAddItem = this.createButtonAddItem.bind(this);
+    this.createButtonRemoveItem = this.createButtonRemoveItem.bind(this);
   }
 
-  componentDidUpdate() {
+
+  removeItem(func) {
+    const { item } = this.props;
+    const { id } = item;
+    LocalStorageApi.removeItem(id);
+    this.setState({ added: false });
+    func();
+  }
+
+  addItem(func) {
     const { item } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
     const obj = {
@@ -29,61 +38,48 @@ class ProductCard extends Component {
       title,
       thumbnail,
       available_quantity,
-      qtd: LocalStorageApi.getQtd(id),
+      qtd: 1,
     };
-    if (this.state.added) {
-      LocalStorageApi.setNewItem(obj);
-    } else {
-      const value = LocalStorageApi.getItem(id);
-      if (value !== null) {
-        LocalStorageApi.removeItem(id);
-        this.changeQtd(1);
-      }
-    }
+    LocalStorageApi.setNewItem(obj);
+    this.setState({ added: true });
+    func();
   }
 
-  toggle() {
-    this.setState({ added: !this.state.added });
-  }
-
-  changeQtd(value) {
-    this.setState({ qtd: value });
-  }
-
-  addUnitProduct() {
-    const { qtd } = this.state;
+  addUnitProduct(func) {
     const { id } = this.props.item;
-    const value = qtd + 1;
+    const value = LocalStorageApi.getQtd(id) + 1;
     if (value < this.props.item.available_quantity) {
       LocalStorageApi.UpdateItemQtd(id, value);
-      this.changeQtd(value);
     }
+    func();
   }
 
-  createButton(value) {
-    let name;
-    let label;
-    if (value) {
-      name = 'buttonAddCart';
-      label = 'Adicionar Item';
-    } else {
-      name = 'buttonRemoveCart';
-      label = 'remover Item';
-    }
+  createButtonAddItem() {
+    const { onChange } = this.props;
     return (
-      <button type="button" onClick={this.toggle} className={name} >
-        {label}
+      <button type="button" onClick={() => this.addItem(onChange)} className="buttonAddCart" >
+        Adicionar Item
       </button>
     );
   }
 
+  createButtonRemoveItem() {
+    const { onChange } = this.props;
+    return (
+      <button type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
+        Remover Item
+    </button>
+    );
+  }
+
   createButtonMoreItem() {
+    const { onChange, item } = this.props;
     return (
       <div className="div-qtd">
         <div>
-          <span>{this.state.qtd}</span>
+          <span>{LocalStorageApi.getQtd(item.id)}</span>
         </div>
-        <button type="button" className="btn-qtd" onClick={this.addUnitProduct}>
+        <button type="button" className="btn-qtd" onClick={() => this.addUnitProduct(onChange)}>
           +
         </button>
       </div>
@@ -111,7 +107,8 @@ class ProductCard extends Component {
             <img className="img-product" alt="imagem do produto" src={thumbnail} />
           </div>
           {this.state.added && this.createButtonMoreItem()}
-          {this.createButton(this.state.added)}
+          {!this.state.added && this.createButtonAddItem()}
+          {this.state.added && this.createButtonRemoveItem()}
           <Link to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
             +
           </Link>
