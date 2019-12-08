@@ -9,6 +9,8 @@ class ItemCart extends React.Component {
     this.state = {
       qtd: 1,
     };
+
+    this.setQtd = this.setQtd.bind(this);
   }
 
   componentDidMount() {
@@ -16,8 +18,8 @@ class ItemCart extends React.Component {
   }
 
   setQtd() {
-    const { details } = this.props;
-    this.setState({ qtd: details.qtd });
+    const { id } = this.props.details;
+    this.setState({ qtd: LocalStorageApi.getItem(id).qtd });
   }
 
   changeQtd(value) {
@@ -40,7 +42,7 @@ class ItemCart extends React.Component {
       <div className="content-shopcart">
         <button type="button" className="btn" onClick={() => this.removeItem(details.id)}>X</button>
         <div className="div-img">
-          <img className="img-product" src={details.thumbnail} alt="product" />
+          <img className="img-product-car" src={details.thumbnail} alt="product" />
         </div>
         <p className="name-product">
           {details.title}
