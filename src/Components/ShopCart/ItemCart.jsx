@@ -46,9 +46,13 @@ class ItemCart extends React.Component {
           {details.title}
         </p>
         <div className="qtd-product">
-          <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd - 1)}>-</button>
+          <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd - 1)}>
+            -
+          </button>
           <p>{this.state.qtd}</p>
-          <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd + 1)}>+</button>
+          <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd + 1)}>
+            +
+          </button>
           <p>
             {`Avaliable  ${details.available_quantity}`}
           </p>

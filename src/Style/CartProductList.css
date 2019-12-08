@@ -6,6 +6,5 @@
 .list-itens {
   display: flex;
   flex-direction: column;
-  border:1px black solid;
   margin-left: 50px;
 }
