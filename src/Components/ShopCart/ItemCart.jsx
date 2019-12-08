@@ -36,7 +36,7 @@ class ItemCart extends React.Component {
       <div className="content-shopcart">
         <div>
           <p onClick={()=>this.removeItem(details.id)}>X</p>
-          <img src={details.thumbnail} />
+          <img src={details.thumbnail} alt="product card"/>
           <p>
             {details.title}
           </p>

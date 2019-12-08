@@ -10,6 +10,8 @@ import SearchBar from '../Components/MainScreen/SearchBar';
 import Categories from '../Components/MainScreen/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
 import ProductList from '../Components/MainScreen/ProductList';
+import '../Style/MainScreen.css'
+
 
 export class MainScreen extends Component {
   constructor(props) {
