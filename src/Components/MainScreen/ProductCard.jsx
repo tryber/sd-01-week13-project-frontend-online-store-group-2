@@ -23,7 +23,15 @@ class ProductCard extends Component {
   componentDidUpdate() {
     const { item } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
-    const obj = { id, price, title, thumbnail, available_quantity, qtd: LocalStorageApi.getQtd(id) };
+    const obj = {
+      id,
+      price,
+      title,
+      thumbnail,
+      available_quantity,
+      qtd: LocalStorageApi.getQtd(id),
+    };
+    
     if (this.state.added) {
       LocalStorageApi.setNewItem(obj);
     } else {
@@ -40,14 +48,14 @@ class ProductCard extends Component {
   }
 
   changeQtd(value) {
-    this.setState({qtd:value})
+    this.setState({ qtd: value })
   }
 
-  addUnitProduct(){
+  addUnitProduct() {
     const { qtd } = this.state;
-    const { id, available_quantity } = this.props.item;
-    const value = qtd + 1; 
-    if (value < available_quantity ) {
+    const { id } = this.props.item;
+    const value = qtd + 1;
+    if (value < this.props.item.available_quantity) {
       LocalStorageApi.UpdateItemQtd(id, value);
       this.changeQtd(value);
     };

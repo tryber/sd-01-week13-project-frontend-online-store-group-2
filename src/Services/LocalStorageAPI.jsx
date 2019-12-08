@@ -33,8 +33,8 @@ export const valueTotal = () => (
 );
 
 export const getQtd = (id) => {
-  if(getItem(id)){
+  if (getItem(id)) {
     return getItem(id).qtd;
   }
   return 1;
-}
+};
