@@ -38,7 +38,7 @@ class ItemCart extends React.Component {
     const { details } = this.props;
     return (
       <div className="content-shopcart">
-        <button type="button" className="symbol" onClick={() => this.removeItem(details.id)}>X</button>
+        <button type="button" className="btn" onClick={() => this.removeItem(details.id)}>X</button>
         <div className="div-img">
           <img className="img-product" src={details.thumbnail} alt="product" />
         </div>
@@ -46,9 +46,9 @@ class ItemCart extends React.Component {
           {details.title}
         </p>
         <div className="qtd-product">
-          <button type="button" className="symbol" onClick={() => this.changeQtd(this.state.qtd - 1)}>-</button>
+          <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd - 1)}>-</button>
           <p>{this.state.qtd}</p>
-          <button type="button" className="symbol" onClick={() => this.changeQtd(this.state.qtd + 1)}>+</button>
+          <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd + 1)}>+</button>
           <p>
             {`Avaliable  ${details.available_quantity}`}
           </p>
