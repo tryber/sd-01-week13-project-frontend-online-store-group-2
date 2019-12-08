@@ -9,6 +9,8 @@ class ItemCart extends React.Component {
     this.state = {
       qtd: 1,
     };
+
+    this.setQtd = this.setQtd.bind(this);
   }
 
   componentDidMount() {
@@ -16,8 +18,8 @@ class ItemCart extends React.Component {
   }
 
   setQtd() {
-    const { details } = this.props;
-    this.setState({ qtd: details.qtd });
+    const { id } = this.props.details;
+    this.setState({ qtd: LocalStorageApi.getItem(id).qtd });
   }
 
   changeQtd(value) {

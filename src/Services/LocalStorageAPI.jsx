@@ -31,3 +31,10 @@ export const valueTotal = () => (
     return total;
   }, 0)
 );
+
+export const getQtd = (id) => {
+  if(getItem(id)){
+    return getItem(id).qtd;
+  }
+  return 1;
+}

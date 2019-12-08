@@ -10,28 +10,47 @@ class ProductCard extends Component {
     super(props);
     this.state = {
       added: false,
+      qtd: 1,
     };
 
     this.toggle = this.toggle.bind(this);
+    this.changeQtd = this.changeQtd.bind(this);
     this.createButton = this.createButton.bind(this);
+    this.addUnitProduct = this.addUnitProduct.bind(this);
+    this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
   }
 
   componentDidUpdate() {
     const { item } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
-    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
+    const obj = { id, price, title, thumbnail, available_quantity, qtd: LocalStorageApi.getQtd(id) };
     if (this.state.added) {
       LocalStorageApi.setNewItem(obj);
     } else {
       const value = LocalStorageApi.getItem(id);
       if (value !== null) {
         LocalStorageApi.removeItem(id);
+        this.changeQtd(1);
       }
     }
   }
 
   toggle() {
     this.setState({ added: !this.state.added });
+  }
+
+  changeQtd(value) {
+    this.setState({qtd:value})
+  }
+
+  addUnitProduct(){
+    const { qtd } = this.state;
+    const { id, available_quantity } = this.props.item;
+    const value = qtd + 1; 
+    if (value < available_quantity ) {
+      LocalStorageApi.UpdateItemQtd(id, value);
+      this.changeQtd(value);
+    };
   }
 
   createButton(value) {
@@ -49,6 +68,19 @@ class ProductCard extends Component {
         {label}
       </button>
     );
+  }
+
+  createButtonMoreItem() {
+    return (
+      <div className="div-qtd">
+        <div>
+          <span>{this.state.qtd}</span>
+        </div>
+        <button type="button" className="btn-qtd" onClick={this.addUnitProduct}>
+          +
+        </button>
+      </div>
+    )
   }
 
   render() {
@@ -71,6 +103,7 @@ class ProductCard extends Component {
           <div className="info-product">
             <img className="img-product" alt="imagem do produto" src={thumbnail} />
           </div>
+          {this.state.added && this.createButtonMoreItem()}
           {this.createButton(this.state.added)}
           <Link to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
             +
