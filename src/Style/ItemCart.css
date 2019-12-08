@@ -13,7 +13,7 @@
   cursor: pointer;
   font-size: 35px;
   height: 60px;
-  width:60px;
+  width: 60px;
 }
 
 .btn:hover {
@@ -27,7 +27,7 @@
 .img-product {
   border:2px black solid;
   margin: 4px;
-  max-width:120px;
+  max-width: 120px;
 }
 
 .name-product {
@@ -39,21 +39,21 @@
   display: flex;
   justify-content: space-between;
   padding: 0 20px;
-  width:250px;
+  width: 250px;
 }
 
 .qtd-product p {
   font-size: 20px;
   height: 60px;
-  margin-top:20px;
+  margin-top: 20px;
   text-align: center;
-  width:60px;
+  width: 60px;
 }
 
 .total {
   font-size: 20px;
   height: 60px;
-  margin-top:20px;
+  margin-top: 20px;
   text-align: center;
-  width:140px;
+  width: 140px;
 }
