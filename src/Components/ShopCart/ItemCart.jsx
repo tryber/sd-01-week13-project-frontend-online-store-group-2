@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
+import '../../Style/ItemCart.css';
 
 class ItemCart extends React.Component {
   constructor(props) {
@@ -37,22 +38,24 @@ class ItemCart extends React.Component {
     const { details } = this.props;
     return (
       <div className="content-shopcart">
-        <div>
-          <button type="button" onClick={() => this.removeItem(details.id)}>X</button>
-          <img src={details.thumbnail} alt="product" />
-          <p>
-            {details.title}
-          </p>
-          <button type="button" onClick={() => this.changeQtd(this.state.qtd - 1)}>-</button>
-          <p>{this.state.qtd}</p>
-          <button type="button" onClick={() => this.changeQtd(this.state.qtd + 1)}>+</button>
-          <p>
-            {`Max-${details.available_quantity}`}
-          </p>
-          <button type="button">
-            {`R$ ${details.price * this.state.qtd}`}
-          </button>
+        <button type="button" className="symbol" onClick={() => this.removeItem(details.id)}>X</button>
+        <div className="div-img">
+          <img className="img-product" src={details.thumbnail} alt="product" />
         </div>
+        <p className="name-product">
+          {details.title}
+        </p>
+        <div className="qtd-product">
+          <button type="button" className="symbol" onClick={() => this.changeQtd(this.state.qtd - 1)}>-</button>
+          <p>{this.state.qtd}</p>
+          <button type="button" className="symbol" onClick={() => this.changeQtd(this.state.qtd + 1)}>+</button>
+          <p>
+            {`Avaliable  ${details.available_quantity}`}
+          </p>
+        </div>
+        <span className="total">
+          {`R$ ${parseFloat((details.price * this.state.qtd).toFixed(2))}`}
+        </span>
       </div>
     );
   }
