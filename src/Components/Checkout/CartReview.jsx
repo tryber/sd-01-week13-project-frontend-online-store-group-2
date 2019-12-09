@@ -3,7 +3,6 @@ import * as LocalStorageApi from '../../Services/LocalStorageAPI';
 import '../../Style/CartReview.css';
 
 class CartReview extends React.Component {
-  
   render() {
     const createItens = ({ thumbnail, title, price, id, qtd }) => (
       <div className="itens" key={id}>
