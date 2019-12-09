@@ -75,9 +75,12 @@ class ProductCard extends Component {
   createButtonRemoveItem() {
     const { onChange } = this.props;
     return (
-      <button type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
-        Remover Item
-    </button>
+      <div className="show-btn-remove">
+        <button type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
+          Remover Item
+        </button>
+        {this.createButtonMoreItem()}
+      </div>
     );
   }
 
@@ -85,13 +88,13 @@ class ProductCard extends Component {
     const { onChange, item } = this.props;
     return (
       <div className="div-qtd">
+        <button type="button" className="left" onClick={() => this.addUnitProduct(onChange)}>
+          +
+        </button>
         <div className="text-qtd">
           <span>{LocalStorageApi.getQtd(item.id)}</span>
         </div>
-        <button type="button" onClick={() => this.addUnitProduct(onChange)}>
-          +
-        </button>
-        <button type="button" onClick={() => this.removeUnitProduct(onChange)}>
+        <button type="button" className="right" onClick={() => this.removeUnitProduct(onChange)}>
           -
         </button>
       </div>
@@ -121,7 +124,6 @@ class ProductCard extends Component {
           <Link className="info" to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
             +Info
           </Link>
-          {this.state.added && this.createButtonMoreItem()}
           {!this.state.added && this.createButtonAddItem()}
           {this.state.added && this.createButtonRemoveItem()}
         </div>
