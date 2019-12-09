@@ -10,6 +10,7 @@ import SearchBar from '../Components/MainScreen/SearchBar';
 import Categories from '../Components/MainScreen/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
 import ProductList from '../Components/MainScreen/ProductList';
+import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
 export class MainScreen extends Component {
   constructor(props) {
@@ -18,10 +19,16 @@ export class MainScreen extends Component {
       searchText: '',
       category: '',
       enterClick: false,
+      qtdTotal: 0,
     };
 
     this.changeHandlerSearch = this.changeHandlerSearch.bind(this);
     this.changeSelectedOption = this.changeSelectedOption.bind(this);
+    this.changeQtd = this.changeQtd.bind(this);
+  }
+
+  componentDidMount() {
+    this.changeQtd();
   }
 
 
@@ -32,6 +39,10 @@ export class MainScreen extends Component {
     });
   }
 
+  changeQtd() {
+    this.setState({ qtdTotal: LocalStorageApi.qtdTotal() });
+  }
+
   changeSelectedOption(value) {
     this.setState({
       category: value,
@@ -39,16 +50,17 @@ export class MainScreen extends Component {
   }
 
   render() {
-    const { searchText, category, enterClick, buyerCar } = this.state;
+    const { searchText, category, enterClick, qtdTotal } = this.state;
     return (
       <div>
         <SearchBar onSearchTextChange={this.changeHandlerSearch} />
-        <ShopCartLink buyerCar={buyerCar} />
+        <ShopCartLink qtdTotal={qtdTotal} />
         <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
         <ProductList
           goSearch={enterClick}
           searchText={searchText}
           category={category}
+          onChange={this.changeQtd}
         />
       </div>
     );
