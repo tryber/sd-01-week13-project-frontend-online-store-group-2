@@ -9,7 +9,7 @@ class EmptyCart extends React.Component {
     return (
       <div className="content-shopcart">
         <ShopCartHeader />
-        <div className="content-center">
+        <div className="content-empty">
           <img
             src={emptyBox}
             alt="empty Box"

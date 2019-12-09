@@ -11,9 +11,9 @@ import Categories from '../Components/MainScreen/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
 import ProductList from '../Components/MainScreen/ProductList';
 import logo from '../image/logo.svg';
-
-
 import '../Style/MainScreen.css'
+
+import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
 export class MainScreen extends Component {
   constructor(props) {
@@ -22,10 +22,16 @@ export class MainScreen extends Component {
       searchText: '',
       category: '',
       enterClick: false,
+      qtdTotal: 0,
     };
 
     this.changeHandlerSearch = this.changeHandlerSearch.bind(this);
     this.changeSelectedOption = this.changeSelectedOption.bind(this);
+    this.changeQtd = this.changeQtd.bind(this);
+  }
+
+  componentDidMount() {
+    this.changeQtd();
   }
 
 
@@ -36,6 +42,10 @@ export class MainScreen extends Component {
     });
   }
 
+  changeQtd() {
+    this.setState({ qtdTotal: LocalStorageApi.qtdTotal() });
+  }
+
   changeSelectedOption(value) {
     this.setState({
       category: value,
@@ -43,22 +53,25 @@ export class MainScreen extends Component {
   }
 
   render() {
-    const { searchText, category, enterClick, buyerCar } = this.state;
+    const { searchText, category, enterClick, qtdTotal } = this.state;
     return (
       <div>
         <header className="header">
           <img className="logo" src={logo} alt="break-store"/>
           <SearchBar onSearchTextChange={this.changeHandlerSearch} />
-          <ShopCartLink  buyerCar={buyerCar} />
+          <ShopCartLink qtdTotal={qtdTotal} />
         </header>
-        <section className="categories">
-          <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
+        <section className="container-content">
+          <div className="categories">
+            <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
+          </div>
+          <ProductList
+            goSearch={enterClick}
+            searchText={searchText}
+            category={category}
+            onChange={this.changeQtd}
+          />
         </section>
-        <ProductList
-          goSearch={enterClick}
-          searchText={searchText}
-          category={category}
-        />
       </div>
     );
   }

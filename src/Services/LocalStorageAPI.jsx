@@ -38,3 +38,11 @@ export const getQtd = (id) => {
   }
   return 1;
 };
+
+export const qtdTotal = () => (
+  AllItens().reduce((acc, item) => {
+    let total = acc;
+    total += item.qtd;
+    return total;
+  }, 0)
+);
