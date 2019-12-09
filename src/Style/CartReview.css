@@ -1,0 +1,14 @@
+.list-cartReview {
+  border: 2px black solid;
+  display: flex;
+  flex-direction: column;
+  padding: 50px;
+}
+
+.list-cartReview .itens {
+  display: flex;
+}
+
+.list-cartReview .qtd-product {
+  width: 50px;
+}
