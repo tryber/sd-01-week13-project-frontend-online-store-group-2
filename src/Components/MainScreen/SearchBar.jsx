@@ -12,13 +12,13 @@ class SearchBar extends React.Component {
 
   createInput() {
     return (
-        <input
-          className="search"
-          id="search"
-          type="text"
-          placeholder="O que está procurando ?"
-          onKeyPress={(e) => this.KeyPress(e)}
-        />
+      <input
+        className="search"
+        id="search"
+        type="text"
+        placeholder="O que está procurando ?"
+        onKeyPress={(e) => this.KeyPress(e)}
+      />
     );
   }
 

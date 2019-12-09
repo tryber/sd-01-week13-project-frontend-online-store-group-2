@@ -11,7 +11,7 @@ import Categories from '../Components/MainScreen/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
 import ProductList from '../Components/MainScreen/ProductList';
 import * as LocalStorageApi from '../Services/LocalStorageAPI';
-import '../Style/MainScreen.css'
+import '../Style/MainScreen.css';
 
 export class MainScreen extends Component {
   constructor(props) {

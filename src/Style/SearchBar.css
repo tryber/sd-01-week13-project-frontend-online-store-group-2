@@ -6,8 +6,7 @@
 
 .search {
   background-image: url('../image/002-search.svg');
-  background-position-x: 20px;
-  background-position-y: 5px;
+  background-position: 20px;
   background-repeat: no-repeat;
   background-size: 30px;
   border-radius: 100px;
