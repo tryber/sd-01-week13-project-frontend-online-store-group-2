@@ -42,7 +42,7 @@ export const getQtd = (id) => {
 export const qtdTotal = () => (
   AllItens().reduce((acc, item) => {
     let total = acc;
-    total +=item.qtd;
+    total += item.qtd;
     return total;
   }, 0)
 );

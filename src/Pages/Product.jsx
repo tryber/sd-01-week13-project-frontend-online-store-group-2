@@ -20,7 +20,7 @@ export class Product extends Component {
       <div className="product">
         <header className="product-header">
           <PreviousLink />
-          <ShopCartLink qtdTotal={LocalStorageApi.qtdTotal()}/>
+          <ShopCartLink qtdTotal={LocalStorageApi.qtdTotal()} />
         </header>
         <div className="product-title">
           {`${productDetails.title} - R$${productDetails.price}`}

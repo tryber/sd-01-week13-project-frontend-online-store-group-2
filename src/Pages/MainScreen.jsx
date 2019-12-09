@@ -40,8 +40,6 @@ export class MainScreen extends Component {
   }
 
   changeQtd() {
-    console.log(this.state.qtdTotal)
-    console.log(LocalStorageApi.qtdTotal())
     this.setState({ qtdTotal: LocalStorageApi.qtdTotal() });
   }
 

@@ -121,6 +121,7 @@ class ProductCard extends Component {
 export default ProductCard;
 
 ProductCard.propTypes = {
+  onChange: PropTypes.func.isRequired,
   item: PropTypes.shape({
     id: PropTypes.string,
     price: PropTypes.number,

@@ -29,7 +29,5 @@ class ShopCartLink extends React.Component {
 export default ShopCartLink;
 
 ShopCartLink.propTypes = {
-  buyerCar: PropTypes.shape({
-    id: PropTypes.string,
-  }).isRequired,
+  qtdTotal: PropTypes.number.isRequired,
 };
