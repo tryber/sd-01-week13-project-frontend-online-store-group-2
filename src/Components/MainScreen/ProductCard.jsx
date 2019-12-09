@@ -16,13 +16,13 @@ class ProductCard extends Component {
     this.changeQtd = this.changeQtd.bind(this);
     this.createButton = this.createButton.bind(this);
     this.addUnitProduct = this.addUnitProduct.bind(this);
+    this.removeUnitProduct = this.removeUnitProduct.bind(this);
     this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
   }
 
   componentDidUpdate() {
     const { item } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
-
     const obj = {
       id,
       price,
@@ -41,7 +41,7 @@ class ProductCard extends Component {
       }
     }
   }
-
+  
   toggle() {
     this.setState({ added: !this.state.added });
   }
@@ -59,6 +59,15 @@ class ProductCard extends Component {
       this.changeQtd(value);
     }
   }
+  removeUnitProduct() {
+    const { qtd } = this.state;
+    const { id } = this.props.item;
+    const value = qtd - 1;
+    if (value > 0) {
+      LocalStorageApi.UpdateItemQtd(id, value);
+      this.changeQtd(value);
+    }
+  }
 
   createButton(value) {
     let name;
@@ -66,9 +75,6 @@ class ProductCard extends Component {
     if (value) {
       name = 'button-add-cart';
       label = 'Adicionar Item';
-    } else {
-      name = 'button-remove-cart';
-      label = 'remover Item';
     }
     return (
       <button type="button" onClick={this.toggle} className={name} >
@@ -79,14 +85,16 @@ class ProductCard extends Component {
 
   createButtonMoreItem() {
     return (
-      <div className="div-qtd">
-        <div>
-          <span>{this.state.qtd}</span>
-        </div>
+      <div>
         <button type="button" className="btn-qtd" onClick={this.addUnitProduct}>
           +
         </button>
+        <button type="button" className="btn-qtd" onClick={this.removeUnitProduct}>
+          -
+        </button>
+        <span>{this.state.qtd}</span>
       </div>
+      
     );
   }
 
@@ -112,11 +120,13 @@ class ProductCard extends Component {
           <div className="info-product">
             <img className="img-product" alt="imagem do produto" src={thumbnail} />
           </div>
-          {this.state.added && this.createButtonMoreItem()}
-          {this.createButton(this.state.added)}
           <Link to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
             <span className="info">+Info</span>
           </Link>
+          <div className="container-button">
+          {this.createButton(!this.state.added || this.state.adder)}
+          {this.state.added && this.createButtonMoreItem()}
+          </div>
         </div>
       </section>
     );

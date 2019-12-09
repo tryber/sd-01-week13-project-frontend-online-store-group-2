@@ -1,6 +1,6 @@
 .content-center{
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     margin: 0 auto;
     width: 900px;
 }

@@ -1,8 +1,9 @@
 .icon-cart {
   border: none;
   cursor: pointer;
-  height: 45px;
-  width: 45px;
+  height: 30px;
+  width: 30px;
+  margin-left: -40px;
 }
 
 .content {
@@ -17,7 +18,7 @@
   bottom: 0;
   height: 20px;
   position: absolute;
-  right: 0;
+  left: 0;
   text-align: center;
   width: 20px;
 }

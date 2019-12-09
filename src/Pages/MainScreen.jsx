@@ -10,8 +10,10 @@ import SearchBar from '../Components/MainScreen/SearchBar';
 import Categories from '../Components/MainScreen/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
 import ProductList from '../Components/MainScreen/ProductList';
-import '../Style/MainScreen.css'
+import logo from '../image/logo.svg';
 
+
+import '../Style/MainScreen.css'
 
 export class MainScreen extends Component {
   constructor(props) {
@@ -44,9 +46,14 @@ export class MainScreen extends Component {
     const { searchText, category, enterClick, buyerCar } = this.state;
     return (
       <div>
-        <SearchBar onSearchTextChange={this.changeHandlerSearch} />
-        <ShopCartLink buyerCar={buyerCar} />
-        <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
+        <header className="header">
+          <img className="logo" src={logo} alt="break-store"/>
+          <SearchBar onSearchTextChange={this.changeHandlerSearch} />
+          <ShopCartLink  buyerCar={buyerCar} />
+        </header>
+        <section className="categories">
+          <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
+        </section>
         <ProductList
           goSearch={enterClick}
           searchText={searchText}

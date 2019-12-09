@@ -24,11 +24,7 @@ h3, p{
 .info:hover{
   text-decoration: underline;
 }
-.content-center{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+
 .info-product{
   display: flex;
   justify-content: center;
@@ -90,55 +86,33 @@ h3, p{
   font-weight: 600;
   line-height: 16px;
 }
-.button-remove-cart{
-  align-items: center;
-  background: #FB4E4E;
-  border-radius: 0 0 10px 10px;
-  bottom: 0;
-  color: #FFFFFF;
-  cursor:pointer;
-  display: flex;
-  opacity: 0;
-  font-family: Roboto Condensed;
-  font-size: 12px;
-  font-weight: bold;
-  height: 44.25px;
-  justify-content: center;
-  line-height: 12px;
-  position: static;
-  text-transform: uppercase;
-  width: 272px;
+
+.border{
+  border: 2px solid #594CA9;
+}
+
+.card-product > .button-add-cart{
+  align-self: flex-end;
 }
 .button-add-cart{
   align-items: center;
+  justify-content: center;
   background: #594CA9;
   border-radius: 0 0 10px 10px;
-  bottom: 0;
   color: #FFFFFF;
-  cursor:pointer;
+  cursor: pointer;
   display: flex;
   opacity: 0;
   font-family: Roboto Condensed;
   font-size: 12px;
   font-weight: bold;
   height: 44.25px;
-  justify-content: center;
   line-height: 12px;
-  position: absolute;
   text-transform: uppercase;
   width: 272px;
 }
 .button-add-cart:hover{
   background: #433885;
-}
-.border:hover > .button-remove-cart{
-  animation-name: fadeInUp;
-  animation-duration: 700ms;
-  animation-iteration-count: 1;
-  animation-fill-mode: forwards;
-}
-.border{
-  border: 2px solid #594CA9;
 }
 .card-product:hover > .button-add-cart{
   animation-name: fadeInUp;

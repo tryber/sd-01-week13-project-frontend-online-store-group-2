@@ -1,15 +1,17 @@
-.input-div {
-  display: flex;
-  justify-content: center;
-  margin: 0 auto;
+.input-search{
+  width: 927px;
+  height: 53px;
+  border-radius: 100px;
+  padding-left: 15px;
 }
 
-.input-search {
-  background-image: url('../image/002-search.svg');
-  background-repeat: no-repeat;
-  border-radius: 100px;
-  height: 3em;
-  margin-bottom: 2em;
-  margin-top: 2em;
-  width: 80em;
+.input-search::placeholder{
+  font-family: Raleway;
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #594CA9;
+  opacity: 1;
+  vertical-align: center;
 }

@@ -10,9 +10,9 @@ import CartProductList from '../Components/ShopCart/CartProductList';
 import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
 class ShopCart extends React.Component {
-
   constructor(props) {
     super(props);
+
     this.state = {
       buyerCar: [],
     };
