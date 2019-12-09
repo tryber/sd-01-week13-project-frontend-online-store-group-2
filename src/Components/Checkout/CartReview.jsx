@@ -3,26 +3,24 @@ import * as LocalStorageApi from '../../Services/LocalStorageAPI';
 import '../../Style/CartReview.css';
 
 class CartReview extends React.Component {
-
+  
   render() {
-    const createItens = ({ thumbnail, title, price, id, qtd }) => {
-      return (
-        <div className="itens" key={id}>
-          <div className="">
-            <img className="img-product-car" src={thumbnail} alt="product" />
-          </div>
-          <p className="name-product">
-            {title}
-          </p>
-          <div className="qtd-product">
-            <p>{qtd}</p>
-          </div>
-          <span className="total">
-            {`R$ ${parseFloat((price * qtd).toFixed(2))}`}
-          </span>
+    const createItens = ({ thumbnail, title, price, id, qtd }) => (
+      <div className="itens" key={id}>
+        <div className="">
+          <img className="img-product-car" src={thumbnail} alt="product" />
         </div>
-      )
-    }
+        <p className="name-product">
+          {title}
+        </p>
+        <div className="qtd-product">
+          <p>{qtd}</p>
+        </div>
+        <span className="total">
+          {`R$ ${parseFloat((price * qtd).toFixed(2))}`}
+        </span>
+      </div>
+    );
     return (
       <div className="CartReview">
         <h2>Revise seus Produtos</h2>
