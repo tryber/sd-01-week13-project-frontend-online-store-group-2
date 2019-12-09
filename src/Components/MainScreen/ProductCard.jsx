@@ -8,22 +8,36 @@ class ProductCard extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      added: false
+      added: false,
+      qtd: 1,
     };
 
     this.toggle = this.toggle.bind(this);
+    this.changeQtd = this.changeQtd.bind(this);
+    this.createButton = this.createButton.bind(this);
+    this.addUnitProduct = this.addUnitProduct.bind(this);
+    this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
   }
 
   componentDidUpdate() {
     const { item } = this.props;
     const { price, title, thumbnail, id, available_quantity } = item;
-    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
+
+    const obj = {
+      id,
+      price,
+      title,
+      thumbnail,
+      available_quantity,
+      qtd: LocalStorageApi.getQtd(id),
+    };
     if (this.state.added) {
       LocalStorageApi.setNewItem(obj);
     } else {
       const value = LocalStorageApi.getItem(id);
       if (value !== null) {
         LocalStorageApi.removeItem(id);
+        this.changeQtd(1);
       }
     }
   }
@@ -32,50 +46,77 @@ class ProductCard extends Component {
     this.setState({ added: !this.state.added });
   }
 
+  changeQtd(value) {
+    this.setState({ qtd: value });
+  }
+
+  addUnitProduct() {
+    const { qtd } = this.state;
+    const { id } = this.props.item;
+    const value = qtd + 1;
+    if (value < this.props.item.available_quantity) {
+      LocalStorageApi.UpdateItemQtd(id, value);
+      this.changeQtd(value);
+    }
+  }
+
+  createButton(value) {
+    let name;
+    let label;
+    if (value) {
+      name = 'button-add-cart';
+      label = 'Adicionar Item';
+    } else {
+      name = 'button-remove-cart';
+      label = 'remover Item';
+    }
+    return (
+      <button type="button" onClick={this.toggle} className={name} >
+        {label}
+      </button>
+    );
+  }
+
+  createButtonMoreItem() {
+    return (
+      <div className="div-qtd">
+        <div>
+          <span>{this.state.qtd}</span>
+        </div>
+        <button type="button" className="btn-qtd" onClick={this.addUnitProduct}>
+          +
+        </button>
+      </div>
+    );
+  }
+
   render() {
     const { item } = this.props;
     const { price, title, thumbnail, id } = item;
-    let cardClass = ["card-product"];
-    let titleSpace = title.split(" ");
+    const cardClass = ['card-product'];
+    const titleSpace = title.split(' ');
     if (this.state.added) {
-      cardClass.push("border");
+      cardClass.push('border');
     }
 
     return (
       <section className="content-center">
-        <div className={cardClass.join(" ")}>
+        <div className={cardClass.join(' ')}>
           <div className="title">
             <h3>{`${titleSpace[0]} ${titleSpace[1]}`}</h3>
-            <h3>{`${titleSpace[2]} ${titleSpace[3]}`}</h3>
+            <h3>{`${titleSpace[2]}`}</h3>
+          </div>
+          <div className="content-value">
             <p className="value">{`R$ ${price}`}</p>
-            <Link
-              to={{
-                pathname: `products/${id}`,
-                state: { productDetails: item }
-              }}
-            > <div className="content-info">
-                <span className="info">+Info</span>
-              </div>
-            </Link>
           </div>
           <div className="info-product">
-            <img
-              className="img-product"
-              alt="imagem do produto"
-              src={thumbnail}
-            />
+            <img className="img-product" alt="imagem do produto" src={thumbnail} />
           </div>
-          {!this.state.added && (
-            <span onClick={this.toggle.bind(this)} className="buttonAddCart">
-              Adicionar Item
-            </span>
-          )}
-          {this.state.added && (
-            <span onClick={this.toggle.bind(this)} className="buttonRemoveCart">
-              remover Item
-            </span>
-          )}
-          
+          {this.state.added && this.createButtonMoreItem()}
+          {this.createButton(this.state.added)}
+          <Link to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
+            <span className="info">+Info</span>
+          </Link>
         </div>
       </section>
     );
@@ -89,6 +130,7 @@ ProductCard.propTypes = {
     id: PropTypes.string,
     price: PropTypes.number,
     title: PropTypes.string,
-    thumbnail: PropTypes.string
-  }).isRequired
+    thumbnail: PropTypes.string,
+    available_quantity: PropTypes.number,
+  }).isRequired,
 };

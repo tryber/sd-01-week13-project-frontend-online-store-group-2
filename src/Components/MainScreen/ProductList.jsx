@@ -7,6 +7,7 @@ import * as ProductApi from '../../Services/ProductAPI';
 import ProductCard from './ProductCard';
 import '../../Style/ProductList.css'
 
+
 class ProductList extends Component {
   constructor(props) {
     super(props);

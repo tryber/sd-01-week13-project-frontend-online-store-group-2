@@ -10,17 +10,20 @@ import CartProductList from '../Components/ShopCart/CartProductList';
 import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
 class ShopCart extends React.Component {
-  constructor(props){
-    super(props);
 
+  constructor(props) {
+    super(props);
     this.state = {
-      buyerCar:[],
-    }
+      buyerCar: [],
+    };
   }
 
-  componentDidMount(){
-    console.log('teste')
-    this.setState({ buyerCar: LocalStorageApi.AllItens() })
+  componentDidMount() {
+    this.setBuyerCar();
+  }
+
+  setBuyerCar() {
+    this.setState({ buyerCar: LocalStorageApi.AllItens() });
   }
 
   render() {
@@ -28,10 +31,9 @@ class ShopCart extends React.Component {
     if (buyerCar.length === 0) return <EmptyCart />;
 
     return (
-      <div className="content-shopcart">
+      <div className="Shop-Car">
         <ShopCartHeader />
         <div className="content-product-list">
-          <p>PRODUTOS</p>
           <CartProductList />
         </div>
       </div>

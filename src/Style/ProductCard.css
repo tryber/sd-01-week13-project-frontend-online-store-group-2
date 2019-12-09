@@ -1,3 +1,4 @@
+
 h3, p{
   margin: 0;
 }
@@ -7,7 +8,6 @@ h3, p{
   justify-content: center;
   width: 50px;
   height: 25px;
-  position: absolute;
   top: 10px;
   right: 10px;
   font-style: none;
@@ -28,13 +28,13 @@ h3, p{
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 20px;
-  position: relative;
+}
+.info-product{
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .img-product{
-  position: static;
-  bottom: 76px;
-  right: 76px;
   height: 120px;
 }
 .card-product{
@@ -64,18 +64,24 @@ h3, p{
 }
   
 .title{
-  position: static;
+  display: flex;
+  flex-wrap: wrap;
   margin-left: -70px;
   margin-top: 10px;
   color: #0A1034;
+  width: 180px;
   font-family: Raleway;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 21px;
 }
+.content-value{
+  display: flex;
+}
 .value{
   margin-top: 5px;
+  margin-left: -125px;
   color: #594CA9;
   font-family: Raleway;
   font-feature-settings: 'pnum' on, 'lnum' on;
@@ -84,7 +90,7 @@ h3, p{
   font-weight: 600;
   line-height: 16px;
 }
-.buttonRemoveCart{
+.button-remove-cart{
   align-items: center;
   background: #FB4E4E;
   border-radius: 0 0 10px 10px;
@@ -103,7 +109,7 @@ h3, p{
   text-transform: uppercase;
   width: 272px;
 }
-.buttonAddCart{
+.button-add-cart{
   align-items: center;
   background: #594CA9;
   border-radius: 0 0 10px 10px;
@@ -122,10 +128,10 @@ h3, p{
   text-transform: uppercase;
   width: 272px;
 }
-.buttonAddCart:hover{
+.button-add-cart:hover{
   background: #433885;
 }
-.border:hover > .buttonRemoveCart{
+.border:hover > .button-remove-cart{
   animation-name: fadeInUp;
   animation-duration: 700ms;
   animation-iteration-count: 1;
@@ -134,7 +140,7 @@ h3, p{
 .border{
   border: 2px solid #594CA9;
 }
-.card-product:hover > .buttonAddCart{
+.card-product:hover > .button-add-cart{
   animation-name: fadeInUp;
   animation-duration: 700ms;
   animation-iteration-count: 1;
