@@ -11,6 +11,7 @@ import Categories from '../Components/MainScreen/Categories';
 import ShopCartLink from '../Components/ShopCartLink';
 import ProductList from '../Components/MainScreen/ProductList';
 import * as LocalStorageApi from '../Services/LocalStorageAPI';
+import '../Style/MainScreen.css'
 
 export class MainScreen extends Component {
   constructor(props) {
@@ -52,10 +53,14 @@ export class MainScreen extends Component {
   render() {
     const { searchText, category, enterClick, qtdTotal } = this.state;
     return (
-      <div>
-        <SearchBar onSearchTextChange={this.changeHandlerSearch} />
-        <ShopCartLink qtdTotal={qtdTotal} />
-        <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
+      <div className="MainScreen">
+        <div className="topo">
+          <SearchBar onSearchTextChange={this.changeHandlerSearch} />
+          <ShopCartLink qtdTotal={qtdTotal} />
+        </div>
+        <div className="Categories">
+          <Categories category={category} changeSelectedCategory={this.changeSelectedOption} />
+        </div>
         <ProductList
           goSearch={enterClick}
           searchText={searchText}

@@ -6,7 +6,7 @@ button:active , button:focus {
   border: none;
 }
 
-.content-center {
+.ProductList .content-center {
   align-items: center;
   display: flex;
   justify-content: center;
@@ -143,7 +143,6 @@ button:active , button:focus {
   background: lightgray;
   color: black;
   padding: 2px 4px;
-  position: absolute;
   text-align: center;
   text-decoration: none;
 }

@@ -6,9 +6,9 @@ import '../Style/ShopCartLink.css';
 
 class ShopCartLink extends React.Component {
   render() {
-    console.log('rodo');
     return (
       <Link
+        className="car-link"
         to={{
           pathname: '/shopcart',
         }}
