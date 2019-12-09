@@ -1,19 +1,18 @@
-// Componentes presentes:
-// - CartReview.jsx
-// - BuyerInfo.jsx
-// - PaymentMethod.jsx
-
 import React from 'react';
 import PaymentMethod from '../Components/Checkout/PaymentMethod';
 import '../Style/Checkout.css';
 import BuyerInfo from '../Components/Checkout/BuyerInfo';
+import CartReview from '../Components/Checkout/CartReview';
+import PreviousLink from '../Components/PreviousLink';
 
 class Checkout extends React.Component {
 
   render() {
     return (
-      <div>
+      <div className="Checkout">
+        <PreviousLink />
         <div className="checkout-payment">
+          <CartReview />
           <BuyerInfo />
           <h3>Método de Pagamento</h3>
           <PaymentMethod />
