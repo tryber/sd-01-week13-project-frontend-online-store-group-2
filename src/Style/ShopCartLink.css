@@ -21,3 +21,8 @@
   text-align: center;
   width: 20px;
 }
+
+.car-link {
+  justify-content: center;
+  padding-top: 40px;
+}

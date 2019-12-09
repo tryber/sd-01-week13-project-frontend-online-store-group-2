@@ -1,4 +1,7 @@
 .ProductList {
   display: flex;
   flex-wrap: wrap;
+  height: 85vh;
+  overflow: scroll;
+  width: 85%;
 }

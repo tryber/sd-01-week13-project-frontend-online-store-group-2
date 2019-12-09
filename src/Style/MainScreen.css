@@ -1,0 +1,25 @@
+.MainScreen {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.topo {
+  background: gray;
+  display: flex;
+  flex-direction: row;
+  height: 15vh;
+  justify-content: center;
+  width: 100%;
+}
+
+.search-bar {
+  width: 50%;
+}
+
+.Categories {
+  border: 2px black solid;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  position: relative;
+}
