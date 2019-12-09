@@ -76,7 +76,11 @@ class ProductCard extends Component {
     const { onChange } = this.props;
     return (
       <div className="show-btn-remove">
-        <button type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
+        <button
+          type="button"
+          onClick={() => this.removeItem(onChange)}
+          className="buttonRemoveCart"
+        >
           Remover Item
         </button>
         {this.createButtonMoreItem()}
