@@ -2,6 +2,11 @@ h3 , p {
   margin: 0;
 }
 
+button:active ,
+button:focus {
+  border: none;
+}
+
 .content-center {
   align-items: center;
   display: flex;
@@ -112,9 +117,9 @@ h3 , p {
   flex-direction: column;
   font-size: 20px;
   font-weight: 600;
-  padding: 5px 0 5px;
-  position: absolute;
   margin-right: 10px;
+  padding: 5px 0;
+  position: absolute;
 }
 
 .div-qtd button {
@@ -145,11 +150,7 @@ h3 , p {
   text-decoration: none;
 }
 
-button:active, 
-button:focus,
-button:hover {
-  border: none;
-}
+
 
 @keyframes fadeInUp {
 
