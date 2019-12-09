@@ -11,7 +11,7 @@ class ProductCard extends Component {
     this.state = {
       added: false,
     };
-
+    this.removeUnitProduct = this.removeUnitProduct.bind(this);
     this.addUnitProduct = this.addUnitProduct.bind(this);
     this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
     this.removeItem = this.removeItem.bind(this);
@@ -54,6 +54,15 @@ class ProductCard extends Component {
     func();
   }
 
+  removeUnitProduct(func) {
+    const { id } = this.props.item;
+    const value = LocalStorageApi.getQtd(id) - 1;
+    if (value > 0) {
+      LocalStorageApi.UpdateItemQtd(id, value);
+    }
+    func();
+  }
+
   createButtonAddItem() {
     const { onChange } = this.props;
     return (
@@ -81,6 +90,9 @@ class ProductCard extends Component {
         </div>
         <button type="button" onClick={() => this.addUnitProduct(onChange)}>
           +
+        </button>
+        <button type="button" onClick={() => this.removeUnitProduct(onChange)}>
+          -
         </button>
       </div>
     );
