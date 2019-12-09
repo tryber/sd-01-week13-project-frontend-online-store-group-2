@@ -88,13 +88,21 @@ class ProductCard extends Component {
     const { onChange, item } = this.props;
     return (
       <div className="div-qtd">
-        <button type="button" className="left" onClick={() => this.addUnitProduct(onChange)}>
+        <button
+          type="button"
+          className="left"
+          onClick={() => this.addUnitProduct(onChange)}
+        >
           +
         </button>
         <div className="text-qtd">
           <span>{LocalStorageApi.getQtd(item.id)}</span>
         </div>
-        <button type="button" className="right" onClick={() => this.removeUnitProduct(onChange)}>
+        <button
+          type="button"
+          className="right"
+          onClick={() => this.removeUnitProduct(onChange)}
+        >
           -
         </button>
       </div>
