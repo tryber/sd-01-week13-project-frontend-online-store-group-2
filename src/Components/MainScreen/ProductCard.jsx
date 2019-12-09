@@ -57,7 +57,7 @@ class ProductCard extends Component {
   createButtonAddItem() {
     const { onChange } = this.props;
     return (
-      <button type="button" onClick={() => this.addItem(onChange)} className="buttonAddCart" >
+      <button href="#" type="button" onClick={() => this.addItem(onChange)} className="buttonAddCart" >
         Adicionar Item
       </button>
     );
@@ -66,7 +66,7 @@ class ProductCard extends Component {
   createButtonRemoveItem() {
     const { onChange } = this.props;
     return (
-      <button type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
+      <button href="#" type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
         Remover Item
     </button>
     );
@@ -76,10 +76,10 @@ class ProductCard extends Component {
     const { onChange, item } = this.props;
     return (
       <div className="div-qtd">
-        <div>
+        <div className="text-qtd">
           <span>{LocalStorageApi.getQtd(item.id)}</span>
         </div>
-        <button type="button" className="btn-qtd" onClick={() => this.addUnitProduct(onChange)}>
+        <button href="#" type="button" onClick={() => this.addUnitProduct(onChange)}>
           +
         </button>
       </div>
@@ -106,12 +106,12 @@ class ProductCard extends Component {
           <div className="info-product">
             <img className="img-product" alt="imagem do produto" src={thumbnail} />
           </div>
+          <Link className="info" to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
+            +Info
+          </Link>
           {this.state.added && this.createButtonMoreItem()}
           {!this.state.added && this.createButtonAddItem()}
           {this.state.added && this.createButtonRemoveItem()}
-          <Link to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
-            +
-          </Link>
         </div>
       </section>
     );
