@@ -9,73 +9,69 @@ button:active , button:focus {
 }
 
 .container-product-card {
-  margin: 0px 0px 20px 20px;
+  margin: 0 0 20px 20px;
 }
 .info:hover{
   text-decoration: underline;
 }
 
 .info-product{
+  align-items: center;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 .img-product{
   height: 120px;
 }
 .card-product{
-  display: flex;
-  flex-direction: column;
   align-items: center;
   background: #FFFFFF;
   border-radius: 10px;
-  box-shadow: 0px 25.8683px 38.8024px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 25.8683px 38.8024px rgba(0, 0, 0, 0.08);
+  display: flex;
+  flex-direction: column;
   height: 270px;
   justify-content: space-around;
   width: 270px;
 }
 @font-face {
-  font-display: swap;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
   src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 @font-face {
   font-family: 'Roboto Condensed';
   font-style: normal;
   font-weight: 400;
   src: local('Roboto Condensed'), local('RobotoCondensed-Regular'), url(https://fonts.gstatic.com/s/robotocondensed/v18/ieVl2ZhZI2eCN5jzbjEETS9weq8-19K7DQ.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
   
 .title{
+  color: #0A1034;
   display: flex;
   flex-wrap: wrap;
-  margin-left: -70px;
-  margin-top: 10px;
-  color: #0A1034;
-  width: 180px;
   font-family: Raleway;
   font-size: 18px;
   font-style: normal;
   font-weight: 600;
   line-height: 21px;
+  margin-left: -70px;
+  margin-top: 10px;
+  width: 180px;
 }
 .content-value{
   display: flex;
 }
 .value{
-  margin-top: 5px;
-  margin-left: -125px;
   color: #594CA9;
   font-family: Raleway;
-  font-feature-settings: 'pnum' on, 'lnum' on;
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
   line-height: 16px;
+  margin-left: -125px;
+  margin-top: 5px;
 }
 
 
@@ -103,17 +99,16 @@ button:active , button:focus {
 }
 .button-add-cart{
   align-items: center;
-  justify-content: center;
   background: #594CA9;
   border-radius: 0 0 10px 10px;
   color: #FFFFFF;
   cursor: pointer;
   display: flex;
-  opacity: 0;
   font-family: Roboto Condensed;
   font-size: 12px;
   font-weight: bold;
   height: 44.25px;
+  justify-content: center;
   line-height: 12px;
   margin-bottom: -6px;
   opacity: 0;
@@ -133,10 +128,10 @@ button:active , button:focus {
   box-sizing: border-box;
 }
 .card-product:hover > .button-add-cart{
-  animation-name: fadeInUp;
   animation-duration: 700ms;
-  animation-iteration-count: 1;
   animation-fill-mode: forwards;
+  animation-iteration-count: 1;
+  animation-name: fadeInUp;
 }
 
 .div-qtd {
@@ -155,8 +150,8 @@ button:active , button:focus {
 
 .div-qtd button {
   background: #433885;
-  border: none;
   border-radius: 0 5px 5px 0;
+  border: none;
   color: white;
   cursor: pointer;
   font-size: 20px;

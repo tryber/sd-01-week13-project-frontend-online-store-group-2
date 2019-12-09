@@ -1,33 +1,31 @@
 .categories-methods{
+  align-items: center;
+  border-radius: 6px;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.04);
+  cursor: pointer;
+  display: flex;
+  height: 77px;
+  justify-content: center;
   list-style: none;
   width: 343px;
-  height: 77px;
-  box-shadow: 0px 8px 40px rgba(0, 0, 0, 0.04);
-  border-radius: 6px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
 }
 .categories{
   background: #fff;
   display: flex;
 }
 @font-face {
-  font-display: swap;
   font-family: 'Raleway';
   font-style: normal;
   font-weight: 400;
   src: local('Raleway'), local('Raleway-Regular'), url(https://fonts.gstatic.com/s/raleway/v14/1Ptug8zYS_SKggPNyC0ITw.woff2) format('woff2');
-  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 .label-categories{
+  color: #0A1034;
   font-family: Raleway;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600; 
-  font-size: 18px;
   line-height: 21px;
-  color: #0A1034;
 }
 
 

@@ -1,17 +1,17 @@
 .input-search{
-  width: 927px;
-  height: 53px;
   border-radius: 100px;
+  height: 53px;
   padding-left: 15px;
+  width: 927px;
 }
 
 .input-search::placeholder{
+  color: #594CA9;
   font-family: Raleway;
+  font-size: 18px;
   font-style: normal;
   font-weight: 600;
-  font-size: 18px;
   line-height: 21px;
-  color: #594CA9;
   opacity: 1;
   vertical-align: center;
 }
