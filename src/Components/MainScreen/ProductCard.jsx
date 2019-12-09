@@ -11,7 +11,6 @@ class ProductCard extends Component {
     this.state = {
       added: false,
     };
-    
     this.removeUnitProduct = this.removeUnitProduct.bind(this);
     this.addUnitProduct = this.addUnitProduct.bind(this);
     this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
