@@ -27,7 +27,7 @@ export class MainScreen extends Component {
     this.changeQtd = this.changeQtd.bind(this);
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.changeQtd();
   }
 
