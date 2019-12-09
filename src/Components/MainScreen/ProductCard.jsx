@@ -57,7 +57,7 @@ class ProductCard extends Component {
   createButtonAddItem() {
     const { onChange } = this.props;
     return (
-      <button href="#" type="button" onClick={() => this.addItem(onChange)} className="buttonAddCart" >
+      <button type="button" onClick={() => this.addItem(onChange)} className="buttonAddCart" >
         Adicionar Item
       </button>
     );
@@ -66,7 +66,7 @@ class ProductCard extends Component {
   createButtonRemoveItem() {
     const { onChange } = this.props;
     return (
-      <button href="#" type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
+      <button type="button" onClick={() => this.removeItem(onChange)} className="buttonRemoveCart" >
         Remover Item
     </button>
     );
@@ -79,7 +79,7 @@ class ProductCard extends Component {
         <div className="text-qtd">
           <span>{LocalStorageApi.getQtd(item.id)}</span>
         </div>
-        <button href="#" type="button" onClick={() => this.addUnitProduct(onChange)}>
+        <button type="button" onClick={() => this.addUnitProduct(onChange)}>
           +
         </button>
       </div>
