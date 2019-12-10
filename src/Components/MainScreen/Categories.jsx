@@ -25,6 +25,7 @@ class Categories extends Component {
       <div className="input-radio">
         <input
           key={index}
+          className="radiobtn"
           type="radio"
           id={id}
           name="categories"

@@ -15,11 +15,11 @@
   color: white;
 }
 
-input[ type = "radio" ] {
+.radiobtn {
   display: none;
 }
 
-input[ type = "radio" ]:checked + label {
+.radiobtn:checked + label {
   background: rgb(73, 73, 184);
   color: white;
 }
