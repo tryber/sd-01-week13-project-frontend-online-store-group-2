@@ -46,8 +46,8 @@ class ProductList extends Component {
   render() {
     const { dados } = this.state;
     const { goSearch, onChange } = this.props;
-    if (!goSearch) return <h4>Ainda não pesquisou!</h4>;
-    if (dados.length === 0) return <h4>Nada encontrado</h4>;
+    if (!goSearch) return <div className="not-search">Ainda não pesquisou!</div>;
+    if (dados.length === 0) return <h4 className="not-search">Nada encontrado</h4>;
     return (
       <div className="ProductList">
         {dados.map((item) => <ProductCard key={item.id} item={item} onChange={onChange} />)}

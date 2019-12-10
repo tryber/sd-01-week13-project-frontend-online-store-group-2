@@ -9,3 +9,11 @@
   overflow-x: hidden;
   width: 78%;
 }
+
+.not-search {
+  align-items: center;
+  display: flex;
+  font-size: 40px;
+  font-weight: 700;
+  margin-left: 30%;
+}
