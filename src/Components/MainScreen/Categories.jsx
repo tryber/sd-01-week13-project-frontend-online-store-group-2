@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as ProductAPI from '../../Services/ProductAPI';
+import '../../Style/Categories.css';
 
 class Categories extends Component {
   constructor(props) {
@@ -21,9 +22,10 @@ class Categories extends Component {
     const { changeSelectedCategory, category } = this.props;
     const { categories } = this.state;
     const createRadioButton = (name, id, index) => (
-      <label htmlFor={id}>
+      <div className="input-radio">
         <input
           key={index}
+          className="radiobtn"
           type="radio"
           id={id}
           name="categories"
@@ -31,8 +33,10 @@ class Categories extends Component {
           checked={category === id}
           onChange={(e) => changeSelectedCategory(e.target.id)}
         />
-        {name}
-      </label>
+        <label htmlFor={id}>
+          {name}
+        </label>
+      </div>
     );
     return (
       categories.map(({ name, id }, index) => createRadioButton(name, id, index))

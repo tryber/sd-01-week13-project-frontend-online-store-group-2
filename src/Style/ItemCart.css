@@ -8,12 +8,19 @@
 }
 
 .btn {
-  background: transparent;
+  background: grey;
   border: 0;
+  border-radius: 20px;
+  color: white;
   cursor: pointer;
   font-size: 35px;
   height: 60px;
+  margin-right: 10px;
   width: 60px;
+}
+
+.btn:disabled {
+  background: gainsboro;
 }
 
 .btn:hover {

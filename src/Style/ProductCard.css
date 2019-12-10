@@ -50,10 +50,20 @@ button:active , button:focus {
   margin-top: 5px;
 }
 
+.show-btn-remove {
+  align-items: flex-start;
+  background: #433885;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
 .buttonRemoveCart {
   align-items: center;
-  background: #fb4e4e;
-  border-radius: 0 0 10px 10px;
+  align-self: flex-start;
+  background: #433885;
+  border: 0;
+  border-radius: 0 0 0 8px;
   bottom: 0;
   color: white;
   cursor: pointer;
@@ -63,16 +73,25 @@ button:active , button:focus {
   height: 44.25px;
   justify-content: center;
   line-height: 12px;
-  margin-bottom: -6px;
-  opacity: 0;
   text-transform: uppercase;
-  width: 269px;
+  width: 50%;
+}
+
+.div-qtd {
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  justify-content: space-between;
+  width: 50%;
 }
 
 .buttonAddCart {
   align-items: center;
+  align-self: flex-start;
   background: #433885;
-  border-radius: 0 0 10px 10px;
+  border: 0;
+  border-radius: 0 0 8px 8px;
   bottom: 0;
   color: white;
   cursor: pointer;
@@ -85,7 +104,7 @@ button:active , button:focus {
   margin-bottom: -6px;
   opacity: 0;
   text-transform: uppercase;
-  width: 269px;
+  width: 100%;
 }
 
 .border:hover > .buttonRemoveCart {
@@ -107,31 +126,30 @@ button:active , button:focus {
   animation-name: fadeInUp;
 }
 
-.div-qtd {
-  align-items: center;
-  align-self: flex-start;
-  background: white;
-  color: black;
-  display: flex;
-  flex-direction: column;
-  font-size: 20px;
-  font-weight: 600;
-  margin-right: 10px;
-  padding: 5px 0;
-  position: absolute;
-}
-
 .div-qtd button {
-  background: #433885;
+  background: cornflowerblue;
   border: none;
-  border-radius: 0 5px 5px 0;
   color: white;
   cursor: pointer;
   font-size: 20px;
-  margin-right: 0;
+  height: 105%;
   margin-top: 3px;
-  padding: 0 6px 3px;
   transition: all 300ms;
+  width: 33%;
+}
+
+.div-qtd .left {
+  border-radius: 0 0 0 8px;
+}
+
+.div-qtd .left:disabled {
+  background: grey;
+  border-radius: 0 0 0 8px;
+}
+
+.div-qtd .right {
+  border-radius: 0 0 8px;
+  margin-right: -2px;
 }
 
 .div-qtd button:hover {
@@ -145,6 +163,17 @@ button:active , button:focus {
   padding: 2px 4px;
   text-align: center;
   text-decoration: none;
+}
+
+.text-qtd {
+  align-items: center;
+  background: lightskyblue;
+  display: flex;
+  flex-direction: column;
+  height: 105%;
+  justify-content: center;
+  margin-top: 3px;
+  width: 40%;
 }
 
 @keyframes fadeInUp {

@@ -1,0 +1,25 @@
+.Categories label {
+  border-radius: 20px;
+  display: flex;
+  font-size: 20px;
+  padding: 20px;
+  text-align: center;
+}
+
+.input-radio {
+  text-align: center;
+}
+
+.Categories label:hover {
+  background: cornflowerblue;
+  color: white;
+}
+
+.radiobtn {
+  display: none;
+}
+
+.radiobtn:checked + label {
+  background: rgb(73, 73, 184);
+  color: white;
+}
