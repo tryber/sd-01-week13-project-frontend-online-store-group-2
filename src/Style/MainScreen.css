@@ -4,6 +4,7 @@
 }
 
 .topo {
+  align-items: center;
   background: gray;
   display: flex;
   flex-direction: row;
@@ -13,13 +14,19 @@
 }
 
 .search-bar {
-  width: 50%;
+  align-items: center;
+  display: flex;
+  justify-content:center ;
+  width: 80%;
 }
 
 .Categories {
   border: 2px black solid;
   display: flex;
   flex-direction: column;
-  padding: 20px;
+  min-width: 200px;
+  overflow:scroll;
+  overflow-x: hidden;
   position: relative;
+  width: 20%;
 }

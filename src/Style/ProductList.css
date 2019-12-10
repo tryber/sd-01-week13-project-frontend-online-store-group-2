@@ -1,7 +1,11 @@
 .ProductList {
+  align-items: center;
   display: flex;
   flex-wrap: wrap;
-  height: 85%;
+  max-height: 800px;
+  justify-content: center;
   overflow: scroll;
-  width: 85vw;
+  overflow-x: hidden;
+  min-width: 350px;
+  width: 78%;
 }
