@@ -44,24 +44,21 @@ class ItemCart extends React.Component {
         <div className="div-img">
           <img className="img-product-car" src={details.thumbnail} alt="product" />
         </div>
-        <p className="name-product">
-          {details.title}
-        </p>
+        <p className="name-product">{details.title}</p>
         <div className="qtd-product">
           <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd - 1)}>
             -
           </button>
           <p>{this.state.qtd}</p>
-          <button 
-            disabled={this.state.qtd===details.available_quantity}
+          <button
+            disabled={this.state.qtd === details.available_quantity}
             type="button"
             className="btn"
-            onClick={() => this.changeQtd(this.state.qtd + 1)}>
+            onClick={() => this.changeQtd(this.state.qtd + 1)}
+          >
             +
           </button>
-          <p>
-            {`Avaliable  ${details.available_quantity}`}
-          </p>
+          <p>{`Avaliable  ${details.available_quantity}`}</p>
         </div>
         <span className="total">
           {`R$ ${parseFloat((details.price * this.state.qtd).toFixed(2))}`}
