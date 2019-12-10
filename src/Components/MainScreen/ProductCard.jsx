@@ -96,6 +96,7 @@ class ProductCard extends Component {
           type="button"
           className="left"
           onClick={() => this.addUnitProduct(onChange)}
+          disabled={LocalStorageApi.getQtd(item.id) === item.available_quantity}
         >
           +
         </button>
