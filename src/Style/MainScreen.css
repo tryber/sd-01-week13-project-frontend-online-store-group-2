@@ -24,6 +24,7 @@
   border: 2px black solid;
   display: flex;
   flex-direction: column;
+  max-height: 800px;
   min-width: 200px;
   overflow: scroll;
   overflow-x: hidden;
