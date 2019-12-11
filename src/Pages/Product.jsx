@@ -14,7 +14,7 @@ import * as LocalStorageApi from '../Services/LocalStorageAPI';
 export class Product extends Component {
   render() {
     const { productDetails } = this.props.location.state;
-    const { id, price, title, thumbnail, available_quantity } = productDetails;
+    const { id, price, title, thumbnail, available_quantity, shipping } = productDetails;
     const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
     return (
       <div className="product">
@@ -26,7 +26,10 @@ export class Product extends Component {
           {`${productDetails.title} - R$${productDetails.price}`}
         </div>
         <section className="product-details">
-          <img src={productDetails.thumbnail} className="product-img" alt="product" />
+          <div>
+            <img src={productDetails.thumbnail} className="product-img" alt="product" />
+            {shipping.free_shipping && <div className="freeShip">Frete Grátis</div>}
+          </div>
           <button type="button" onClick={() => LocalStorageApi.setNewItem(obj)}>
             Adicionar Item
           </button>
