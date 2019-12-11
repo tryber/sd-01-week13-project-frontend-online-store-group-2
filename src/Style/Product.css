@@ -31,3 +31,9 @@
   border: 2px solid black;
   padding: 3px;
 }
+
+.freeShip {
+  background: lightgray;
+  color: dodgerblue;
+  padding: 10px;
+}
