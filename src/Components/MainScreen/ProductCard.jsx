@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
-import FreeShipping from '../FreeShipping'
+import FreeShipping from '../FreeShipping';
 import '../../Style/ProductCard.css';
 
 
