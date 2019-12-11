@@ -1,6 +1,4 @@
 import React from 'react';
-import '../Style/FreeShipping.css';
-
 
 class FreeShipping extends React.Component {
   render() {
