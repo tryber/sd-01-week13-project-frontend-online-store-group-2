@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import * as LocalStorageApi from '../../Services/LocalStorageAPI';
+import FreeShipping from '../FreeShipping'
 import '../../Style/ProductCard.css';
 
 
@@ -116,7 +117,7 @@ class ProductCard extends Component {
 
   render() {
     const { item } = this.props;
-    const { price, title, thumbnail, id } = item;
+    const { price, title, thumbnail, id, shipping } = item;
     const cardClass = ['card-product'];
     const titleSpace = title.split(' ');
     if (this.state.added) {
@@ -133,6 +134,7 @@ class ProductCard extends Component {
           </div>
           <div className="info-product">
             <img className="img-product" alt="imagem do produto" src={thumbnail} />
+            {shipping.free_shipping && <FreeShipping />}
           </div>
           <Link className="info" to={{ pathname: `products/${id}`, state: { productDetails: item } }}>
             +Info
