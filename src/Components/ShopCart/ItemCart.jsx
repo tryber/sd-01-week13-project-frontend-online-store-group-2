@@ -25,7 +25,7 @@ class ItemCart extends React.Component {
   changeQtd(value) {
     const { details } = this.props;
     this.props.changeState();
-    if (value < details.available_quantity && value > 0) {
+    if (value <= details.available_quantity && value > 0) {
       LocalStorageApi.UpdateItemQtd(details.id, value);
       this.setState({ qtd: value });
     }
