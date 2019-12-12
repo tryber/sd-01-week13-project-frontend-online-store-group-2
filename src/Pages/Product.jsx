@@ -12,10 +12,85 @@ import '../Style/Product.css';
 import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
 export class Product extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      qtd: 0,
+      add: false,
+    };
+    this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
+    this.changeQtd = this.changeQtd.bind(this);
+    this.shouldAddQtd = this.shouldAddQtd.bind(this);
+  }
+
+  componentDidMount() {
+    const { id } = this.props.location.state.productDetails;
+    this.changeQtd(LocalStorageApi.getQtd(id));
+  }
+
+  changeQtd(value) {
+    this.setState({
+      qtd: value,
+    });
+  }
+
+  shouldAddQtd() {
+    this.setState({ add: true });
+  }
+
+  addUnitProduct() {
+    const value = this.state.qtd + 1;
+    if (value <= this.props.location.state.productDetails.available_quantity) {
+      this.changeQtd(value);
+    }
+  }
+
+  removeUnitProduct() {
+    const value = this.state.qtd - 1;
+    if (value > 0) {
+      this.changeQtd(value);
+    }
+  }
+
+  addToCart(obj) {
+    LocalStorageApi.setNewItem(obj);
+    this.shouldAddQtd();
+  }
+
+  createButtonMoreItem() {
+    const { qtd } = this.state;
+    const { productDetails } = this.props.location.state;
+    const { id, price, title, thumbnail, available_quantity } = productDetails;
+    const obj = { id, price, title, thumbnail, available_quantity, qtd };
+    return (
+      <section className="qtd-product">
+        <button
+          type="button"
+          className="btn"
+          onClick={() => this.removeUnitProduct()}
+        >
+          -
+        </button>
+        <p>{this.state.qtd}</p>
+        <button
+          disabled={LocalStorageApi.getQtd(id) === productDetails.available_quantity}
+          type="button"
+          className="btn"
+          onClick={() => this.addUnitProduct()}
+        >
+          +
+        </button>
+        <button type="button" onClick={() => this.addToCart(obj)} className="buttonAdd">
+          Adicionar ao Carrinho
+        </button>
+      </section>
+    );
+  }
+
   render() {
     const { productDetails } = this.props.location.state;
-    const { id, price, title, thumbnail, available_quantity, shipping } = productDetails;
-    const obj = { id, price, title, thumbnail, available_quantity, qtd: 1 };
+    const { shipping } = productDetails;
+
     return (
       <div className="product">
         <header className="product-header">
@@ -30,13 +105,12 @@ export class Product extends Component {
             <img src={productDetails.thumbnail} className="product-img" alt="product" />
             {shipping.free_shipping && <div className="freeShip">Frete Grátis</div>}
           </div>
-          <button type="button" onClick={() => LocalStorageApi.setNewItem(obj)}>
-            Adicionar Item
-          </button>
           <div className="product-specifications">
             <Specifications attributes={productDetails.attributes} />
           </div>
         </section>
+        <p className="product-title">Quantidade</p>
+        {this.createButtonMoreItem()}
       </div>
     );
   }

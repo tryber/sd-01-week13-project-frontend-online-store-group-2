@@ -24,11 +24,14 @@
 
 .product-img {
   border: 2px solid black;
-  width: 200px;
+  margin-bottom: 20px;
+  width: 150px;
 }
 
 .product-specifications {
   border: 2px solid black;
+  margin-bottom: 20px;
+  min-width: 50%;
   padding: 3px;
 }
 
@@ -36,4 +39,9 @@
   background: lightgray;
   color: dodgerblue;
   padding: 10px;
+}
+
+.buttonAdd {
+  height: 50px;
+  width: 450px;
 }
