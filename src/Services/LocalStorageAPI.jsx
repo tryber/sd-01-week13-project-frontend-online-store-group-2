@@ -46,3 +46,20 @@ export const qtdTotal = () => (
     return total;
   }, 0)
 );
+
+export const getComment = () => {
+  const item = localStorage.getItem("Comments");
+  return JSON.parse(item);
+};
+
+export const addComment = (Comment) => {
+  let listComment = getComment();
+  console.log(getComment())
+  listComment.push(Comment);
+  const commentJson = JSON.stringify(listComment);
+  localStorage.setItem('Comments', commentJson);
+}
+
+export const createcommemt = () => {
+  localStorage.setItem('Comments','email:errr, ess:sdsd,')
+}
