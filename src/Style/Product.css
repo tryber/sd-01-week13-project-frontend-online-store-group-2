@@ -41,7 +41,14 @@
   padding: 10px;
 }
 
+.product-qtd {
+  display: flex;
+  justify-content: flex-start;
+}
+
 .buttonAdd {
-  height: 50px;
-  width: 450px;
+  border: 2px black solid;
+  font-size: 21px;
+  height: 60px;
+  width: auto;
 }
