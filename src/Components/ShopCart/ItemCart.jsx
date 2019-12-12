@@ -60,9 +60,7 @@ class ItemCart extends React.Component {
             type="button"
             className="btn"
             onClick={() => this.changeQtd(this.state.qtd + 1)}
-          >
-            +
-          </button>
+          >+</button>
           <p>{`Avaliable  ${details.available_quantity}`}</p>
         </div>
         <span className="total">{`R$ ${parseFloat((details.price * this.state.qtd).toFixed(2))}`}</span>
