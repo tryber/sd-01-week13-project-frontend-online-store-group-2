@@ -17,7 +17,7 @@ export class Product extends Component {
     this.state = {
       qtd: 0,
       add: false,
-    }
+    };
     this.createButtonMoreItem = this.createButtonMoreItem.bind(this);
     this.changeQtd = this.changeQtd.bind(this);
     this.shouldAddQtd = this.shouldAddQtd.bind(this);
@@ -25,7 +25,7 @@ export class Product extends Component {
 
   componentDidMount() {
     const { id } = this.props.location.state.productDetails;
-    this.changeQtd(LocalStorageApi.getQtd(id))
+    this.changeQtd(LocalStorageApi.getQtd(id));
   }
 
   changeQtd(value) {
@@ -35,7 +35,7 @@ export class Product extends Component {
   }
 
   shouldAddQtd() {
-    this.setState({ add: true })
+    this.setState({ add: true });
   }
 
   addUnitProduct() {
@@ -54,7 +54,7 @@ export class Product extends Component {
 
   addToCart(obj) {
     LocalStorageApi.setNewItem(obj);
-    this.shouldAddQtd()
+    this.shouldAddQtd();
   }
 
   createButtonMoreItem() {
@@ -62,7 +62,7 @@ export class Product extends Component {
     const { productDetails } = this.props.location.state;
     const { id, price, title, thumbnail, available_quantity } = productDetails;
     const obj = { id, price, title, thumbnail, available_quantity, qtd };
-    return(
+    return (
       <section className="qtd-product">
         <button
           type="button"
@@ -73,7 +73,7 @@ export class Product extends Component {
         </button>
         <p>{this.state.qtd}</p>
         <button
-          disabled={LocalStorageApi.getQtd(id) === available_quantity}
+          disabled={LocalStorageApi.getQtd(id) === productDetails.available_quantity}
           type="button"
           className="btn"
           onClick={() => this.addUnitProduct()}
