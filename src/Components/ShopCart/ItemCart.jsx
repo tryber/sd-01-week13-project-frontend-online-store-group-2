@@ -46,7 +46,12 @@ class ItemCart extends React.Component {
         </div>
         <p className="name-product">{details.title}</p>
         <div className="qtd-product">
-          <button type="button" className="btn" onClick={() => this.changeQtd(this.state.qtd - 1)}>
+          <button
+            disabled={this.state.qtd === 1}
+            type="button"
+            className="btn"
+            onClick={() => this.changeQtd(this.state.qtd - 1)}
+          >
             -
           </button>
           <p>{this.state.qtd}</p>
@@ -55,14 +60,10 @@ class ItemCart extends React.Component {
             type="button"
             className="btn"
             onClick={() => this.changeQtd(this.state.qtd + 1)}
-          >
-            +
-          </button>
+          >+</button>
           <p>{`Avaliable  ${details.available_quantity}`}</p>
         </div>
-        <span className="total">
-          {`R$ ${parseFloat((details.price * this.state.qtd).toFixed(2))}`}
-        </span>
+        <span className="total">{`R$ ${parseFloat((details.price * this.state.qtd).toFixed(2))}`}</span>
       </div>
     );
   }
