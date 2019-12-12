@@ -63,23 +63,25 @@ export class Product extends Component {
     const { id, price, title, thumbnail, available_quantity } = productDetails;
     const obj = { id, price, title, thumbnail, available_quantity, qtd };
     return (
-      <section className="qtd-product">
-        <button
-          type="button"
-          className="btn"
-          onClick={() => this.removeUnitProduct()}
-        >
-          -
-        </button>
-        <p>{this.state.qtd}</p>
-        <button
-          disabled={LocalStorageApi.getQtd(id) === productDetails.available_quantity}
-          type="button"
-          className="btn"
-          onClick={() => this.addUnitProduct()}
-        >
-          +
-        </button>
+      <section className="product-qtd">
+        <div className="qtd-product">
+          <button
+            type="button"
+            className="btn"
+            onClick={() => this.removeUnitProduct()}
+          >
+            -
+          </button>
+          <p>{this.state.qtd}</p>
+          <button
+            disabled={LocalStorageApi.getQtd(id) === productDetails.available_quantity}
+            type="button"
+            className="btn"
+            onClick={() => this.addUnitProduct()}
+          >
+            +
+          </button>
+        </div>
         <button type="button" onClick={() => this.addToCart(obj)} className="buttonAdd">
           Adicionar ao Carrinho
         </button>
