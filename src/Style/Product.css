@@ -47,11 +47,8 @@
 }
 
 .buttonAdd {
-  background: #dddddd;
   border: 2px black solid;
-  color: black;
-  font-size: 22px;
+  font-size: 21px;
   height: 60px;
-  text-decoration: none;
   width: auto;
 }
