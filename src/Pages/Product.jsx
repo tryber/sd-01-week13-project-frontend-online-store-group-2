@@ -8,6 +8,7 @@ import PropTypes from 'prop-types';
 import Specifications from '../Components/ProductDetails/Specifications';
 import ShopCartLink from '../Components/ShopCartLink';
 import PreviousLink from '../Components/PreviousLink';
+import Comments from '../Components/ProductDetails/CreateRating';
 import '../Style/Product.css';
 import * as LocalStorageApi from '../Services/LocalStorageAPI';
 
@@ -37,6 +38,7 @@ export class Product extends Component {
             <Specifications attributes={productDetails.attributes} />
           </div>
         </section>
+          <Comments id={id}/>
       </div>
     );
   }
