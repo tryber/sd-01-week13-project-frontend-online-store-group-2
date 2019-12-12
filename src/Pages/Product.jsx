@@ -66,15 +66,16 @@ export class Product extends Component {
       <section className="product-qtd">
         <div className="qtd-product">
           <button
+            disabled={this.state.qtd === 1}
             type="button"
             className="btn"
             onClick={() => this.removeUnitProduct()}
           >
             -
           </button>
-          <p>{this.state.qtd}</p>
+          <p>{qtd}</p>
           <button
-            disabled={LocalStorageApi.getQtd(id) === productDetails.available_quantity}
+            disabled={qtd === productDetails.available_quantity}
             type="button"
             className="btn"
             onClick={() => this.addUnitProduct()}
